@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ticketeer/core/routing/app_router.dart';
+
 import 'package:ticketeer/features/theme/cubit/theme_cubit.dart';
 import 'package:ticketeer/features/theme/data/theme_datasource.dart';
 

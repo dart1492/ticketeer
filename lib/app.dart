@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/routing/app_router.dart';
@@ -23,16 +24,23 @@ class App extends StatelessWidget {
     return BlocProvider(
       create: (context) => sl<ThemeCubit>()..getCurrentTheme(),
       child: BlocBuilder<ThemeCubit, ThemeState>(
-        builder: (context, state) {
-          if (state is LoadedThemeState) {
-            return MaterialApp.router(
-              theme: themeChooser(state.currentTheme),
-              routerConfig: sl<AppRouter>()
-                  .config(initialRoutes: [const MainBottomBarRoute()]),
-            );
-          } else {
-            // TODO: IMPLEMENT NATIVE SPLASH SCREEN WHILE LOADING
+        builder: (context, themeState) {
+          if (themeState is LoadingThemeState) {
             return const CircularProgressIndicator();
+          } else {
+            return MaterialApp.router(
+              locale: context.locale,
+              supportedLocales: context.supportedLocales,
+              localizationsDelegates: context.localizationDelegates,
+              theme: themeChooser(
+                (themeState as LoadedThemeState).currentTheme,
+              ),
+              routerConfig: sl<AppRouter>().config(
+                initialRoutes: [
+                  const MainBottomBarRoute(),
+                ],
+              ),
+            );
           }
         },
       ),
