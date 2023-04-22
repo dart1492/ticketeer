@@ -1,16 +1,12 @@
-# ticketeer
+# Ticketeer
+`General`
 
-A new Flutter project.
+A mobile movie theater app. Here you can view hundreds of interesting movies, purchase tickets with ease, customize your profile - change theme and language.
 
-## Getting Started
+`For devs`
 
-This project is a starting point for a Flutter application.
+In this app I try to implement Clean Code and Architecture to the best of my abilities. Also, here is the list of tools (important packages) that I use:
+- [easy_localization](https://pub.dev/packages/easy_localization). For ukrainian and english languages
+- more to come...
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
