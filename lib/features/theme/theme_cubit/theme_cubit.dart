@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/util/custom_system_theme.dart';
-import 'package:ticketeer/features/theme/cubit/theme_state.dart';
-import 'package:ticketeer/features/theme/repository/theme_repository.dart';
+import 'package:ticketeer/features/theme/domain/theme_repository.dart';
+import 'package:ticketeer/features/theme/theme_cubit/theme_state.dart';
 
 /// This cubit controls theme state of the app
 class ThemeCubit extends Cubit<ThemeState> {

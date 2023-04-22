@@ -1,7 +1,7 @@
 import 'package:ticketeer/core/error/failure.dart';
 import 'package:ticketeer/core/error/request_handler.dart';
 import 'package:ticketeer/features/theme/data/theme_datasource.dart';
-import 'package:ticketeer/features/theme/repository/theme_repository.dart';
+import 'package:ticketeer/features/theme/domain/theme_repository.dart';
 
 /// Implementation of the Theme repository. Here any errors that might occur
 /// while interacting with the datasource will be caught

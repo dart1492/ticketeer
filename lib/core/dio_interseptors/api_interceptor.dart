@@ -1,4 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, avoid_void_async
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: avoid_void_async
 import 'package:dio/dio.dart';
 import 'package:ticketeer/core/constants/object_constants.dart';
 
