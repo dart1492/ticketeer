@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/routing/app_router.dart';
 import 'package:ticketeer/core/routing/app_router.gr.dart';
+import 'package:ticketeer/core/styles/app_theme.dart';
+import 'package:ticketeer/features/theme/cubit/theme_cubit.dart';
 import 'package:ticketeer/features/theme/cubit/theme_state.dart';
 import 'package:ticketeer/locator.dart';
 
-import 'features/theme/cubit/theme_cubit.dart';
-
+/// Main widget - entrypoint of the whole app
 class App extends StatelessWidget {
+  /// Main widget - entrypoint of the whole app
   const App({super.key});
 
+  /// Theme chooser - return ThemeData, depending on what theme var
+  /// is passed to the call
   ThemeData themeChooser(String currentTheme) {
-    if (currentTheme == "dark") {
-      return ThemeData(backgroundColor: Colors.black);
-    } else {
-      return ThemeData(backgroundColor: Colors.white);
-    }
+    return currentTheme == "dark" ? AppTheme.dark : AppTheme.light;
   }
 
   @override
@@ -31,7 +31,7 @@ class App extends StatelessWidget {
                   .config(initialRoutes: [const MainBottomBarRoute()]),
             );
           } else {
-            // TODO: iMPLEMENT NATIVE SPALSH SCREEN WHILE LOADING
+            // TODO: IMPLEMENT NATIVE SPLASH SCREEN WHILE LOADING
             return const CircularProgressIndicator();
           }
         },
