@@ -5,3 +5,6 @@ const Locale englishLocale = Locale('en', 'US');
 
 /// Locale object, that refers to ukrainian translation
 const Locale ukrainianLocale = Locale('uk', 'UA');
+
+/// This locale gets chosen on first open and on first request sent if
+const Locale startLocale = englishLocale;

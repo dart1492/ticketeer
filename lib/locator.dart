@@ -2,9 +2,15 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ticketeer/core/routing/app_router.dart';
+import 'package:ticketeer/features/localization/data/localization_datasource.dart';
+import 'package:ticketeer/features/localization/domain/localization_repository.dart';
 
 import 'package:ticketeer/features/theme/cubit/theme_cubit.dart';
 import 'package:ticketeer/features/theme/data/theme_datasource.dart';
+import 'package:ticketeer/features/theme/data/theme_repository_impl.dart';
+import 'package:ticketeer/features/theme/repository/theme_repository.dart';
+
+import 'features/localization/data/localization_repository_impl.dart';
 
 /// Global variable, used throughout the app for dependency injection
 final sl = GetIt.instance;
@@ -20,7 +26,29 @@ Future<void> setupLocator() async {
     await SharedPreferences.getInstance(),
   );
 
-  sl.registerSingleton<ThemeDatasource>(ThemeDatasourceImpl(sl()));
+  sl.registerSingleton<LocalizationDatasource>(
+    LocalizationDatasourceImpl(
+      sl(),
+    ),
+  );
+
+  sl.registerSingleton<LocalizationRepository>(
+    LocalizationRepositoryImpl(
+      sl(),
+    ),
+  );
+
+  sl.registerSingleton<ThemeDatasource>(
+    ThemeDatasourceImpl(
+      sl(),
+    ),
+  );
+
+  sl.registerSingleton<ThemeRepository>(
+    ThemeRepositoryImpl(
+      sl(),
+    ),
+  );
 
   sl.registerFactory(() => ThemeCubit(sl()));
 }

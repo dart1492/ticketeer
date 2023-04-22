@@ -4,7 +4,7 @@ import 'package:ticketeer/core/routing/app_router.gr.dart' as gr;
 @AutoRouterConfig(replaceInRouteName: "Screen,Route")
 
 /// This class controls all routes, created by the build-runner.
-/// Here I setup animations for routing, nested routes, etc.
+/// Here I setup, nested routes, transition animations etc.
 class AppRouter extends gr.$AppRouter {
   @override
   List<AutoRoute> get routes => [

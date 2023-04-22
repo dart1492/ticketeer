@@ -15,7 +15,7 @@ abstract class ThemeDatasource {
 /// Needs instance of SharedPreferences to preform actions
 class ThemeDatasourceImpl extends ThemeDatasource {
   /// Instance of the sharedPreferences,
-  /// should be given to the constructor through getIt (or any di actually)
+  /// should be given to the constructor through getIt
   final SharedPreferences sp;
 
   /// Implementation of the abstract datasource.

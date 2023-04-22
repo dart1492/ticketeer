@@ -15,7 +15,7 @@ class App extends StatelessWidget {
 
   /// Theme chooser - return ThemeData, depending on what theme var
   /// is passed to the call
-  ThemeData themeChooser(String currentTheme) {
+  ThemeData _themeChooser(String currentTheme) {
     return currentTheme == "dark" ? AppTheme.dark : AppTheme.light;
   }
 
@@ -32,7 +32,7 @@ class App extends StatelessWidget {
               locale: context.locale,
               supportedLocales: context.supportedLocales,
               localizationsDelegates: context.localizationDelegates,
-              theme: themeChooser(
+              theme: _themeChooser(
                 (themeState as LoadedThemeState).currentTheme,
               ),
               routerConfig: sl<AppRouter>().config(

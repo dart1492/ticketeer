@@ -2,15 +2,15 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/util/custom_system_theme.dart';
 import 'package:ticketeer/features/theme/cubit/theme_state.dart';
-import 'package:ticketeer/features/theme/data/theme_datasource.dart';
+import 'package:ticketeer/features/theme/repository/theme_repository.dart';
 
 /// This cubit controls theme state of the app
 class ThemeCubit extends Cubit<ThemeState> {
   /// Datasource gets injected in this bloc
-  final ThemeDatasource datasource;
+  final ThemeRepository repo;
 
   /// This cubit controls theme state of the app.
-  ThemeCubit(this.datasource)
+  ThemeCubit(this.repo)
       : super(
           ThemeState(),
         );
@@ -23,24 +23,30 @@ class ThemeCubit extends Cubit<ThemeState> {
   /// if it isn't null - emits loaded state with stored theme
   Future<void> getCurrentTheme() async {
     emit(LoadingThemeState());
-    final String? result = await datasource.getCurrentTheme();
-    if (result == null) {
-      final String firstTimeTheme = decideFirstTimeTheme();
-      emit(LoadedThemeState(currentTheme: firstTimeTheme));
+    final result = await repo.getCurrentTheme();
+    result.fold(
+        // On any error just set dark theme
+        (l) => emit(
+              LoadedThemeState(currentTheme: "dark"),
+            ), (r) {
+      if (r == null) {
+        final String firstTimeTheme = decideFirstTimeTheme();
+        emit(LoadedThemeState(currentTheme: firstTimeTheme));
 
-      // no need to await
-      unawaited(datasource.setNewTheme(firstTimeTheme));
-    } else {
-      emit(
-        LoadedThemeState(currentTheme: result),
-      );
-    }
+        // no need to await
+        unawaited(repo.setNewTheme(firstTimeTheme));
+      } else {
+        emit(
+          LoadedThemeState(currentTheme: r),
+        );
+      }
+    });
   }
 
   /// Sets new theme variable.
   void setNewTheme(String newTheme) {
     emit(LoadedThemeState(currentTheme: newTheme));
-    datasource.setNewTheme(newTheme);
+    repo.setNewTheme(newTheme);
   }
 
   /// theme decider
