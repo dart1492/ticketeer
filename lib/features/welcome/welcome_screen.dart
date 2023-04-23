@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -16,6 +17,8 @@ class WelcomeScreen extends StatelessWidget {
   /// Welcome screen - completely static (no api calls, no sp interactions)
   const WelcomeScreen({super.key});
 
+  /// Base path for locale json
+  static const basePath = "screens.welcome.";
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
@@ -34,7 +37,7 @@ class WelcomeScreen extends StatelessWidget {
                 Image.asset('assets/screen.png'),
                 Text(
                   "TICKETEER",
-                  style: josephine.s32.w700.copyWith(color: colors.fonts.main),
+                  style: open.s32.w700.copyWith(color: colors.fonts.main),
                 ),
                 const MoviesCarousel(),
                 Stack(
@@ -45,7 +48,7 @@ class WelcomeScreen extends StatelessWidget {
                         height: 24,
                         width: 24,
                       ),
-                      text: 'Clear and easy-to-use interface',
+                      text: '${basePath}badge_1'.tr(),
                     ),
                     StackedGradient(color: colors.accents.green),
                   ],
@@ -58,7 +61,7 @@ class WelcomeScreen extends StatelessWidget {
                         height: 24,
                         width: 24,
                       ),
-                      text: 'Meta-info: ratings, rankings, stars',
+                      text: '${basePath}badge_2'.tr(),
                     ),
                     StackedGradient(color: colors.accents.blue),
                   ],
@@ -71,7 +74,7 @@ class WelcomeScreen extends StatelessWidget {
                         height: 24,
                         width: 24,
                       ),
-                      text: 'Hundreds of movies',
+                      text: '${basePath}badge_3'.tr(),
                     ),
                     StackedGradient(color: colors.accents.red),
                   ],
@@ -83,8 +86,8 @@ class WelcomeScreen extends StatelessWidget {
                   color: colors.accents.blue.withOpacity(0.3),
                   border: Border.all(color: colors.accents.blue),
                   child: Text(
-                    "Start",
-                    style: josephine.s24.w700.copyWith(
+                    "${basePath}start".tr(),
+                    style: open.s24.w700.copyWith(
                       color: colors.fonts.main,
                     ),
                   ),

@@ -51,8 +51,8 @@ flutter:
     - translations/
 
   fonts:
-    - family: Josefin
+    - family: Open
       fonts:
-        - asset: fonts/JosefinSans-Regular.ttf
-        - asset: fonts/JosefinSans-Bold.ttf
+        - asset: fonts/OpenSans-Regular.ttf
+        - asset: fonts/OpenSans-Bold.ttf
           weight: 700

@@ -43,7 +43,6 @@ class AppTheme {
           ),
         ),
       ],
-      fontFamily: "Josefina",
     );
   }
 
@@ -76,7 +75,6 @@ class AppTheme {
           ),
         ),
       ],
-      fontFamily: "Josefina",
     );
   }
 }

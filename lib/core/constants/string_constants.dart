@@ -1,5 +1,5 @@
 /// Constant for the josefin font name
-const String josephineFontName = 'Josefin';
+const String openFontName = 'Open';
 
 /// Base server url that gets included in every request to the defined server
 const String baseUrl = '';

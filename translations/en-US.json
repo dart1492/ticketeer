@@ -1,3 +1,10 @@
 {
-    
+    "screens" : {
+        "welcome" : {
+            "badge_1" : "Clear and easy-to-use interface",
+            "badge_2" : "Meta-info: ratings, rankings, stars",
+            "badge_3" : "Hundreds of movies",
+            "start" : "Start"
+        }
+    }
 }

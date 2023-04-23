@@ -43,7 +43,7 @@ class FeatureBadge extends StatelessWidget {
               ),
               Text(
                 text,
-                style: josephine.s14.copyWith(
+                style: open.s14.copyWith(
                   color: colors.fonts.main,
                 ),
               ),
