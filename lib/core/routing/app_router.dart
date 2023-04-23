@@ -11,5 +11,8 @@ class AppRouter extends gr.$AppRouter {
         AutoRoute(
           page: gr.MainBottomBarRoute.page,
         ),
+        AutoRoute(
+          page: gr.WelcomeRoute.page,
+        ),
       ];
 }

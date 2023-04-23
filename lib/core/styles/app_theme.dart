@@ -22,7 +22,7 @@ class AppTheme {
           accents: Accents(
             purple: const Color(0xFF7000FF),
             red: const Color(0xFFFF6D6D),
-            blue: const Color(0xFF6688FF),
+            blue: const Color(0xFF446DFF),
             green: const Color(0xFF6BFF8C),
             gold: const Color(0xFFE5FF46),
           ),
@@ -32,8 +32,8 @@ class AppTheme {
           ),
           components: Components(
             Blocks(
-              border: const Color(0xFFEEEEEE),
-              background: const Color(0xFFFAFAFA),
+              border: const Color.fromARGB(255, 179, 179, 179),
+              background: const Color.fromARGB(255, 225, 225, 225),
             ),
           ),
           fonts: Fonts(

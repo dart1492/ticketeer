@@ -7,6 +7,7 @@ A mobile movie theater app. Here you can view hundreds of interesting movies, pu
 
 In this app I try to implement Clean Code and Architecture to the best of my abilities. Also, here is the list of tools (important packages) that I use:
 - [easy_localization](https://pub.dev/packages/easy_localization). For ukrainian and english languages
-- more to come...
+- [bloc](https://pub.dev/packages/bloc). For state management and BLoC pattern.
+- [auto_route](https://pub.dev/packages/auto_route). For easy routing
 
 

@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ticketeer/core/util/custom_system_theme.dart';
 import 'package:ticketeer/features/theme/domain/theme_repository.dart';
 import 'package:ticketeer/features/theme/theme_cubit/theme_state.dart';
 
@@ -24,23 +23,26 @@ class ThemeCubit extends Cubit<ThemeState> {
   Future<void> getCurrentTheme() async {
     emit(LoadingThemeState());
     final result = await repo.getCurrentTheme();
-    result.fold(
-        // On any error just set dark theme
-        (l) => emit(
-              LoadedThemeState(currentTheme: "dark"),
-            ), (r) {
-      if (r == null) {
-        final String firstTimeTheme = decideFirstTimeTheme();
-        emit(LoadedThemeState(currentTheme: firstTimeTheme));
 
-        // no need to await
-        unawaited(repo.setNewTheme(firstTimeTheme));
-      } else {
-        emit(
-          LoadedThemeState(currentTheme: r),
-        );
-      }
-    });
+    result.fold(
+      // On any failure just set dark theme
+      (l) => emit(
+        LoadedThemeState(currentTheme: "dark"),
+      ),
+      (r) {
+        if (r == null) {
+          final String firstTimeTheme = _decideFirstTimeTheme();
+          emit(LoadedThemeState(currentTheme: firstTimeTheme));
+
+          // no need to await
+          unawaited(repo.setNewTheme(firstTimeTheme));
+        } else {
+          emit(
+            LoadedThemeState(currentTheme: r),
+          );
+        }
+      },
+    );
   }
 
   /// Sets new theme variable.
@@ -50,7 +52,9 @@ class ThemeCubit extends Cubit<ThemeState> {
   }
 
   /// theme decider
-  String decideFirstTimeTheme() {
-    return CustomSystemTheme.isDarkMode ? "dark" : "light";
+  String _decideFirstTimeTheme() {
+    return "dark";
+
+    // return CustomSystemTheme.isDarkMode ? "dark" : "light";
   }
 }

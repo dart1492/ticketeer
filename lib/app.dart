@@ -38,7 +38,7 @@ class App extends StatelessWidget {
               ),
               routerConfig: sl<AppRouter>().config(
                 initialRoutes: [
-                  const MainBottomBarRoute(),
+                  const WelcomeRoute(),
                 ],
               ),
             );
