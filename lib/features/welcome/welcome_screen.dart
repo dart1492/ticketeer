@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:ticketeer/core/components/custom_button.dart';
+import 'package:ticketeer/core/routing/app_router.gr.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
 import 'package:ticketeer/features/welcome/components/feature_badge.dart';
@@ -17,8 +18,8 @@ class WelcomeScreen extends StatelessWidget {
   /// Welcome screen - completely static (no api calls, no sp interactions)
   const WelcomeScreen({super.key});
 
-  /// Base path for locale json
-  static const basePath = "screens.welcome.";
+  /// Base path for welcome screen localization
+  static const _basePath = "screens.welcome.";
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
@@ -48,7 +49,7 @@ class WelcomeScreen extends StatelessWidget {
                         height: 24,
                         width: 24,
                       ),
-                      text: '${basePath}badge_1'.tr(),
+                      text: '${_basePath}badge_1'.tr(),
                     ),
                     StackedGradient(color: colors.accents.green),
                   ],
@@ -61,7 +62,7 @@ class WelcomeScreen extends StatelessWidget {
                         height: 24,
                         width: 24,
                       ),
-                      text: '${basePath}badge_2'.tr(),
+                      text: '${_basePath}badge_2'.tr(),
                     ),
                     StackedGradient(color: colors.accents.blue),
                   ],
@@ -74,7 +75,7 @@ class WelcomeScreen extends StatelessWidget {
                         height: 24,
                         width: 24,
                       ),
-                      text: '${basePath}badge_3'.tr(),
+                      text: '${_basePath}badge_3'.tr(),
                     ),
                     StackedGradient(color: colors.accents.red),
                   ],
@@ -86,12 +87,14 @@ class WelcomeScreen extends StatelessWidget {
                   color: colors.accents.blue.withOpacity(0.3),
                   border: Border.all(color: colors.accents.blue),
                   child: Text(
-                    "${basePath}start".tr(),
+                    "${_basePath}start".tr(),
                     style: open.s24.w700.copyWith(
                       color: colors.fonts.main,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    context.router.replace(const MainBottomBarRoute());
+                  },
                 ),
                 const SizedBox(
                   height: 10,

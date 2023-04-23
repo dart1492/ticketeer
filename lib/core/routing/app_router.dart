@@ -10,6 +10,11 @@ class AppRouter extends gr.$AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(
           page: gr.MainBottomBarRoute.page,
+          children: [
+            AutoRoute(page: gr.HomeRoute.page),
+            AutoRoute(page: gr.ProfileRoute.page),
+            AutoRoute(page: gr.UserTicketsRoute.page),
+          ],
         ),
         AutoRoute(
           page: gr.WelcomeRoute.page,
