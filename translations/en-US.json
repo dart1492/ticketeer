@@ -5,10 +5,22 @@
             "badge_2" : "Meta-info: ratings, rankings, stars",
             "badge_3" : "Hundreds of movies",
             "start" : "Start"
+        },
+        "profile" : {
+            "hello-text" : "Hello,",
+            "change-username" : "Change username",
+            "choose-theme" : "Theme:",
+            "dark-switch" : "Dark",
+            "light-switch" : "Light",
+            "choose-lang" : "Language:",
+            "eng-switch" : "English",
+            "ukr-switch" : "Ukrainian"
         }
+        
 
 
     },
+
     "components" : {
         "nav_bar" : {
             "home" : "Home",

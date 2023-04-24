@@ -5,6 +5,16 @@
             "badge_2" : "Мета інформація: рейтинги, зірки!",
             "badge_3" : "Сотні захопливих фільмів!",
             "start" : "Почати"
+        },
+        "profile" : {
+            "hello-text" : "Привіт,",
+            "change-username" : "Змінити ім'я",
+            "choose-theme" : "Тема:",
+            "dark-switch" : "Темна",
+            "light-switch" : "Світла",
+            "choose-lang" : "Мова:",
+            "eng-switch" : "Англійська",
+            "ukr-switch" : "Українська"
         }
     },
     "components" : {
