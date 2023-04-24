@@ -2,7 +2,7 @@
 const String openFontName = 'Open';
 
 /// Base server url that gets included in every request to the defined server
-const String baseUrl = '';
+const String baseUrl = 'https://fs-mt.qwerty123.tech';
 
 /// Path to the folder with translations
 const String translationFolderPath = 'translations';

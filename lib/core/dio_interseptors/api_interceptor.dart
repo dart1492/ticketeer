@@ -2,6 +2,7 @@
 // ignore_for_file: avoid_void_async
 import 'package:dio/dio.dart';
 import 'package:ticketeer/core/constants/object_constants.dart';
+import 'package:ticketeer/features/auth/domain/repositories/token_repository.dart';
 
 import 'package:ticketeer/features/localization/domain/localization_repository.dart';
 
@@ -10,18 +11,19 @@ import 'package:ticketeer/features/localization/domain/localization_repository.d
 
 class ApiInterceptor extends Interceptor {
   final LocalizationRepository localeRepo;
+  final TokenRepository tokenRepo;
   ApiInterceptor({
     required this.localeRepo,
+    required this.tokenRepo,
   });
   @override
   void onRequest(
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    //TODO: Decide in which format server accepts localization
     String localeToSend = startLocale.languageCode;
-    final result = await localeRepo.getCurrentLocale();
-    result.fold(
+    final localeResult = await localeRepo.getCurrentLocale();
+    localeResult.fold(
       (l) {},
       (r) {
         // if it is the first time setting locale
@@ -33,7 +35,14 @@ class ApiInterceptor extends Interceptor {
       },
     );
 
-    options.headers['Content-Language:'] = localeToSend;
+    options.headers['Accept-Language'] = localeToSend;
+
+    final tokenResult = await tokenRepo.getToken();
+    tokenResult.fold((l) {
+      //  if we couldn't get the token just send an empty header
+    }, (r) {
+      options.headers['Authorization: Bearer '] = r;
+    });
 
     super.onRequest(options, handler);
   }

@@ -7,7 +7,7 @@ import 'package:ticketeer/core/components/custom_button.dart';
 import 'package:ticketeer/core/routing/app_router.gr.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
-import 'package:ticketeer/features/welcome/components/feature_badge.dart';
+import 'package:ticketeer/core/components/feature_badge.dart';
 import 'package:ticketeer/features/welcome/components/movies_carousel.dart';
 import 'package:ticketeer/features/welcome/components/stacked_gradient.dart';
 
@@ -44,7 +44,7 @@ class WelcomeScreen extends StatelessWidget {
                 Stack(
                   children: [
                     FeatureBadge(
-                      icon: Image.asset(
+                      imageIcon: Image.asset(
                         'assets/welcome_icon_1.png',
                         height: 24,
                         width: 24,
@@ -57,7 +57,7 @@ class WelcomeScreen extends StatelessWidget {
                 Stack(
                   children: [
                     FeatureBadge(
-                      icon: Image.asset(
+                      imageIcon: Image.asset(
                         'assets/welcome_icon_2.png',
                         height: 24,
                         width: 24,
@@ -70,7 +70,7 @@ class WelcomeScreen extends StatelessWidget {
                 Stack(
                   children: [
                     FeatureBadge(
-                      icon: Image.asset(
+                      imageIcon: Image.asset(
                         'assets/welcome_icon_3.png',
                         height: 24,
                         width: 24,
@@ -93,7 +93,9 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                   ),
                   onTap: () {
-                    context.router.replace(const MainBottomBarRoute());
+                    context.router.replace(
+                      const PhoneRoute(),
+                    );
                   },
                 ),
                 const SizedBox(

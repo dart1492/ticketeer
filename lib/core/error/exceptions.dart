@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:logger/logger.dart';
 import 'package:ticketeer/core/error/failure.dart';
+import 'package:ticketeer/locator.dart';
 
 /// Handles the [error] object - if it is a DioError converts it into
 /// a failure wth DioError message.
@@ -10,6 +12,7 @@ Future<Failure> errorHandler(Object error, Failure? defaultFailure) async {
   try {
     // error when Dio request has failed
     if (error is DioError) {
+      sl<Logger>().e(error.response!.data, StackTrace);
       if (error.response != null) {
         final String? serverError =
             // ignore: avoid_dynamic_calls
