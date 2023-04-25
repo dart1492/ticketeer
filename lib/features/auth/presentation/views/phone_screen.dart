@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bot_toast/bot_toast.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:ticketeer/core/components/custom_button.dart';
+import 'package:ticketeer/core/components/custom_toasts.dart';
 import 'package:ticketeer/core/components/feature_badge.dart';
 import 'package:ticketeer/core/routing/app_router.gr.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
@@ -24,6 +24,13 @@ class PhoneScreen extends StatelessWidget {
   /// Than one time password gets sent to the device and access token retrieved
   const PhoneScreen({super.key});
 
+  bool _buildErrorBoxWhen(PhoneState previous, PhoneState current) {
+    if (previous is AcceptingPhoneState && current is AcceptingPhoneState) {
+      return true;
+    }
+    return false;
+  }
+
   static const _basePath = "screens.phone.";
   @override
   Widget build(BuildContext context) {
@@ -33,12 +40,7 @@ class PhoneScreen extends StatelessWidget {
       child: BlocListener<PhoneCubit, PhoneState>(
         listener: (context, state) {
           if (state is ErrorPhoneState) {
-            BotToast.showText(
-              text: state.errorText,
-              textStyle: open.s14.copyWith(
-                color: colors.accents.red,
-              ),
-            );
+            showErrorToast(text: state.errorText, colors: colors);
           }
 
           if (state is SuccessPhoneState) {
@@ -98,13 +100,7 @@ class PhoneScreen extends StatelessWidget {
                       ],
                     ),
                     BlocBuilder<PhoneCubit, PhoneState>(
-                      buildWhen: (previous, current) {
-                        if (previous is AcceptingPhoneState &&
-                            current is AcceptingPhoneState) {
-                          return true;
-                        }
-                        return false;
-                      },
+                      buildWhen: _buildErrorBoxWhen,
                       builder: (context, state) {
                         return ErrorBox(
                           errorText: "${_basePath}validation-error".tr(),

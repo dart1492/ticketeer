@@ -1,9 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:auto_route/auto_route.dart';
-import 'package:bot_toast/bot_toast.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ticketeer/core/components/custom_toasts.dart';
 import 'package:ticketeer/core/routing/app_router.gr.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
@@ -36,33 +36,11 @@ class OTPScreen extends StatelessWidget {
       child: BlocListener<OtpCubit, OtpCubitState>(
         listener: (context, state) {
           if (state is ErrorOtpState) {
-            BotToast.showText(
-              backgroundColor: colors.backgrounds.secondary,
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 15,
-                vertical: 10,
-              ),
-              align: const Alignment(0, 0.7),
-              text: state.errorMessage,
-              textStyle: open.s16.copyWith(
-                color: colors.accents.red,
-              ),
-            );
+            showErrorToast(text: state.errorMessage, colors: colors);
           }
 
           if (state is SuccessOtpState) {
-            BotToast.showText(
-              backgroundColor: colors.backgrounds.secondary,
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 15,
-                vertical: 10,
-              ),
-              align: const Alignment(0, 0.7),
-              text: "${_basePath}success".tr(),
-              textStyle: open.s16.copyWith(
-                color: colors.accents.green,
-              ),
-            );
+            showSuccessToast(text: "${_basePath}success".tr(), colors: colors);
             context.router.replace(const MainBottomBarRoute());
           }
         },
