@@ -9,6 +9,8 @@
         "profile" : {
             "hello-text" : "Hello,",
             "change-username" : "Change username",
+            "done-change-username" : "Done",
+            "phone-text" : "Phone number:",
             "choose-theme" : "Theme:",
             "dark-switch" : "Dark",
             "light-switch" : "Light",

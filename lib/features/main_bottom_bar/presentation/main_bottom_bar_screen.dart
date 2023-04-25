@@ -25,6 +25,7 @@ class MainBottomBarScreen extends StatelessWidget {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
 
     return AutoTabsScaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: colors.backgrounds.main,
       routes: const [
         HomeRoute(),

@@ -4,6 +4,8 @@ import 'package:ticketeer/core/components/custom_button.dart';
 import 'package:ticketeer/core/constants/object_constants.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
+import 'package:ticketeer/features/localization/domain/localization_repository.dart';
+import 'package:ticketeer/locator.dart';
 
 /// Row with two buttons to set language
 class LanguageChooseRow extends StatelessWidget {
@@ -30,10 +32,8 @@ class LanguageChooseRow extends StatelessWidget {
               height: 40,
               onTap: () {
                 context.setLocale(englishLocale);
-                //TODO: UNCOMMENT WHEN IMPLEMENTING INTERCEPTORS
 
-                // sl<LocalizationRepository>()
-                //     .setNewLocale(englishLocale);
+                sl<LocalizationRepository>().setNewLocale(englishLocale);
               },
               color: context.locale == englishLocale
                   ? colors.accents.blue.withOpacity(0.3)
@@ -69,10 +69,7 @@ class LanguageChooseRow extends StatelessWidget {
               ),
               onTap: () {
                 context.setLocale(ukrainianLocale);
-                //TODO: UNCOMMENT WHEN IMPLEMENTING INTERCEPTORS
-
-                // sl<LocalizationRepository>()
-                //     .setNewLocale(ukrainianLocale);
+                sl<LocalizationRepository>().setNewLocale(ukrainianLocale);
               },
             ),
           ],

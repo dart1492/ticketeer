@@ -32,10 +32,9 @@ class OtpCubit extends Cubit<OtpCubitState> {
     );
   }
 
-  /// Get access token.
-  /// TODO: PARAMETERS HERE ARE ONLY FOR TESTING!!!
+  /// Get access token with the otp
   Future<void> getAccess(String otp) async {
-    String phone = (state as AcceptingOtpState).phoneNumber;
+    final String phone = (state as AcceptingOtpState).phoneNumber;
     final result = await authRepo.getToken(
       otp,
       (state as AcceptingOtpState).phoneNumber,

@@ -1,10 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: avoid_void_async
 import 'package:dio/dio.dart';
+import 'package:logger/logger.dart';
 import 'package:ticketeer/core/constants/object_constants.dart';
 import 'package:ticketeer/features/auth/domain/repositories/token_repository.dart';
 
 import 'package:ticketeer/features/localization/domain/localization_repository.dart';
+import 'package:ticketeer/locator.dart';
 
 /// Dio interceptor for all api calls. It is used to provide bearer tokens and
 /// locales the server. Repositories for them are injected
@@ -44,6 +46,7 @@ class ApiInterceptor extends Interceptor {
       options.headers['Authorization'] = "Bearer $r";
     });
 
+    sl<Logger>().i(options.headers);
     super.onRequest(options, handler);
   }
 }
