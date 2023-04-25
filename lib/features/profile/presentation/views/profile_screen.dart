@@ -28,22 +28,23 @@ class ProfileScreen extends StatelessWidget {
 
   /// Path for the localization
   static const _basePath = "screens.profile";
+
+  bool _listenWhen(previous, current) {
+    if (previous is ProfileSuccess &&
+        (current is ProfileIdle || current is ProfileError)) {
+      return true;
+    }
+
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
     return BlocProvider(
       create: (context) => sl<ProfileCubit>()..getUser(),
       child: BlocListener<ProfileCubit, ProfileState>(
-        // "done-change-username" : "Done",
-        //     "phone-text" : "Phone number:",
-        listenWhen: (previous, current) {
-          if (previous is ProfileSuccess &&
-              (current is ProfileIdle || current is ProfileError)) {
-            return true;
-          }
-
-          return false;
-        },
+        listenWhen: _listenWhen,
         listener: (context, state) {
           if (state is ProfileError) {
             showErrorToast(text: state.errorMessage, colors: colors);
@@ -106,8 +107,6 @@ class ProfileScreen extends StatelessWidget {
                                     height: 20,
                                   ),
                                   Text(
-                                    // "done-change-username" : "Done",
-                                    //     "phone-text" : "Phone number:",
                                     "$_basePath.phone-text".tr(),
                                     style: open.s16.w700.copyWith(
                                       color: colors.fonts.main,
