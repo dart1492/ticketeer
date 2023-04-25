@@ -9,6 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i8;
+import 'package:flutter/material.dart' as _i9;
 import 'package:ticketeer/features/auth/presentation/views/otp_screen.dart'
     as _i1;
 import 'package:ticketeer/features/auth/presentation/views/phone_screen.dart'
@@ -29,9 +30,13 @@ abstract class $AppRouter extends _i8.RootStackRouter {
   @override
   final Map<String, _i8.PageFactory> pagesMap = {
     OTPRoute.name: (routeData) {
+      final args = routeData.argsAs<OTPRouteArgs>();
       return _i8.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.OTPScreen(),
+        child: _i1.OTPScreen(
+          key: args.key,
+          phoneNumber: args.phoneNumber,
+        ),
       );
     },
     PhoneRoute.name: (routeData) {
@@ -75,16 +80,40 @@ abstract class $AppRouter extends _i8.RootStackRouter {
 
 /// generated route for
 /// [_i1.OTPScreen]
-class OTPRoute extends _i8.PageRouteInfo<void> {
-  const OTPRoute({List<_i8.PageRouteInfo>? children})
-      : super(
+class OTPRoute extends _i8.PageRouteInfo<OTPRouteArgs> {
+  OTPRoute({
+    _i9.Key? key,
+    required String phoneNumber,
+    List<_i8.PageRouteInfo>? children,
+  }) : super(
           OTPRoute.name,
+          args: OTPRouteArgs(
+            key: key,
+            phoneNumber: phoneNumber,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'OTPRoute';
 
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
+  static const _i8.PageInfo<OTPRouteArgs> page =
+      _i8.PageInfo<OTPRouteArgs>(name);
+}
+
+class OTPRouteArgs {
+  const OTPRouteArgs({
+    this.key,
+    required this.phoneNumber,
+  });
+
+  final _i9.Key? key;
+
+  final String phoneNumber;
+
+  @override
+  String toString() {
+    return 'OTPRouteArgs{key: $key, phoneNumber: $phoneNumber}';
+  }
 }
 
 /// generated route for

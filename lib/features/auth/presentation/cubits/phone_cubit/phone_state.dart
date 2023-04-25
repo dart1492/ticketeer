@@ -32,4 +32,9 @@ class ErrorPhoneState extends PhoneState {
   });
 }
 
-class SuccessPhoneState extends PhoneState {}
+class SuccessPhoneState extends PhoneState {
+  String phoneNumber;
+  SuccessPhoneState({
+    required this.phoneNumber,
+  });
+}

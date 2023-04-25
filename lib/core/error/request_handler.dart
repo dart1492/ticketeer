@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
+import 'package:logger/logger.dart';
 import 'package:ticketeer/core/error/exceptions.dart';
 import 'package:ticketeer/core/error/failure.dart';
+import 'package:ticketeer/locator.dart';
 
 /// Typedef for Failable Future. It uses Either object from the dartz package.
 /// Failable means that this is actually an
@@ -26,6 +28,7 @@ class RepositoryRequestHandler<T> {
     try {
       return Right(await request());
     } catch (error) {
+      sl<Logger>().e(error);
       final failure = await errorHandler(error, defaultFailure);
       return Left(failure);
     }

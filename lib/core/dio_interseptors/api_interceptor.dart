@@ -41,7 +41,7 @@ class ApiInterceptor extends Interceptor {
     tokenResult.fold((l) {
       //  if we couldn't get the token just send an empty header
     }, (r) {
-      options.headers['Authorization: Bearer '] = r;
+      options.headers['Authorization'] = "Bearer $r";
     });
 
     super.onRequest(options, handler);

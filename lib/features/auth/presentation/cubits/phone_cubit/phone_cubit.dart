@@ -1,24 +1,18 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/constants/reg_exps.dart';
 import 'package:ticketeer/features/auth/domain/repositories/auth_repository.dart';
-import 'package:ticketeer/features/auth/domain/repositories/token_repository.dart';
-import 'package:ticketeer/features/auth/presentation/cubits/cubit/phone_state.dart';
+import 'package:ticketeer/features/auth/presentation/cubits/phone_cubit/phone_state.dart';
 
 /// Manages current phone number in the textfield,
 /// performs api calls to send an otp, that to retrieve accessToken
-class AuthCubit extends Cubit<PhoneState> {
+class PhoneCubit extends Cubit<PhoneState> {
   /// Repo to perform api calls to, in the end, retrieve the accessToken
   final AuthRepository authRepo;
 
-  /// Token repo that stores the access token when it
-  /// is retrieved from the server
-  final TokenRepository tokenRepo;
-
   /// Manages current phone number in the textfield,
   /// performs api calls to send an otp, that to retrieve accessToken
-  AuthCubit({
+  PhoneCubit({
     required this.authRepo,
-    required this.tokenRepo,
   }) : super(
           AcceptingPhoneState(
             phoneNumber: '',
@@ -70,7 +64,11 @@ class AuthCubit extends Cubit<PhoneState> {
           );
         },
         (r) {
-          emit(SuccessPhoneState());
+          emit(
+            SuccessPhoneState(
+              phoneNumber: number,
+            ),
+          );
         },
       );
     }

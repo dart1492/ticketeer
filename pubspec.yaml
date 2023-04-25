@@ -11,6 +11,7 @@ dependencies:
   file_picker: ^5.2.10
   get_it: ^7.2.0
   auto_route: ^6.3.0
+  flutter_otp_text_field: ^1.1.1
   auto_route_generator: ^6.2.0
   flutter:
     sdk: flutter

@@ -8,8 +8,8 @@ import 'package:ticketeer/core/components/feature_badge.dart';
 import 'package:ticketeer/core/routing/app_router.gr.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
-import 'package:ticketeer/features/auth/presentation/cubits/cubit/phone_cubit.dart';
-import 'package:ticketeer/features/auth/presentation/cubits/cubit/phone_state.dart';
+import 'package:ticketeer/features/auth/presentation/cubits/phone_cubit/phone_cubit.dart';
+import 'package:ticketeer/features/auth/presentation/cubits/phone_cubit/phone_state.dart';
 import 'package:ticketeer/features/auth/presentation/views/components/error_box.dart';
 import 'package:ticketeer/features/auth/presentation/views/components/phone_field.dart';
 import 'package:ticketeer/features/welcome/components/stacked_gradient.dart';
@@ -27,8 +27,8 @@ class PhoneScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
     return BlocProvider(
-      create: (context) => sl<AuthCubit>(),
-      child: BlocListener<AuthCubit, PhoneState>(
+      create: (context) => sl<PhoneCubit>(),
+      child: BlocListener<PhoneCubit, PhoneState>(
         listener: (context, state) {
           if (state is ErrorPhoneState) {
             BotToast.showText(
@@ -40,7 +40,11 @@ class PhoneScreen extends StatelessWidget {
           }
 
           if (state is SuccessPhoneState) {
-            context.router.replace(const OTPRoute());
+            context.router.replace(
+              OTPRoute(
+                phoneNumber: "+${state.phoneNumber}",
+              ),
+            );
           }
         },
         child: Scaffold(
@@ -91,7 +95,7 @@ class PhoneScreen extends StatelessWidget {
                         StackedGradient(color: colors.accents.green),
                       ],
                     ),
-                    BlocBuilder<AuthCubit, PhoneState>(
+                    BlocBuilder<PhoneCubit, PhoneState>(
                       buildWhen: (previous, current) {
                         if (previous is AcceptingPhoneState &&
                             current is AcceptingPhoneState) {
@@ -125,7 +129,7 @@ class PhoneScreen extends StatelessWidget {
                             ),
                           ),
                           onTap: () {
-                            context.read<AuthCubit>().getOTP();
+                            context.read<PhoneCubit>().getOTP();
                           },
                         );
                       },

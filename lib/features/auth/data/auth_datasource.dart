@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:dio/dio.dart';
+import 'package:logger/logger.dart';
+import 'package:ticketeer/locator.dart';
 
 /// Datasource, implementation of which interacts with auth api
 abstract class AuthDatasource {
@@ -34,16 +36,20 @@ class AuthDatasourceImpl extends AuthDatasource {
 
   @override
   Future<String> getToken(String otp, String phoneNumber) async {
+    sl<Logger>().i(otp);
     final result = await dio.post(
       "/api/auth/login",
       data: {
         "phoneNumber": phoneNumber,
-        "otp": 0000,
+        "otp": otp,
       },
     );
 
-    final resultMap = result as Map<String, dynamic>;
+    final resultMap = result.data as Map<String, dynamic>;
     if (resultMap['success'] == true) {
+      // ignore: avoid_dynamic_calls
+      sl<Logger>().i(resultMap['data']['accessToken'] as String);
+
       // ignore: avoid_dynamic_calls
       return resultMap['data']['accessToken'] as String;
     } else {
