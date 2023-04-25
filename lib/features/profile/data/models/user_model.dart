@@ -25,9 +25,11 @@ class UserModel extends User {
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
       id: map["id"] as int? ?? 0,
-      name: map['name'] as String? ?? "default",
+      name: map['name'] as String? ?? "",
       phoneNumber: map['phoneNumber'] as String,
-      createdAt: DateTime.now(),
+      createdAt: DateTime.fromMillisecondsSinceEpoch(
+        map["createdAt"],
+      ),
     );
   }
 

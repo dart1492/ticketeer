@@ -19,6 +19,7 @@ class TicketPreview extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
 
+    //TODO: CREATE FLIP ANIMATION FOR THE TICKET PREVIEW
     return Column(
       children: [
         Container(

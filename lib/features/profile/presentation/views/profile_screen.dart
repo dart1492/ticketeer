@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/components/custom_toasts.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
+import 'package:ticketeer/core/util/date_time_converter.dart';
 import 'package:ticketeer/features/profile/presentation/cubits/profile_cubit/profile_cubit.dart';
 import 'package:ticketeer/features/profile/presentation/cubits/profile_cubit/profile_state.dart';
 import 'package:ticketeer/features/profile/presentation/views/components/change_name_button_builder.dart';
@@ -75,7 +76,7 @@ class ProfileScreen extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: double.infinity,
-                        height: MediaQuery.of(context).size.height / 4,
+                        height: MediaQuery.of(context).size.height / 3,
                         child: BlocBuilder<ProfileCubit, ProfileState>(
                           buildWhen: (previous, current) {
                             if (previous is ProfileEditing &&
@@ -112,6 +113,19 @@ class ProfileScreen extends StatelessWidget {
                                   ),
                                   const SizedBox(
                                     height: 20,
+                                  ),
+                                  Text(
+                                    "With us since:",
+                                    style: open.s16.copyWith(
+                                      color: colors.fonts.main,
+                                    ),
+                                  ),
+                                  Text(
+                                    //TODO: CUT THE DATE TIME STRING TO ONLY DATE
+                                    dateTimeConverter(state.user.createdAt),
+                                    style: open.s18.copyWith(
+                                      color: colors.accents.blue,
+                                    ),
                                   ),
                                 ],
                               ).animate().fadeIn(
@@ -150,7 +164,9 @@ class ProfileScreen extends StatelessWidget {
                               const SizedBox(
                                 height: 20,
                               ),
-                              const ThemeChooseRow(basePath: _basePath),
+                              const ThemeChooseRow(
+                                basePath: _basePath,
+                              ),
                             ],
                           ),
                           Column(

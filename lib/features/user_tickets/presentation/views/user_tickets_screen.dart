@@ -6,8 +6,8 @@ import 'package:ticketeer/core/components/feature_badge.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
 import 'package:ticketeer/features/user_tickets/presentation/views/components/ticket_preview.dart';
-import 'package:ticketeer/features/user_tickets/presentation/views/cubits/cubit/user_tickets_cubit.dart';
-import 'package:ticketeer/features/user_tickets/presentation/views/cubits/cubit/user_tickets_state.dart';
+import 'package:ticketeer/features/user_tickets/presentation/views/cubits/user_tickets_cubit/user_tickets_cubit.dart';
+import 'package:ticketeer/features/user_tickets/presentation/views/cubits/user_tickets_cubit/user_tickets_state.dart';
 import 'package:ticketeer/locator.dart';
 
 @RoutePage()
@@ -50,7 +50,8 @@ class UserTicketsScreen extends StatelessWidget {
                       if (state is LoadedUserTicketsState) {
                         if (state.tickets.isEmpty) {
                           return Center(
-                            //TODO: REPLACE NO TICKETS... TEXT WITH SOMETHING INTERESTING
+                            //TODO: REPLACE NO TICKETS...
+                            //TEXT WITH SOMETHING INTERESTING
                             child: Text(
                               "No tickets for you...",
                               style:

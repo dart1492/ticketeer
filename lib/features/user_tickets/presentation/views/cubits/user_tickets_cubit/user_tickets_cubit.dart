@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/features/user_tickets/domain/repositories/user_tickets_repository.dart';
-import 'package:ticketeer/features/user_tickets/presentation/views/cubits/cubit/user_tickets_state.dart';
+import 'package:ticketeer/features/user_tickets/presentation/views/cubits/user_tickets_cubit/user_tickets_state.dart';
 
 /// Cubit for interacting with user tickets repo
 class UserTicketsCubit extends Cubit<UserTicketsState> {
