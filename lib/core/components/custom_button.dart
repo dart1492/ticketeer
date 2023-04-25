@@ -1,5 +1,6 @@
 // Custom button, used throughout this.
 import 'package:flutter/material.dart';
+import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 
 /// This button will take all available width
 ///
@@ -48,19 +49,33 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: borderRadius ?? BorderRadius.circular(6),
-      onTap: onTap,
-      child: Ink(
-        decoration: BoxDecoration(
-          color: color,
+    final colors = Theme.of(context).extension<AppColorScheme>()!;
+
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: color ?? colors.accents.blue.withOpacity(0.3),
+        border: border ?? Border.all(color: colors.accents.blue),
+        borderRadius: borderRadius ?? BorderRadius.circular(6),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
           borderRadius: borderRadius ?? BorderRadius.circular(6),
-          border: border,
+          onTap: onTap,
+          child: Ink(
+            width: width,
+            height: height,
+            padding: padding ??
+                const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 5,
+                ),
+            child: Container(
+              alignment: childAlignment,
+              child: child,
+            ),
+          ),
         ),
-        width: width,
-        height: height,
-        padding: padding,
-        child: Container(alignment: childAlignment, child: child),
       ),
     );
   }

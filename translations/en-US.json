@@ -7,7 +7,6 @@
             "start" : "Start"
         },
         "profile" : {
-            "hello-text" : "Hello,",
             "change-username" : "Change username",
             "done-change-username" : "Done",
             "phone-text" : "Phone number:",
@@ -41,5 +40,10 @@
             "tickets" : "Tickets",
             "profile" : "Profile"
         }
+    },
+
+    "messages" : {
+        "success" : "Success!"
+
     }
 }

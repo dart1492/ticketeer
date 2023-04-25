@@ -9,7 +9,6 @@
         "profile" : {
             "done-change-username" : "Готово",
             "phone-text" : "Номер телефону:",
-            "hello-text" : "Привіт,",
             "change-username" : "Змінити ім'я",
             "choose-theme" : "Тема:",
             "dark-switch" : "Темна",
@@ -36,5 +35,9 @@
             "tickets" : "Квитки",
             "profile" : "Профіль"
         }
+    },
+    "messages" : {
+        "success" : "Успіх!"
+
     }
 }

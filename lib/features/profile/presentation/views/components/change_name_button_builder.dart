@@ -21,6 +21,7 @@ class ChangeNameButton extends StatelessWidget {
 
   final String _basePath;
 
+  //TODO: CREATE AN ABORT BUTTON TO PREVENT NAME FROM CHANGING
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;

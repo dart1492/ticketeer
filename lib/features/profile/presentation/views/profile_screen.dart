@@ -52,7 +52,7 @@ class ProfileScreen extends StatelessWidget {
 
           if (state is ProfileIdle) {
             showSuccessToast(
-              text: "Success!",
+              text: "messages.success".tr(),
               colors: colors,
             );
           }
@@ -75,7 +75,7 @@ class ProfileScreen extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: double.infinity,
-                        height: MediaQuery.of(context).size.height / 3,
+                        height: MediaQuery.of(context).size.height / 4,
                         child: BlocBuilder<ProfileCubit, ProfileState>(
                           buildWhen: (previous, current) {
                             if (previous is ProfileEditing &&
@@ -90,14 +90,6 @@ class ProfileScreen extends StatelessWidget {
                               return Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "$_basePath.hello-text".tr(),
-                                    style: open.s20.w700
-                                        .copyWith(color: colors.fonts.main),
-                                  ),
-                                  const SizedBox(
-                                    height: 15,
-                                  ),
                                   const UserName(),
                                   const SizedBox(
                                     height: 15,
@@ -108,7 +100,7 @@ class ProfileScreen extends StatelessWidget {
                                   ),
                                   Text(
                                     "$_basePath.phone-text".tr(),
-                                    style: open.s16.w700.copyWith(
+                                    style: open.s16.copyWith(
                                       color: colors.fonts.main,
                                     ),
                                   ),

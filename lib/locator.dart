@@ -14,6 +14,7 @@ import 'package:ticketeer/features/localization/data/localization_repository_imp
 import 'package:ticketeer/features/localization/domain/localization_repository.dart';
 import 'package:ticketeer/features/profile/injection.dart';
 import 'package:ticketeer/features/theme/injection.dart';
+import 'package:ticketeer/features/user_tickets/injection.dart';
 
 /// Global variable, used throughout the app for dependency injection
 final sl = GetIt.instance;
@@ -66,5 +67,6 @@ Future<void> setupLocator() async {
 
   themeDependencyInjection();
   authDependencyInjection();
+  userTicketsDependencyInjection();
   profileDependencyInjection();
 }
