@@ -8,6 +8,7 @@
         },
         "profile" : {
             "done-change-username" : "Готово",
+            "abort-change-username" : "Відмінити",
             "phone-text" : "Номер телефону:",
             "change-username" : "Змінити ім'я",
             "choose-theme" : "Тема:",

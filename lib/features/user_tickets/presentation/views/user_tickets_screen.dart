@@ -28,22 +28,10 @@ class UserTicketsScreen extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 30,
-              vertical: 15,
+              vertical: 25,
             ),
             child: Column(
               children: [
-                Container(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "Your tickets:",
-                    style: open.s24.w700.copyWith(
-                      color: colors.fonts.main,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
                 Expanded(
                   child: BlocBuilder<UserTicketsCubit, UserTicketsState>(
                     builder: (context, state) {

@@ -121,7 +121,6 @@ class ProfileScreen extends StatelessWidget {
                                     ),
                                   ),
                                   Text(
-                                    //TODO: CUT THE DATE TIME STRING TO ONLY DATE
                                     dateTimeConverter(state.user.createdAt),
                                     style: open.s18.copyWith(
                                       color: colors.accents.blue,

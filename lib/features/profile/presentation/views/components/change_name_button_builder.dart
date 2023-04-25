@@ -27,34 +27,61 @@ class ChangeNameButton extends StatelessWidget {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
-        return CustomButton(
-          onTap: state is! ProfileEditing
-              ? () {
-                  context.read<ProfileCubit>().editUsername();
-                }
-              : () {
+        if (state is ProfileEditing) {
+          return Row(
+            children: [
+              CustomButton(
+                onTap: () {
                   context.read<ProfileCubit>().changeUsername();
                 },
-          color: colors.components.blocks.background,
-          border: Border.all(
-            color: colors.components.blocks.border,
-          ),
-          padding: const EdgeInsets.symmetric(
-            horizontal: 10,
-            vertical: 6,
-          ),
-          child: AnimatedSwitcher(
-            duration: const Duration(milliseconds: 300),
+                child: Text(
+                  "$_basePath.done-change-username".tr(),
+                  style: open.s14.copyWith(
+                    color: colors.fonts.main,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 20,
+              ),
+              CustomButton(
+                onTap: () {
+                  context.read<ProfileCubit>().abortEditUsername();
+                },
+                color: colors.components.blocks.background,
+                border: Border.all(
+                  color: colors.components.blocks.border,
+                ),
+                child: Text(
+                  "$_basePath.abort-change-username".tr(),
+                  style: open.s14.copyWith(
+                    color: colors.fonts.main,
+                  ),
+                ),
+              ),
+            ],
+          );
+        } else {
+          return CustomButton(
+            onTap: () {
+              context.read<ProfileCubit>().editUsername();
+            },
+            color: colors.components.blocks.background,
+            border: Border.all(
+              color: colors.components.blocks.border,
+            ),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 10,
+              vertical: 6,
+            ),
             child: Text(
-              state is ProfileEditing
-                  ? "$_basePath.done-change-username".tr()
-                  : "$_basePath.change-username".tr(),
+              "$_basePath.change-username".tr(),
               style: open.s14.copyWith(
                 color: colors.fonts.main,
               ),
             ),
-          ),
-        );
+          );
+        }
       },
     );
   }

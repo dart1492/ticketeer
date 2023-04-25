@@ -21,11 +21,7 @@ class UserName extends StatelessWidget {
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
         if (state is ProfileEditing) {
-          return CustomTextField(
-            onChanged: (p0) {
-              context.read<ProfileCubit>().updateUsername(p0);
-            },
-          );
+          return NameTextField();
         }
         return Text(
           (state as ProfileLoaded).user.name,
@@ -33,6 +29,43 @@ class UserName extends StatelessWidget {
             color: colors.accents.blue,
           ),
         );
+      },
+    );
+  }
+}
+
+/// Textfield for username
+class NameTextField extends StatefulWidget {
+  /// Textfield for username
+  const NameTextField({
+    super.key,
+  });
+
+  @override
+  State<NameTextField> createState() => _NameTextFieldState();
+}
+
+class _NameTextFieldState extends State<NameTextField> {
+  FocusNode node = FocusNode();
+
+  @override
+  void initState() {
+    node.requestFocus();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    node.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomTextField(
+      focusNode: node,
+      onChanged: (p0) {
+        context.read<ProfileCubit>().updateUsername(p0);
       },
     );
   }

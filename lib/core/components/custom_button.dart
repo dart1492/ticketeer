@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 
-/// This button will take all available width
+/// Custom button that have default color of the blue accent with opacity = 0.3,
+/// which depends on the current theme and a Border.all with blue accent color
 ///
-
 class CustomButton extends StatelessWidget {
   /// Child that will be displayed in the center of this button
   final Widget child;

@@ -14,6 +14,8 @@ class CustomTextField extends StatelessWidget {
 
   final TextEditingController? controller;
 
+  final FocusNode? focusNode;
+
   /// Stylized textfield
   const CustomTextField({
     super.key,
@@ -21,6 +23,7 @@ class CustomTextField extends StatelessWidget {
     this.onChanged,
     this.contentPadding,
     this.controller,
+    this.focusNode,
   });
 
   @override
@@ -28,6 +31,7 @@ class CustomTextField extends StatelessWidget {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
 
     return TextField(
+      focusNode: focusNode,
       cursorWidth: 1,
       controller: controller,
       onTap: onTap,

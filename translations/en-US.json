@@ -9,6 +9,7 @@
         "profile" : {
             "change-username" : "Change username",
             "done-change-username" : "Done",
+            "abort-change-username" : "Abort",
             "phone-text" : "Phone number:",
             "choose-theme" : "Theme:",
             "dark-switch" : "Dark",

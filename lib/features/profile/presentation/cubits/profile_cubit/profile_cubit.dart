@@ -36,6 +36,14 @@ class ProfileCubit extends Cubit<ProfileState> {
     );
   }
 
+  /// Abort changing users name and leave it unchanged
+  void abortEditUsername() {
+    final UserModel currentUser = (state as ProfileEditing).user as UserModel;
+    emit(
+      ProfileIdle(user: currentUser),
+    );
+  }
+
   /// Change value of the edited name
   void updateUsername(String newName) {
     final UserModel currentUser = (state as ProfileEditing).user as UserModel;
