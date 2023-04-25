@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bot_toast/bot_toast.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
@@ -23,6 +24,7 @@ class PhoneScreen extends StatelessWidget {
   /// Than one time password gets sent to the device and access token retrieved
   const PhoneScreen({super.key});
 
+  static const _basePath = "screens.phone.";
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
@@ -60,7 +62,7 @@ class PhoneScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "To authorize, give us your number and we'll send you a message:",
+                      "${_basePath}description".tr(),
                       style: open.s16.copyWith(
                         color: colors.fonts.main,
                       ),
@@ -75,7 +77,7 @@ class PhoneScreen extends StatelessWidget {
                             Iconsax.dislike,
                             color: colors.accents.red,
                           ),
-                          text: "Bad: 0960789676",
+                          text: "${_basePath}bad-example".tr(),
                         ),
                         StackedGradient(color: colors.accents.red),
                       ],
@@ -90,7 +92,7 @@ class PhoneScreen extends StatelessWidget {
                             Iconsax.like_1,
                             color: colors.accents.green,
                           ),
-                          text: "Good: 380660000000",
+                          text: "${_basePath}good-example".tr(),
                         ),
                         StackedGradient(color: colors.accents.green),
                       ],
@@ -105,7 +107,7 @@ class PhoneScreen extends StatelessWidget {
                       },
                       builder: (context, state) {
                         return ErrorBox(
-                          errorText: "Invalid phone number",
+                          errorText: "${_basePath}validation-error".tr(),
                           isShown: (state as AcceptingPhoneState).isValidated,
                         );
                       },
@@ -123,7 +125,7 @@ class PhoneScreen extends StatelessWidget {
                           color: colors.accents.blue.withOpacity(0.3),
                           padding: const EdgeInsets.symmetric(vertical: 10),
                           child: Text(
-                            "Authorize",
+                            "${_basePath}button".tr(),
                             style: open.s24.w700.copyWith(
                               color: colors.fonts.main,
                             ),

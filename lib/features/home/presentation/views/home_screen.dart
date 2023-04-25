@@ -7,7 +7,8 @@ import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 
 /// Home screen where movies are shown, search and ticket purchase happens here
 class HomeScreen extends StatelessWidget {
-  /// Home screen where movies are shown, search and ticket purchase happens here
+  /// Home screen where movies are shown, search and ticket purchase happens
+  /// here
   const HomeScreen({super.key});
 
   @override

@@ -13,7 +13,7 @@ class TokenRepositoryImpl extends TokenRepository {
   FutureFailable<String?> getToken() {
     return RepositoryRequestHandler<String?>()(
       request: () => datasource.getToken(),
-      defaultFailure: Failure(errorMessage: "couldn't get the token"),
+      defaultFailure: Failure(),
     );
   }
 
@@ -21,7 +21,7 @@ class TokenRepositoryImpl extends TokenRepository {
   FutureFailable<void> setToken(String token) {
     return RepositoryRequestHandler<void>()(
       request: () => datasource.setToken(token),
-      defaultFailure: Failure(errorMessage: "couldn't get the token"),
+      defaultFailure: Failure(),
     );
   }
 }

@@ -15,7 +15,7 @@ class Failure {
 
   /// Failure object - kind of like a custom error object.
   Failure({
-    this.errorMessage = 'Unexpected error occurred',
+    this.errorMessage = 'Something went wrong',
     this.errorCode,
     this.errorData,
   });

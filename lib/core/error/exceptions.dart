@@ -16,7 +16,7 @@ Future<Failure> errorHandler(Object error, Failure? defaultFailure) async {
       if (error.response != null) {
         final String? serverError =
             // ignore: avoid_dynamic_calls
-            error.response?.data['errorMessage'];
+            error.response?.data['data'];
         return Failure(
           errorMessage: serverError ??
               "Sorry, we cannot process your request at the moment.",

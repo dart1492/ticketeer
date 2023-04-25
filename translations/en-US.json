@@ -15,7 +15,19 @@
             "choose-lang" : "Language:",
             "eng-switch" : "English",
             "ukr-switch" : "Ukrainian"
+        },
+        "phone" : {
+            "description" : "To authorize, give us your number and we will send you a message:",
+            "bad-example" : "Bad: 0960789678",
+            "good-example" : "Good: 380660000000",
+            "button" : "Authorize",
+            "validation-error" : "Invalid phone number"
+        },
+        "otp" : {
+            "description" : "One-Time-Password",
+            "success" : "Success"
         }
+
         
 
 

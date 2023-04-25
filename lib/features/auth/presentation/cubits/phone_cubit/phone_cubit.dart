@@ -73,16 +73,4 @@ class PhoneCubit extends Cubit<PhoneState> {
       );
     }
   }
-
-  // /// Get access token.
-  // /// TODO: PARAMETERS HERE ARE ONLY FOR TESTING!!!
-  // Future<void> getAccess(String phoneNumber, String otp) async {
-  //   final result = await authRepo.getToken(otp, phoneNumber);
-  //   result.fold(
-  //     (l) {},
-  //     (r) {
-  //       tokenRepo.setToken(r);
-  //     },
-  //   );
-  // }
 }

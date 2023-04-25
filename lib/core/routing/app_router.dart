@@ -24,6 +24,6 @@ class AppRouter extends gr.$AppRouter {
         ),
         AutoRoute(
           page: gr.OTPRoute.page,
-        )
+        ),
       ];
 }
