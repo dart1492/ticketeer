@@ -7,8 +7,8 @@
             "start" : "Почати"
         },
         "profile" : {
-            "done-change-username" : "Done",
-            "phone-text" : "Phone number:",
+            "done-change-username" : "Готово",
+            "phone-text" : "Номер телефону:",
             "hello-text" : "Привіт,",
             "change-username" : "Змінити ім'я",
             "choose-theme" : "Тема:",
