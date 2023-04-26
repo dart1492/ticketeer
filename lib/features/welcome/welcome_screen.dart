@@ -5,11 +5,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:ticketeer/core/components/custom_button.dart';
 import 'package:ticketeer/core/components/feature_badge.dart';
+import 'package:ticketeer/core/components/stacked_gradient.dart';
 import 'package:ticketeer/core/routing/app_router.gr.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
 import 'package:ticketeer/features/welcome/components/movies_carousel.dart';
-import 'package:ticketeer/features/welcome/components/stacked_gradient.dart';
 
 @RoutePage()
 

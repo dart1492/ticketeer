@@ -16,6 +16,8 @@ class CustomTextField extends StatelessWidget {
 
   final FocusNode? focusNode;
 
+  final Widget? prefixIcon;
+
   /// Stylized textfield
   const CustomTextField({
     super.key,
@@ -24,6 +26,7 @@ class CustomTextField extends StatelessWidget {
     this.contentPadding,
     this.controller,
     this.focusNode,
+    this.prefixIcon,
   });
 
   @override
@@ -39,6 +42,7 @@ class CustomTextField extends StatelessWidget {
       cursorColor: colors.accents.blue,
       style: open.s16.copyWith(color: colors.fonts.main),
       decoration: InputDecoration(
+        prefixIcon: prefixIcon,
         contentPadding: contentPadding ??
             const EdgeInsets.symmetric(
               vertical: 5,

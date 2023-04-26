@@ -121,7 +121,9 @@ class ProfileScreen extends StatelessWidget {
                                     ),
                                   ),
                                   Text(
-                                    dateTimeConverter(state.user.createdAt),
+                                    DateTimeHelper.displayDateTimeString(
+                                      state.user.createdAt,
+                                    ),
                                     style: open.s18.copyWith(
                                       color: colors.accents.blue,
                                     ),

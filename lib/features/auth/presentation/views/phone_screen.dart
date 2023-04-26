@@ -6,6 +6,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:ticketeer/core/components/custom_button.dart';
 import 'package:ticketeer/core/components/custom_toasts.dart';
 import 'package:ticketeer/core/components/feature_badge.dart';
+import 'package:ticketeer/core/components/stacked_gradient.dart';
 import 'package:ticketeer/core/routing/app_router.gr.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
@@ -13,7 +14,6 @@ import 'package:ticketeer/features/auth/presentation/cubits/phone_cubit/phone_cu
 import 'package:ticketeer/features/auth/presentation/cubits/phone_cubit/phone_state.dart';
 import 'package:ticketeer/features/auth/presentation/views/components/error_box.dart';
 import 'package:ticketeer/features/auth/presentation/views/components/phone_field.dart';
-import 'package:ticketeer/features/welcome/components/stacked_gradient.dart';
 import 'package:ticketeer/locator.dart';
 
 /// This screen contains textfield for a phone number.

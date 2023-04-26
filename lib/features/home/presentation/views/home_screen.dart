@@ -1,7 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
+import 'package:ticketeer/features/home/presentation/cubits/cubit/home_cubit.dart';
+import 'package:ticketeer/features/home/presentation/cubits/cubit/home_state.dart';
+import 'package:ticketeer/features/home/presentation/views/components/date_list_view.dart';
+import 'package:ticketeer/features/home/presentation/views/components/movie_search_field.dart';
+import 'package:ticketeer/locator.dart';
 
 @RoutePage()
 
@@ -15,14 +21,51 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
 
-    return Scaffold(
-      backgroundColor: colors.backgrounds.main,
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.light.copyWith(
-          statusBarColor: colors.backgrounds.main,
-        ),
-        child: const Center(
-          child: Text("Home"),
+    return BlocProvider(
+      create: (context) => sl<HomeCubit>()..getMovies(),
+      child: Scaffold(
+        backgroundColor: colors.backgrounds.main,
+        body: AnnotatedRegion<SystemUiOverlayStyle>(
+          value: SystemUiOverlayStyle.light.copyWith(
+            statusBarColor: colors.backgrounds.main,
+          ),
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+              child: Column(
+                children: [
+                  const MovieSearchField(),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const DateListView(),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Expanded(
+                    child: BlocBuilder<HomeCubit, HomeState>(
+                      builder: (context, state) {
+                        if (state.isLoading) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        } else {
+                          return ListView.builder(
+                            itemCount: state.movies.length,
+                            itemBuilder: (context, index) {
+                              return Text(
+                                state.movies[index].name,
+                              );
+                            },
+                          );
+                        }
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );

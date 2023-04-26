@@ -47,6 +47,7 @@ class ChangeNameButton extends StatelessWidget {
               CustomButton(
                 onTap: () {
                   context.read<ProfileCubit>().abortEditUsername();
+                  FocusScope.of(context).unfocus();
                 },
                 color: colors.components.blocks.background,
                 border: Border.all(

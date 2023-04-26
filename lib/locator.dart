@@ -9,6 +9,7 @@ import 'package:ticketeer/features/auth/data/token_datasource.dart';
 import 'package:ticketeer/features/auth/data/token_repository_impl.dart';
 import 'package:ticketeer/features/auth/domain/repositories/token_repository.dart';
 import 'package:ticketeer/features/auth/injection.dart';
+import 'package:ticketeer/features/home/injection.dart';
 import 'package:ticketeer/features/localization/data/localization_datasource.dart';
 import 'package:ticketeer/features/localization/data/localization_repository_impl.dart';
 import 'package:ticketeer/features/localization/domain/localization_repository.dart';
@@ -67,6 +68,7 @@ Future<void> setupLocator() async {
 
   themeDependencyInjection();
   authDependencyInjection();
+  homeDependencyInjection();
   userTicketsDependencyInjection();
   profileDependencyInjection();
 }

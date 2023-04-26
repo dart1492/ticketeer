@@ -40,6 +40,7 @@ class App extends StatelessWidget {
                 return const CircularProgressIndicator();
               } else {
                 return MaterialApp.router(
+                  debugShowCheckedModeBanner: false,
                   builder: BotToastInit(),
                   locale: context.locale,
                   supportedLocales: context.supportedLocales,

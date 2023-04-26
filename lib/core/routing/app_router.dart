@@ -11,7 +11,11 @@ class AppRouter extends gr.$AppRouter {
         AutoRoute(
           page: gr.MainBottomBarRoute.page,
           children: [
-            AutoRoute(page: gr.HomeRoute.page),
+            AutoRoute(
+              page: gr.HomeRoute.page,
+              maintainState: false,
+              keepHistory: false,
+            ),
             AutoRoute(page: gr.ProfileRoute.page),
             AutoRoute(page: gr.UserTicketsRoute.page),
           ],
