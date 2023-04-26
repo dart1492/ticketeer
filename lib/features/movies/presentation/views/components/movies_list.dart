@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/features/movies/presentation/cubits/home_movies_cubit/home_movies_cubit.dart';
 import 'package:ticketeer/features/movies/presentation/cubits/home_movies_cubit/home_movies_state.dart';
+import 'package:ticketeer/features/movies/presentation/views/components/movie_preview_shimmer.dart';
 import 'package:ticketeer/features/movies/presentation/views/components/movie_preview_tile.dart';
 
 /// List of movies, that gets shown on the screen
@@ -18,10 +19,7 @@ class MoviesList extends StatelessWidget {
       child: BlocBuilder<HomeMoviesCubit, HomeMoviesState>(
         builder: (context, state) {
           if (state.isLoading) {
-            return const Center(
-              // TODO: IMPLEMENT SHIMMER LOADING FEATURE
-              child: CircularProgressIndicator(),
-            );
+            return const MoviesListLoader();
           } else if (state.movies.isEmpty) {
             return const Text("No movies...");
           } else {
