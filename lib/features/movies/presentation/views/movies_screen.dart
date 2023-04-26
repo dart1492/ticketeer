@@ -3,27 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
-import 'package:ticketeer/features/home/presentation/cubits/cubit/home_cubit.dart';
-import 'package:ticketeer/features/home/presentation/cubits/cubit/home_state.dart';
-import 'package:ticketeer/features/home/presentation/views/components/date_list_view.dart';
-import 'package:ticketeer/features/home/presentation/views/components/movie_search_field.dart';
-import 'package:ticketeer/features/home/presentation/views/components/movies_list.dart';
+import 'package:ticketeer/features/movies/presentation/cubits/home_movies_cubit/home_movies_cubit.dart';
+import 'package:ticketeer/features/movies/presentation/views/components/date_list_view.dart';
+import 'package:ticketeer/features/movies/presentation/views/components/movie_search_field.dart';
+import 'package:ticketeer/features/movies/presentation/views/components/movies_list.dart';
 import 'package:ticketeer/locator.dart';
 
 @RoutePage()
 
 /// Home screen where movies are shown, search and ticket purchase happens here
-class HomeScreen extends StatelessWidget {
+class MoviesScreen extends StatelessWidget {
   /// Home screen where movies are shown, search and ticket purchase happens
   /// here
-  const HomeScreen({super.key});
+  const MoviesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
 
     return BlocProvider(
-      create: (context) => sl<HomeCubit>()..getMovies(),
+      create: (context) => sl<HomeMoviesCubit>()..getMovies(),
       child: Scaffold(
         backgroundColor: colors.backgrounds.main,
         body: AnnotatedRegion<SystemUiOverlayStyle>(

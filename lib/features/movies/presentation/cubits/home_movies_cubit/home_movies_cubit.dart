@@ -1,18 +1,18 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ticketeer/features/home/domain/repositories/movies_repository.dart';
-import 'package:ticketeer/features/home/presentation/cubits/cubit/home_state.dart';
+import 'package:ticketeer/features/movies/domain/repositories/movies_repository.dart';
+import 'package:ticketeer/features/movies/presentation/cubits/home_movies_cubit/home_movies_state.dart';
 
 /// Cubit that is responsible for getting movies -
 /// based on the input of a search field or just first random ones
-class HomeCubit extends Cubit<HomeState> {
+class HomeMoviesCubit extends Cubit<HomeMoviesState> {
   /// Movies repository
   final MoviesRepository repo;
 
   /// Cubit that is responsible for getting movies -
   /// based on the input of a search field or just first random ones
-  HomeCubit(this.repo)
+  HomeMoviesCubit(this.repo)
       : super(
-          HomeState(
+          HomeMoviesState(
             isLoading: false,
             movies: [],
             queryText: '',

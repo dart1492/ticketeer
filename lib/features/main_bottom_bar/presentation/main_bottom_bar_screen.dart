@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:iconsax/iconsax.dart'; // <------------ import iconsax
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
@@ -28,7 +29,7 @@ class MainBottomBarScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: colors.backgrounds.main,
       routes: const [
-        HomeRoute(),
+        MoviesRoute(),
         UserTicketsRoute(),
         ProfileRoute(),
       ],
@@ -43,7 +44,7 @@ class MainBottomBarScreen extends StatelessWidget {
           items: [
             SalomonBottomBarItem(
               icon: const Icon(
-                Iconsax.house,
+                Iconsax.video,
                 size: 30,
               ),
               title: Text(

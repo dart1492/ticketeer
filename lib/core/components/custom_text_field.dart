@@ -18,6 +18,10 @@ class CustomTextField extends StatelessWidget {
 
   final Widget? prefixIcon;
 
+  final BorderRadius? borderRadius;
+
+  final String? labelText;
+
   /// Stylized textfield
   const CustomTextField({
     super.key,
@@ -27,6 +31,8 @@ class CustomTextField extends StatelessWidget {
     this.controller,
     this.focusNode,
     this.prefixIcon,
+    this.borderRadius,
+    this.labelText,
   });
 
   @override
@@ -42,6 +48,7 @@ class CustomTextField extends StatelessWidget {
       cursorColor: colors.accents.blue,
       style: open.s16.copyWith(color: colors.fonts.main),
       decoration: InputDecoration(
+        labelText: labelText,
         prefixIcon: prefixIcon,
         contentPadding: contentPadding ??
             const EdgeInsets.symmetric(
@@ -49,24 +56,26 @@ class CustomTextField extends StatelessWidget {
               horizontal: 10,
             ),
         floatingLabelBehavior: FloatingLabelBehavior.never,
-        labelStyle: open.s14.copyWith(color: colors.fonts.secondary),
+        labelStyle: open.s16.copyWith(color: colors.fonts.secondary),
         fillColor: colors.components.blocks.background,
         filled: true,
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: colors.components.blocks.border,
           ),
-          borderRadius: const BorderRadius.vertical(
-            top: Radius.circular(10),
-          ),
+          borderRadius: borderRadius ??
+              BorderRadius.circular(
+                10,
+              ),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: colors.accents.blue,
           ),
-          borderRadius: const BorderRadius.vertical(
-            top: Radius.circular(10),
-          ),
+          borderRadius: borderRadius ??
+              BorderRadius.circular(
+                10,
+              ),
         ),
       ),
     );

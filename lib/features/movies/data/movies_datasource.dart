@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:ticketeer/features/home/data/models/movie_model.dart';
-import 'package:ticketeer/features/home/domain/entities/movie.dart';
+import 'package:ticketeer/features/movies/data/models/movie_model.dart';
+import 'package:ticketeer/features/movies/domain/entities/movie.dart';
 
 /// Datasource that interacts with the api
 abstract class MoviesDatasource {

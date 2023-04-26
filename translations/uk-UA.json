@@ -29,11 +29,15 @@
         "otp" : {
             "description" : "Одноразовий пароль:",
             "success" : "Успішно!"
+        },
+        "movies-home" : {
+            "search" : "Пошук"
+           
         }
     },
     "components" : {
         "nav_bar" : {
-            "home" : "Дім",
+            "home" : "Фільми",
             "tickets" : "Квитки",
             "profile" : "Профіль"
         }

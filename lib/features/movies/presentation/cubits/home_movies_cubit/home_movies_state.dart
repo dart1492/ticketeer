@@ -1,9 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
-import 'package:ticketeer/features/home/domain/entities/movie.dart';
+import 'package:ticketeer/features/movies/domain/entities/movie.dart';
 
 /// State when the list of movies is loaded
-class HomeState {
+class HomeMoviesState {
   /// movies list
   final List<Movie> movies;
 
@@ -17,20 +17,20 @@ class HomeState {
   bool isLoading;
 
   /// State when the list of movies is loaded
-  HomeState({
+  HomeMoviesState({
     required this.movies,
     required this.queryText,
     required this.queryDate,
     required this.isLoading,
   });
 
-  HomeState copyWith({
+  HomeMoviesState copyWith({
     List<Movie>? movies,
     String? queryText,
     DateTime? queryDate,
     bool? isLoading,
   }) {
-    return HomeState(
+    return HomeMoviesState(
       movies: movies ?? this.movies,
       queryText: queryText ?? this.queryText,
       queryDate: queryDate ?? this.queryDate,

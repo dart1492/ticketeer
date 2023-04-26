@@ -1,7 +1,7 @@
 import 'package:ticketeer/core/error/request_handler.dart';
-import 'package:ticketeer/features/home/data/movies_datasource.dart';
-import 'package:ticketeer/features/home/domain/entities/movie.dart';
-import 'package:ticketeer/features/home/domain/repositories/movies_repository.dart';
+import 'package:ticketeer/features/movies/data/movies_datasource.dart';
+import 'package:ticketeer/features/movies/domain/entities/movie.dart';
+import 'package:ticketeer/features/movies/domain/repositories/movies_repository.dart';
 
 /// Implementation of the movies datasource
 class MoviesRepositoryImpl extends MoviesRepository {

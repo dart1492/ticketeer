@@ -1,12 +1,11 @@
-import 'dart:async';
-
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:ticketeer/core/components/custom_text_field.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/util/debounce.dart';
-import 'package:ticketeer/features/home/presentation/cubits/cubit/home_cubit.dart';
+import 'package:ticketeer/features/movies/presentation/cubits/home_movies_cubit/home_movies_cubit.dart';
 
 /// Search field for filtering movies by name
 class MovieSearchField extends StatefulWidget {
@@ -43,7 +42,7 @@ class _MovieSearchFieldState extends State<MovieSearchField> {
 
   void _debounceGetMovies(String text) {
     _debouncer(() {
-      context.read<HomeCubit>().getMoviesText(text);
+      context.read<HomeMoviesCubit>().getMoviesText(text);
     });
   }
 
@@ -59,6 +58,7 @@ class _MovieSearchFieldState extends State<MovieSearchField> {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
 
     return CustomTextField(
+      labelText: "screens.movies-home.search".tr(),
       contentPadding: const EdgeInsets.symmetric(
         vertical: 15,
         horizontal: 5,

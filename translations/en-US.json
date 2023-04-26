@@ -30,7 +30,8 @@
             "description" : "One-Time-Password",
             "success" : "Success"
         },
-        "home" : {
+        "movies-home" : {
+            "search" : "Search"
            
         }
 
@@ -41,7 +42,7 @@
 
     "components" : {
         "nav_bar" : {
-            "home" : "Home",
+            "home" : "Movies",
             "tickets" : "Tickets",
             "profile" : "Profile"
         }

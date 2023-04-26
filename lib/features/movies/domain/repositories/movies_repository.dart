@@ -1,5 +1,5 @@
 import 'package:ticketeer/core/error/request_handler.dart';
-import 'package:ticketeer/features/home/domain/entities/movie.dart';
+import 'package:ticketeer/features/movies/domain/entities/movie.dart';
 
 /// Repository that describes interactions to retrieve
 abstract class MoviesRepository {

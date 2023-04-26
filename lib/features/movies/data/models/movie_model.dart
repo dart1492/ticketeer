@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs
 
-import 'package:ticketeer/features/home/domain/entities/movie.dart';
+import 'package:ticketeer/features/movies/domain/entities/movie.dart';
 
 /// COncrete implementation of the Movie
 class MovieModel extends Movie {
@@ -96,8 +96,8 @@ class MovieModel extends Movie {
       name: map['name'] as String? ?? "defaultName",
       age: map['age'] as int? ?? 18,
       trailerLink: map['trailerLink'] as String? ?? "defaultLink",
-      imageLink: map['imageLink'] as String? ?? "defaultLink",
-      smallImageLink: map['smallImageLink'] as String? ?? "defaultLink",
+      imageLink: map['image'] as String? ?? "defaultLink",
+      smallImageLink: map['smallImage'] as String? ?? "defaultLink",
       originalName: map['originalName'] as String? ??
           map['name'] as String? ??
           "defaultName",
