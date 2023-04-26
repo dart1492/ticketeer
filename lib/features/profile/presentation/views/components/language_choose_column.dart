@@ -1,9 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/components/custom_button.dart';
 import 'package:ticketeer/core/constants/object_constants.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
+import 'package:ticketeer/features/home/presentation/cubits/cubit/home_cubit.dart';
 import 'package:ticketeer/features/localization/domain/localization_repository.dart';
 import 'package:ticketeer/locator.dart';
 
@@ -32,8 +34,8 @@ class LanguageChooseRow extends StatelessWidget {
               height: 40,
               onTap: () {
                 context.setLocale(englishLocale);
-
                 sl<LocalizationRepository>().setNewLocale(englishLocale);
+                context.read<HomeCubit>().close();
               },
               color: context.locale == englishLocale
                   ? colors.accents.blue.withOpacity(0.3)
@@ -70,6 +72,7 @@ class LanguageChooseRow extends StatelessWidget {
               onTap: () {
                 context.setLocale(ukrainianLocale);
                 sl<LocalizationRepository>().setNewLocale(ukrainianLocale);
+                context.read<HomeCubit>().close();
               },
             ),
           ],

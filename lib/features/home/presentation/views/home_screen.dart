@@ -7,6 +7,7 @@ import 'package:ticketeer/features/home/presentation/cubits/cubit/home_cubit.dar
 import 'package:ticketeer/features/home/presentation/cubits/cubit/home_state.dart';
 import 'package:ticketeer/features/home/presentation/views/components/date_list_view.dart';
 import 'package:ticketeer/features/home/presentation/views/components/movie_search_field.dart';
+import 'package:ticketeer/features/home/presentation/views/components/movies_list.dart';
 import 'package:ticketeer/locator.dart';
 
 @RoutePage()
@@ -33,35 +34,16 @@ class HomeScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
               child: Column(
-                children: [
-                  const MovieSearchField(),
-                  const SizedBox(
+                children: const [
+                  MovieSearchField(),
+                  SizedBox(
                     height: 10,
                   ),
-                  const DateListView(),
-                  const SizedBox(
+                  DateListView(),
+                  SizedBox(
                     height: 10,
                   ),
-                  Expanded(
-                    child: BlocBuilder<HomeCubit, HomeState>(
-                      builder: (context, state) {
-                        if (state.isLoading) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        } else {
-                          return ListView.builder(
-                            itemCount: state.movies.length,
-                            itemBuilder: (context, index) {
-                              return Text(
-                                state.movies[index].name,
-                              );
-                            },
-                          );
-                        }
-                      },
-                    ),
-                  ),
+                  MoviesList(),
                 ],
               ),
             ),

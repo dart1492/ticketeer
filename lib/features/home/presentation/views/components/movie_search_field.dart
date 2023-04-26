@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:ticketeer/core/components/custom_text_field.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
+import 'package:ticketeer/core/util/debounce.dart';
 import 'package:ticketeer/features/home/presentation/cubits/cubit/home_cubit.dart';
 
 /// Search field for filtering movies by name
@@ -21,7 +22,10 @@ class MovieSearchField extends StatefulWidget {
 class _MovieSearchFieldState extends State<MovieSearchField> {
   FocusNode node = FocusNode();
   bool isFocused = false;
-  Timer? _debounce;
+
+  final Debouncer _debouncer = Debouncer(
+    delay: const Duration(milliseconds: 800),
+  );
 
   @override
   void initState() {
@@ -38,20 +42,14 @@ class _MovieSearchFieldState extends State<MovieSearchField> {
   }
 
   void _debounceGetMovies(String text) {
-    if (_debounce?.isActive ?? false) {
-      _debounce!.cancel();
-    }
-    _debounce = Timer(
-      const Duration(milliseconds: 800),
-      () {
-        context.read<HomeCubit>().getMoviesText(text);
-      },
-    );
+    _debouncer(() {
+      context.read<HomeCubit>().getMoviesText(text);
+    });
   }
 
   @override
   void dispose() {
-    _debounce?.cancel();
+    _debouncer.cancel();
     node.dispose();
     super.dispose();
   }
@@ -61,6 +59,10 @@ class _MovieSearchFieldState extends State<MovieSearchField> {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
 
     return CustomTextField(
+      contentPadding: const EdgeInsets.symmetric(
+        vertical: 15,
+        horizontal: 5,
+      ),
       focusNode: node,
       prefixIcon: Icon(
         Iconsax.search_normal,
