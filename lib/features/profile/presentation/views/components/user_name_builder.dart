@@ -21,7 +21,7 @@ class UserName extends StatelessWidget {
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
         if (state is ProfileEditing) {
-          return NameTextField();
+          return const NameTextField();
         }
         return Text(
           (state as ProfileLoaded).user.name,

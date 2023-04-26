@@ -115,7 +115,7 @@ class ProfileScreen extends StatelessWidget {
                                     height: 20,
                                   ),
                                   Text(
-                                    "With us since:",
+                                    "$_basePath.with-us".tr(),
                                     style: open.s16.copyWith(
                                       color: colors.fonts.main,
                                     ),

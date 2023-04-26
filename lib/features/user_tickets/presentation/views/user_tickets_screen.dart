@@ -5,9 +5,9 @@ import 'package:ticketeer/core/components/custom_button.dart';
 import 'package:ticketeer/core/components/feature_badge.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
+import 'package:ticketeer/features/user_tickets/presentation/cubits/user_tickets_cubit/user_tickets_cubit.dart';
+import 'package:ticketeer/features/user_tickets/presentation/cubits/user_tickets_cubit/user_tickets_state.dart';
 import 'package:ticketeer/features/user_tickets/presentation/views/components/ticket_preview.dart';
-import 'package:ticketeer/features/user_tickets/presentation/views/cubits/user_tickets_cubit/user_tickets_cubit.dart';
-import 'package:ticketeer/features/user_tickets/presentation/views/cubits/user_tickets_cubit/user_tickets_state.dart';
 import 'package:ticketeer/locator.dart';
 
 @RoutePage()

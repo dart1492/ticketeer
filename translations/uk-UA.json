@@ -7,6 +7,7 @@
             "start" : "Почати"
         },
         "profile" : {
+            "with-us" : "З нами з:",
             "done-change-username" : "Готово",
             "abort-change-username" : "Відмінити",
             "phone-text" : "Номер телефону:",
