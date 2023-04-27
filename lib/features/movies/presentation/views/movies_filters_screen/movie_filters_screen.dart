@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:ticketeer/core/components/custom_button.dart';
+import 'package:ticketeer/core/components/custom_text_field.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
 import 'package:ticketeer/features/movies/data/models/movie_filters_model.dart';
@@ -30,6 +31,8 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
 
   late TextEditingController maxYearController;
 
+  late TextEditingController ageController;
+
   // TODO: ADD MORE FILTERS (OPTIONAL)
   @override
   void initState() {
@@ -45,6 +48,12 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
       ),
     );
 
+    ageController = TextEditingController.fromValue(
+      TextEditingValue(
+        text: widget.cubit.state.movieFilters.age.toString(),
+      ),
+    );
+
     super.initState();
   }
 
@@ -52,6 +61,7 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
   void dispose() {
     minYearController.dispose();
     maxYearController.dispose();
+    ageController.dispose();
     super.dispose();
   }
 
@@ -108,6 +118,27 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
                   maxYearController: maxYearController,
                   minYearController: minYearController,
                 ),
+                Row(
+                  children: [
+                    Text(
+                      "Age:",
+                      style: open.s18.copyWith(
+                        color: colors.fonts.main,
+                      ),
+                    ),
+                    const Expanded(child: SizedBox()),
+                    SizedBox(
+                      width: 40,
+                      child: CustomTextField(
+                        keyboardType: TextInputType.number,
+                        controller: ageController,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
                 Builder(
                   builder: (context) {
                     return CustomButton(
@@ -115,6 +146,7 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
                         final newFilters = MovieFiltersModel(
                           maxYear: int.parse(maxYearController.text),
                           minYear: int.parse(minYearController.text),
+                          age: int.parse(ageController.text),
                         );
                         context.read<HomeMoviesCubit>().getMovies(
                               movieFilters: newFilters,

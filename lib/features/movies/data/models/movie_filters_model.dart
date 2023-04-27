@@ -5,16 +5,22 @@ import 'package:ticketeer/features/movies/domain/entities/movie_filters.dart';
 /// Concrete implementation of movie filters class
 class MovieFiltersModel extends MovieFilters {
   /// Concrete implementation of movie filters class
-  MovieFiltersModel({required super.maxYear, required super.minYear});
+  MovieFiltersModel({
+    required super.maxYear,
+    required super.minYear,
+    required super.age,
+  });
 
   /// Copy with constructor
   MovieFiltersModel copyWith({
     int? minYear,
     int? maxYear,
+    int? age,
   }) {
     return MovieFiltersModel(
       minYear: minYear ?? this.minYear,
       maxYear: maxYear ?? this.maxYear,
+      age: age ?? this.age,
     );
   }
 
@@ -23,6 +29,7 @@ class MovieFiltersModel extends MovieFilters {
     return <String, dynamic>{
       'minYear': minYear,
       'maxYear': maxYear,
+      'age': age,
     };
   }
 
@@ -31,6 +38,7 @@ class MovieFiltersModel extends MovieFilters {
     return MovieFiltersModel(
       minYear: map['minYear'] as int,
       maxYear: map['maxYear'] as int,
+      age: map['age'] as int,
     );
   }
 

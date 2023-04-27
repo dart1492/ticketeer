@@ -28,8 +28,8 @@ class MoviesList extends StatelessWidget {
               itemCount: state.movies.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: width / 440,
-                mainAxisSpacing: 20,
+                childAspectRatio: width / 460,
+                mainAxisSpacing: 10,
                 crossAxisSpacing: 20,
               ),
               itemBuilder: (context, index) {

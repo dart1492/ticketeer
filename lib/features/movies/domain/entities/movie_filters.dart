@@ -7,8 +7,12 @@ class MovieFilters {
 
   /// Maximal year allowed
   int maxYear;
+
+  int age;
+
   MovieFilters({
     required this.minYear,
     required this.maxYear,
+    required this.age,
   });
 }

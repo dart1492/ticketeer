@@ -70,7 +70,7 @@ class MoviePreview extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "$parsedCountry, ${movieObj.year}",
+                      "$parsedCountry, ${movieObj.year}, ${movieObj.age}+",
                       style: open.s14.copyWith(
                         color: colors.fonts.secondary,
                       ),

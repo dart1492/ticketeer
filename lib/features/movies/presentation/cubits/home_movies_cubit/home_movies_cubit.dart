@@ -12,8 +12,11 @@ class HomeMoviesCubit extends Cubit<HomeMoviesState> {
   final MoviesRepository repo;
 
   /// Default movie filters instance
-  static final _defaultMovieFilters =
-      MovieFiltersModel(minYear: 2005, maxYear: 2023);
+  static final _defaultMovieFilters = MovieFiltersModel(
+    minYear: 2005,
+    maxYear: 2023,
+    age: 15,
+  );
 
   /// Cubit that is responsible for getting movies -
   /// based on the input of a search field or just first random ones
@@ -86,7 +89,8 @@ class HomeMoviesCubit extends Cubit<HomeMoviesState> {
     final List<Movie> resultingMovies = [];
     for (int i = 0; i < movies.length; i++) {
       if (movies[i].year < filters.maxYear &&
-          movies[i].year > filters.minYear) {
+          movies[i].year > filters.minYear &&
+          movies[i].age < filters.age) {
         resultingMovies.add(movies[i]);
       }
     }
