@@ -8,83 +8,118 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i8;
-import 'package:flutter/material.dart' as _i9;
+import 'package:auto_route/auto_route.dart' as _i10;
+import 'package:flutter/material.dart' as _i11;
+import 'package:ticketeer/core/routing/app_router.dart' as _i1;
 import 'package:ticketeer/features/auth/presentation/views/otp_screen.dart'
-    as _i1;
-import 'package:ticketeer/features/auth/presentation/views/phone_screen.dart'
     as _i2;
-import 'package:ticketeer/features/main_bottom_bar/presentation/main_bottom_bar_screen.dart'
+import 'package:ticketeer/features/auth/presentation/views/phone_screen.dart'
     as _i3;
-import 'package:ticketeer/features/movies/presentation/views/movies_screen.dart'
-    as _i7;
-import 'package:ticketeer/features/profile/presentation/views/profile_screen.dart'
+import 'package:ticketeer/features/main_bottom_bar/presentation/main_bottom_bar_screen.dart'
     as _i4;
-import 'package:ticketeer/features/user_tickets/presentation/views/user_tickets_screen.dart'
+import 'package:ticketeer/features/movies/presentation/cubits/home_movies_cubit/home_movies_cubit.dart'
+    as _i12;
+import 'package:ticketeer/features/movies/presentation/views/movies_filters_screen/movie_filters_screen.dart'
+    as _i9;
+import 'package:ticketeer/features/movies/presentation/views/movies_screen/movies_screen.dart'
+    as _i8;
+import 'package:ticketeer/features/profile/presentation/views/profile_screen.dart'
     as _i5;
-import 'package:ticketeer/features/welcome/welcome_screen.dart' as _i6;
+import 'package:ticketeer/features/user_tickets/presentation/views/user_tickets_screen.dart'
+    as _i6;
+import 'package:ticketeer/features/welcome/welcome_screen.dart' as _i7;
 
-abstract class $AppRouter extends _i8.RootStackRouter {
+abstract class $AppRouter extends _i10.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i8.PageFactory> pagesMap = {
+  final Map<String, _i10.PageFactory> pagesMap = {
+    HomeRouter.name: (routeData) {
+      return _i10.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i1.EmptyHomeMoviesScreen(),
+      );
+    },
     OTPRoute.name: (routeData) {
       final args = routeData.argsAs<OTPRouteArgs>();
-      return _i8.AutoRoutePage<dynamic>(
+      return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i1.OTPScreen(
+        child: _i2.OTPScreen(
           key: args.key,
           phoneNumber: args.phoneNumber,
         ),
       );
     },
     PhoneRoute.name: (routeData) {
-      return _i8.AutoRoutePage<dynamic>(
+      return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.PhoneScreen(),
+        child: const _i3.PhoneScreen(),
       );
     },
     MainBottomBarRoute.name: (routeData) {
-      return _i8.AutoRoutePage<dynamic>(
+      return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.MainBottomBarScreen(),
+        child: const _i4.MainBottomBarScreen(),
       );
     },
     ProfileRoute.name: (routeData) {
-      return _i8.AutoRoutePage<dynamic>(
+      return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.ProfileScreen(),
+        child: const _i5.ProfileScreen(),
       );
     },
     UserTicketsRoute.name: (routeData) {
-      return _i8.AutoRoutePage<dynamic>(
+      return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i5.UserTicketsScreen(),
+        child: const _i6.UserTicketsScreen(),
       );
     },
     WelcomeRoute.name: (routeData) {
-      return _i8.AutoRoutePage<dynamic>(
+      return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.WelcomeScreen(),
+        child: const _i7.WelcomeScreen(),
       );
     },
     MoviesRoute.name: (routeData) {
-      return _i8.AutoRoutePage<dynamic>(
+      return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i7.MoviesScreen(),
+        child: const _i8.MoviesScreen(),
+      );
+    },
+    MovieFiltersRoute.name: (routeData) {
+      final args = routeData.argsAs<MovieFiltersRouteArgs>();
+      return _i10.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i9.MovieFiltersScreen(
+          key: args.key,
+          cubit: args.cubit,
+        ),
       );
     },
   };
 }
 
 /// generated route for
-/// [_i1.OTPScreen]
-class OTPRoute extends _i8.PageRouteInfo<OTPRouteArgs> {
+/// [_i1.EmptyHomeMoviesScreen]
+class HomeRouter extends _i10.PageRouteInfo<void> {
+  const HomeRouter({List<_i10.PageRouteInfo>? children})
+      : super(
+          HomeRouter.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeRouter';
+
+  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i2.OTPScreen]
+class OTPRoute extends _i10.PageRouteInfo<OTPRouteArgs> {
   OTPRoute({
-    _i9.Key? key,
+    _i11.Key? key,
     required String phoneNumber,
-    List<_i8.PageRouteInfo>? children,
+    List<_i10.PageRouteInfo>? children,
   }) : super(
           OTPRoute.name,
           args: OTPRouteArgs(
@@ -96,8 +131,8 @@ class OTPRoute extends _i8.PageRouteInfo<OTPRouteArgs> {
 
   static const String name = 'OTPRoute';
 
-  static const _i8.PageInfo<OTPRouteArgs> page =
-      _i8.PageInfo<OTPRouteArgs>(name);
+  static const _i10.PageInfo<OTPRouteArgs> page =
+      _i10.PageInfo<OTPRouteArgs>(name);
 }
 
 class OTPRouteArgs {
@@ -106,7 +141,7 @@ class OTPRouteArgs {
     required this.phoneNumber,
   });
 
-  final _i9.Key? key;
+  final _i11.Key? key;
 
   final String phoneNumber;
 
@@ -117,9 +152,9 @@ class OTPRouteArgs {
 }
 
 /// generated route for
-/// [_i2.PhoneScreen]
-class PhoneRoute extends _i8.PageRouteInfo<void> {
-  const PhoneRoute({List<_i8.PageRouteInfo>? children})
+/// [_i3.PhoneScreen]
+class PhoneRoute extends _i10.PageRouteInfo<void> {
+  const PhoneRoute({List<_i10.PageRouteInfo>? children})
       : super(
           PhoneRoute.name,
           initialChildren: children,
@@ -127,13 +162,13 @@ class PhoneRoute extends _i8.PageRouteInfo<void> {
 
   static const String name = 'PhoneRoute';
 
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
+  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i3.MainBottomBarScreen]
-class MainBottomBarRoute extends _i8.PageRouteInfo<void> {
-  const MainBottomBarRoute({List<_i8.PageRouteInfo>? children})
+/// [_i4.MainBottomBarScreen]
+class MainBottomBarRoute extends _i10.PageRouteInfo<void> {
+  const MainBottomBarRoute({List<_i10.PageRouteInfo>? children})
       : super(
           MainBottomBarRoute.name,
           initialChildren: children,
@@ -141,13 +176,13 @@ class MainBottomBarRoute extends _i8.PageRouteInfo<void> {
 
   static const String name = 'MainBottomBarRoute';
 
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
+  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i4.ProfileScreen]
-class ProfileRoute extends _i8.PageRouteInfo<void> {
-  const ProfileRoute({List<_i8.PageRouteInfo>? children})
+/// [_i5.ProfileScreen]
+class ProfileRoute extends _i10.PageRouteInfo<void> {
+  const ProfileRoute({List<_i10.PageRouteInfo>? children})
       : super(
           ProfileRoute.name,
           initialChildren: children,
@@ -155,13 +190,13 @@ class ProfileRoute extends _i8.PageRouteInfo<void> {
 
   static const String name = 'ProfileRoute';
 
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
+  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i5.UserTicketsScreen]
-class UserTicketsRoute extends _i8.PageRouteInfo<void> {
-  const UserTicketsRoute({List<_i8.PageRouteInfo>? children})
+/// [_i6.UserTicketsScreen]
+class UserTicketsRoute extends _i10.PageRouteInfo<void> {
+  const UserTicketsRoute({List<_i10.PageRouteInfo>? children})
       : super(
           UserTicketsRoute.name,
           initialChildren: children,
@@ -169,13 +204,13 @@ class UserTicketsRoute extends _i8.PageRouteInfo<void> {
 
   static const String name = 'UserTicketsRoute';
 
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
+  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i6.WelcomeScreen]
-class WelcomeRoute extends _i8.PageRouteInfo<void> {
-  const WelcomeRoute({List<_i8.PageRouteInfo>? children})
+/// [_i7.WelcomeScreen]
+class WelcomeRoute extends _i10.PageRouteInfo<void> {
+  const WelcomeRoute({List<_i10.PageRouteInfo>? children})
       : super(
           WelcomeRoute.name,
           initialChildren: children,
@@ -183,13 +218,13 @@ class WelcomeRoute extends _i8.PageRouteInfo<void> {
 
   static const String name = 'WelcomeRoute';
 
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
+  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i7.MoviesScreen]
-class MoviesRoute extends _i8.PageRouteInfo<void> {
-  const MoviesRoute({List<_i8.PageRouteInfo>? children})
+/// [_i8.MoviesScreen]
+class MoviesRoute extends _i10.PageRouteInfo<void> {
+  const MoviesRoute({List<_i10.PageRouteInfo>? children})
       : super(
           MoviesRoute.name,
           initialChildren: children,
@@ -197,5 +232,43 @@ class MoviesRoute extends _i8.PageRouteInfo<void> {
 
   static const String name = 'MoviesRoute';
 
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
+  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i9.MovieFiltersScreen]
+class MovieFiltersRoute extends _i10.PageRouteInfo<MovieFiltersRouteArgs> {
+  MovieFiltersRoute({
+    _i11.Key? key,
+    required _i12.HomeMoviesCubit cubit,
+    List<_i10.PageRouteInfo>? children,
+  }) : super(
+          MovieFiltersRoute.name,
+          args: MovieFiltersRouteArgs(
+            key: key,
+            cubit: cubit,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'MovieFiltersRoute';
+
+  static const _i10.PageInfo<MovieFiltersRouteArgs> page =
+      _i10.PageInfo<MovieFiltersRouteArgs>(name);
+}
+
+class MovieFiltersRouteArgs {
+  const MovieFiltersRouteArgs({
+    this.key,
+    required this.cubit,
+  });
+
+  final _i11.Key? key;
+
+  final _i12.HomeMoviesCubit cubit;
+
+  @override
+  String toString() {
+    return 'MovieFiltersRouteArgs{key: $key, cubit: $cubit}';
+  }
 }

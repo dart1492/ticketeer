@@ -42,7 +42,7 @@ class _MovieSearchFieldState extends State<MovieSearchField> {
 
   void _debounceGetMovies(String text) {
     _debouncer(() {
-      context.read<HomeMoviesCubit>().getMoviesText(text);
+      context.read<HomeMoviesCubit>().getMovies(queryText: text);
     });
   }
 

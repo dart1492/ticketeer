@@ -22,6 +22,8 @@ class CustomTextField extends StatelessWidget {
 
   final String? labelText;
 
+  final TextInputType? keyboardType;
+
   /// Stylized textfield
   const CustomTextField({
     super.key,
@@ -33,6 +35,7 @@ class CustomTextField extends StatelessWidget {
     this.prefixIcon,
     this.borderRadius,
     this.labelText,
+    this.keyboardType,
   });
 
   @override
@@ -40,6 +43,7 @@ class CustomTextField extends StatelessWidget {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
 
     return TextField(
+      keyboardType: keyboardType,
       focusNode: focusNode,
       cursorWidth: 1,
       controller: controller,

@@ -4,9 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/features/movies/presentation/cubits/home_movies_cubit/home_movies_cubit.dart';
-import 'package:ticketeer/features/movies/presentation/views/components/date_list_view.dart';
-import 'package:ticketeer/features/movies/presentation/views/components/movie_search_field.dart';
-import 'package:ticketeer/features/movies/presentation/views/components/movies_list.dart';
+import 'package:ticketeer/features/movies/presentation/views/movies_screen/components/filters_button.dart';
+import 'package:ticketeer/features/movies/presentation/views/movies_screen/components/movie_search_field.dart';
+import 'package:ticketeer/features/movies/presentation/views/movies_screen/components/movies_list.dart';
 import 'package:ticketeer/locator.dart';
 
 @RoutePage()
@@ -33,12 +33,13 @@ class MoviesScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   MovieSearchField(),
                   SizedBox(
                     height: 10,
                   ),
-                  DateListView(),
+                  FiltersButton(),
                   SizedBox(
                     height: 10,
                   ),

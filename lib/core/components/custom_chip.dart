@@ -13,6 +13,12 @@ class CustomChip extends StatelessWidget {
   /// if this chip is selected
   final bool isSelected;
 
+  /// optional height of the chip
+  final double? height;
+
+  /// Optional width of the chip
+  final double? width;
+
   /// Custom chip widget - it can act like a
   /// button or just a static info display widget
   const CustomChip({
@@ -20,12 +26,16 @@ class CustomChip extends StatelessWidget {
     required this.child,
     this.onTap,
     required this.isSelected,
+    this.height,
+    this.width,
   });
 
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
     return AnimatedContainer(
+      height: height,
+      width: width,
       duration: const Duration(milliseconds: 300),
       decoration: BoxDecoration(
         color: colors.components.blocks.background,

@@ -9,6 +9,7 @@ void homeDependencyInjection() {
   sl.registerLazySingleton<MoviesDatasource>(
     () => MoviesDatasourceImpl(
       sl(),
+      sl(),
     ),
   );
 

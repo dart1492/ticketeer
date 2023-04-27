@@ -10,12 +10,20 @@ class AppRouter extends gr.$AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(
           page: gr.MainBottomBarRoute.page,
-          maintainState: false,
+          maintainState: true,
           children: [
             AutoRoute(
-              page: gr.MoviesRoute.page,
+              page: gr.HomeRouter.page,
               maintainState: false,
-              keepHistory: false,
+              children: [
+                AutoRoute(
+                  page: gr.MoviesRoute.page,
+                  path: '',
+                ),
+                AutoRoute(
+                  page: gr.MovieFiltersRoute.page,
+                ),
+              ],
             ),
             AutoRoute(page: gr.ProfileRoute.page),
             AutoRoute(
@@ -36,3 +44,8 @@ class AppRouter extends gr.$AppRouter {
         ),
       ];
 }
+
+@RoutePage(name: 'HomeRouter')
+
+/// Empty home page for nested navigation
+class EmptyHomeMoviesScreen extends AutoRouter {}

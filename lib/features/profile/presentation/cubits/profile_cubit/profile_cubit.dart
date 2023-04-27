@@ -70,7 +70,9 @@ class ProfileCubit extends Cubit<ProfileState> {
         ),
       );
     }, (r) {
-      emit(ProfileSuccess());
+      emit(
+        ProfileSuccess(),
+      );
       emit(
         ProfileIdle(
           user: currentUser.copyWith(name: newName),

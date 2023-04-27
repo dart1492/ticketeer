@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shimmer_animation/shimmer_animation.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
+
+// TODO: CREATE BETTER SHIMMER
 
 /// Shimmer for loading
 class MoviesListLoader extends StatelessWidget {
@@ -22,18 +24,18 @@ class MoviesListLoader extends StatelessWidget {
         crossAxisSpacing: 20,
       ),
       itemBuilder: (context, index) {
-        return Column(
-          children: [
-            Shimmer(
-              direction: const ShimmerDirection.fromLBRT(),
-              color: colors.fonts.main,
-              colorOpacity: 0.3,
-              child: const SizedBox(
-                height: 300,
-                width: 300,
-              ),
+        return SizedBox(
+          width: 100.0,
+          height: 200.0,
+          child: Shimmer.fromColors(
+            baseColor: colors.backgrounds.secondary,
+            highlightColor: colors.accents.blue,
+            child: Container(
+              color: colors.accents.blue,
+              height: 200,
+              width: 100,
             ),
-          ],
+          ),
         );
       },
     );

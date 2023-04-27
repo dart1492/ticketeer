@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/features/movies/presentation/cubits/home_movies_cubit/home_movies_cubit.dart';
 import 'package:ticketeer/features/movies/presentation/cubits/home_movies_cubit/home_movies_state.dart';
-import 'package:ticketeer/features/movies/presentation/views/components/movie_preview_shimmer.dart';
-import 'package:ticketeer/features/movies/presentation/views/components/movie_preview_tile.dart';
+import 'package:ticketeer/features/movies/presentation/views/movies_screen/components/movie_preview_shimmer.dart';
+import 'package:ticketeer/features/movies/presentation/views/movies_screen/components/movie_preview_tile.dart';
 
 /// List of movies, that gets shown on the screen
 class MoviesList extends StatelessWidget {
