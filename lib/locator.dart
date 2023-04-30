@@ -9,10 +9,11 @@ import 'package:ticketeer/features/auth/data/token_datasource.dart';
 import 'package:ticketeer/features/auth/data/token_repository_impl.dart';
 import 'package:ticketeer/features/auth/domain/repositories/token_repository.dart';
 import 'package:ticketeer/features/auth/injection.dart';
+import 'package:ticketeer/features/full_movie/injection.dart';
+import 'package:ticketeer/features/home_movies/injection.dart';
 import 'package:ticketeer/features/localization/data/localization_datasource.dart';
 import 'package:ticketeer/features/localization/data/localization_repository_impl.dart';
 import 'package:ticketeer/features/localization/domain/localization_repository.dart';
-import 'package:ticketeer/features/movies/injection.dart';
 import 'package:ticketeer/features/profile/injection.dart';
 import 'package:ticketeer/features/theme/injection.dart';
 import 'package:ticketeer/features/user_tickets/injection.dart';
@@ -71,4 +72,5 @@ Future<void> setupLocator() async {
   homeDependencyInjection();
   userTicketsDependencyInjection();
   profileDependencyInjection();
+  movieDependencyInjection();
 }

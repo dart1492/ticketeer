@@ -31,13 +31,24 @@
             "success" : "Success"
         },
         "movies-home" : {
-            "search" : "Search"
-           
+            "search" : "Search",
+            "filters-button" : "Filters",
+            "refresh-button" : "Refresh",
+            "filters-screen" : {
+                "back" : "Back",
+                "date" : "Choose date for the film session",
+                "year" : "Year:",
+                "age" : "Age:",
+                "to" : "to",
+                "save" : "Save"
+            }
+        },
+        "full-movie" : {
+            "rating" : "Rating:",
+            "starring" : "Starring:",
+            "director" : "Director:",
+            "comments" : "Comments:"
         }
-
-        
-
-
     },
 
     "components" : {

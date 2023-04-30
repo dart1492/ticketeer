@@ -31,8 +31,24 @@
             "success" : "Успішно!"
         },
         "movies-home" : {
-            "search" : "Пошук"
+            "search" : "Пошук",
+            "filters-button" : "Фільтри",
+            "refresh-button" : "Оновити",
+            "filters-screen" : {
+                "back" : "Назад",
+                "date" : "Оберіть дату сеансів:",
+                "year" : "Рік:",
+                "age" : "Вік:",
+                "to" : "до",
+                "save" : "Зберегти"
+            }
            
+        },
+        "full-movie" : {
+            "rating" : "Рейтинг:",
+            "starring" : "В ролях:",
+            "director" : "Режисер:",
+            "comments" : "Коментарі:"
         }
     },
     "components" : {
@@ -41,6 +57,7 @@
             "tickets" : "Квитки",
             "profile" : "Профіль"
         }
+  
     },
     "messages" : {
         "success" : "Успіх!"

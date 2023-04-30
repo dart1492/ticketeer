@@ -19,9 +19,18 @@ class AppRouter extends gr.$AppRouter {
                 AutoRoute(
                   page: gr.MoviesRoute.page,
                   path: '',
+                  maintainState: true,
                 ),
                 AutoRoute(
                   page: gr.MovieFiltersRoute.page,
+                ),
+                CustomRoute(
+                  page: gr.FullMovieRoute.page,
+                  transitionsBuilder: TransitionsBuilders.fadeIn,
+                ),
+                CustomRoute(
+                  page: gr.CommentsRoute.page,
+                  transitionsBuilder: TransitionsBuilders.fadeIn,
                 ),
               ],
             ),
