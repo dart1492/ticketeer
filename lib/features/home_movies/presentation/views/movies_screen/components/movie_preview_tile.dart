@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:ticketeer/core/routing/app_router.gr.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
@@ -81,26 +81,19 @@ class MoviePreview extends StatelessWidget {
                         color: colors.fonts.secondary,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Iconsax.magic_star,
-                            fill: 1.0,
-                            color: colors.accents.blue,
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            movieObj.rating,
-                            style: open.s16.w700.copyWith(
-                              color: colors.fonts.main,
-                            ),
-                          ),
-                        ],
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    RatingBarIndicator(
+                      unratedColor: colors.backgrounds.secondary,
+                      rating: double.parse(movieObj.rating),
+                      itemBuilder: (context, index) => Icon(
+                        Icons.star,
+                        color: colors.accents.blue,
                       ),
+                      itemCount: 5,
+                      itemSize: 20,
+                      direction: Axis.horizontal,
                     )
                   ],
                 ),

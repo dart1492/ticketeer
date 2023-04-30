@@ -25,7 +25,7 @@ class MainBottomBarScreen extends StatelessWidget {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
 
     return AutoTabsScaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       backgroundColor: colors.backgrounds.main,
       routes: const [
         MoviesRoute(),

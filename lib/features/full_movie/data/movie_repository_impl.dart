@@ -1,6 +1,7 @@
 import 'package:ticketeer/core/error/request_handler.dart';
 import 'package:ticketeer/features/full_movie/data/movie_datasource.dart';
 import 'package:ticketeer/features/full_movie/domain/entities/comment.dart';
+import 'package:ticketeer/features/full_movie/domain/entities/post_comment.dart';
 import 'package:ticketeer/features/full_movie/domain/repositories/movie_repository.dart';
 
 /// REpository that is responsible for creating/loading/deleting comments for movies,
@@ -27,7 +28,7 @@ class MovieRepositoryImpl extends MovieRepository {
   }
 
   @override
-  FutureFailable<void> postComment(Comment comment) {
+  FutureFailable<void> postComment(PostComment comment) {
     return RepositoryRequestHandler()(
       request: () => datasource.postComment(comment),
     );

@@ -32,6 +32,12 @@ class _BackgroundMovieImageState extends State<BackgroundMovieImage> {
   }
 
   @override
+  void dispose() {
+    trailerController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
     return YoutubePlayer(

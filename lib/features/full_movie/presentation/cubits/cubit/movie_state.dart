@@ -6,20 +6,24 @@ class MovieState {
   List<Comment> comments;
   bool isLoading;
   String? errorText;
+  int movieId;
   MovieState({
     required this.comments,
     required this.isLoading,
     this.errorText,
+    required this.movieId,
   });
 
   MovieState copyWith({
     List<Comment>? comments,
     bool? isLoading,
     String? errorText,
+    int? movieId,
   }) {
     return MovieState(
       comments: comments ?? this.comments,
       isLoading: isLoading ?? this.isLoading,
+      movieId: movieId ?? this.movieId,
     );
   }
 }

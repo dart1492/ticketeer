@@ -8,6 +8,7 @@ class CommentModel extends Comment {
     required super.author,
     required super.content,
     required super.rating,
+    required super.isMine,
   });
 
   /// Copy with constructor
@@ -16,12 +17,14 @@ class CommentModel extends Comment {
     String? author,
     String? content,
     int? rating,
+    bool? isMine,
   }) {
     return CommentModel(
       id: id ?? this.id,
       author: author ?? this.author,
       content: content ?? this.content,
       rating: rating ?? this.rating,
+      isMine: isMine ?? this.isMine,
     );
   }
 
@@ -39,9 +42,10 @@ class CommentModel extends Comment {
   factory CommentModel.fromMap(Map<String, dynamic> map) {
     return CommentModel(
       id: map['id'] as int,
-      author: map['author'] as String,
+      author: map['author'] as String? ?? "",
       content: map['content'] as String,
       rating: map['rating'] as int,
+      isMine: map["isMy"] as bool,
     );
   }
 }
