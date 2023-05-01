@@ -47,7 +47,16 @@
             "rating" : "Rating:",
             "starring" : "Starring:",
             "director" : "Director:",
-            "comments" : "Comments:"
+            "comments" : "Comments:",
+            "view-sessions" : "View available sessions",
+            "or" : "Or",
+            "read-comments" : "Read comments"
+        },
+        "comments" : {
+            "header" : "Comments:",
+            "refresh" : "Refresh",
+            "label" : "Write your comment",
+            "success" : "Comment added!"
         }
     },
 

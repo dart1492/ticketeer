@@ -24,10 +24,9 @@ class MovieFeatureChip extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         border: Border.all(
-          color: colors.accents.blue,
+          color: colors.components.blocks.border,
         ),
         borderRadius: BorderRadius.circular(10),
-        color: colors.accents.blue.withOpacity(0.5),
       ),
       child: Text(
         text,

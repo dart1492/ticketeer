@@ -48,7 +48,16 @@
             "rating" : "Рейтинг:",
             "starring" : "В ролях:",
             "director" : "Режисер:",
-            "comments" : "Коментарі:"
+            "comments" : "Коментарі:",
+            "view-sessions" : "Доступні сеанси",
+            "or" : "Або",
+            "read-comments" : "Коментарі"
+        },
+        "comments" : {
+            "header" : "Коментарі",
+            "refresh" : "Оновити",
+            "label" : "Напишіть ваш коментар",
+            "success" : "Коментар додано!"
         }
     },
     "components" : {

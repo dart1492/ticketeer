@@ -5,7 +5,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
 import 'package:ticketeer/features/full_movie/domain/entities/comment.dart';
-import 'package:ticketeer/features/full_movie/presentation/cubits/cubit/movie_cubit.dart';
+import 'package:ticketeer/features/full_movie/presentation/cubits/comments_cubit/comments_cubit.dart';
 
 /// Widget that represents the comment entity
 class CommentBlock extends StatelessWidget {
@@ -76,7 +76,7 @@ class CommentBlock extends StatelessWidget {
           if (commentObj.isMine)
             GestureDetector(
               onTap: () {
-                context.read<MovieCubit>().deleteComment(commentObj.id);
+                context.read<CommentsCubit>().deleteComment(commentObj.id);
               },
               child: Icon(
                 FeatherIcons.delete,
