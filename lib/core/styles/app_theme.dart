@@ -17,6 +17,7 @@ class AppTheme {
   /// Light theme
   static ThemeData get light {
     return ThemeData(
+      useMaterial3: true,
       extensions: <ThemeExtension<dynamic>>[
         AppColorScheme(
           accents: Accents(
@@ -49,6 +50,7 @@ class AppTheme {
   /// Dark theme
   static ThemeData get dark {
     return ThemeData(
+      useMaterial3: true,
       extensions: <ThemeExtension<AppColorScheme>>[
         AppColorScheme(
           accents: Accents(

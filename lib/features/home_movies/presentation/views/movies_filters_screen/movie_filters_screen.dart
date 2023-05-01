@@ -7,8 +7,8 @@ import 'package:ticketeer/core/components/custom_button.dart';
 import 'package:ticketeer/core/components/custom_text_field.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
-import 'package:ticketeer/features/home_movies/data/models/movie_filters_model.dart';
 import 'package:ticketeer/features/home_movies/presentation/cubits/home_movies_cubit/home_movies_cubit.dart';
+import 'package:ticketeer/features/home_movies/presentation/cubits/home_movies_cubit/home_movies_state.dart';
 import 'package:ticketeer/features/home_movies/presentation/views/movies_filters_screen/components/date_list_view.dart';
 import 'package:ticketeer/features/home_movies/presentation/views/movies_filters_screen/components/year_sort_chooser.dart';
 
@@ -79,8 +79,8 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: ListView(
+              physics: const BouncingScrollPhysics(),
               children: [
                 GestureDetector(
                   onTap: () {
@@ -142,17 +142,44 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
                 const SizedBox(
                   height: 20,
                 ),
+                Row(
+                  children: [
+                    Text(
+                      "Show only saved:",
+                      style: open.s18.copyWith(
+                        color: colors.fonts.main,
+                      ),
+                    ),
+                    const Expanded(child: SizedBox()),
+                    BlocBuilder<HomeMoviesCubit, HomeMoviesState>(
+                      builder: (context, state) {
+                        return Switch(
+                          value: state.movieFilters.isShowingSaved,
+                          onChanged: (newValue) {
+                            context.read<HomeMoviesCubit>().updateFilters(
+                                  isShowingSaved: newValue,
+                                );
+                          },
+                          inactiveTrackColor: colors.components.blocks.border,
+                          inactiveThumbColor:
+                              colors.components.blocks.background,
+                          activeColor: colors.accents.blue,
+                        );
+                      },
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
                 Builder(
                   builder: (context) {
                     return CustomButton(
                       onTap: () {
-                        final newFilters = MovieFiltersModel(
-                          maxYear: int.parse(maxYearController.text),
-                          minYear: int.parse(minYearController.text),
-                          age: int.parse(ageController.text),
-                        );
-                        context.read<HomeMoviesCubit>().getMovies(
-                              movieFilters: newFilters,
+                        context.read<HomeMoviesCubit>().updateFilters(
+                              maxYear: int.parse(maxYearController.text),
+                              minYear: int.parse(minYearController.text),
+                              age: int.parse(ageController.text),
                             );
                       },
                       padding: const EdgeInsets.symmetric(vertical: 10),

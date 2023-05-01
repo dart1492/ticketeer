@@ -35,23 +35,43 @@ class MoviesList extends StatelessWidget {
               ),
             );
           } else {
-            return GridView.builder(
-              physics: const BouncingScrollPhysics(),
-              itemCount: state.movies.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: width / 460,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 20,
-              ),
-              itemBuilder: (context, index) {
-                return MoviePreview(
-                  movieObj: state.movies[index],
-                ).animate().fadeIn(
-                      duration: const Duration(milliseconds: 300),
-                    );
-              },
-            );
+            if (!state.movieFilters.isShowingSaved) {
+              return GridView.builder(
+                physics: const BouncingScrollPhysics(),
+                itemCount: state.filteredMovies.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: width / 460,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 20,
+                ),
+                itemBuilder: (context, index) {
+                  return MoviePreview(
+                    movieObj: state.filteredMovies[index],
+                  ).animate().fadeIn(
+                        duration: const Duration(milliseconds: 300),
+                      );
+                },
+              );
+            } else {
+              return GridView.builder(
+                physics: const BouncingScrollPhysics(),
+                itemCount: state.filteredMovies.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: width / 460,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 20,
+                ),
+                itemBuilder: (context, index) {
+                  return MoviePreview(
+                    movieObj: state.filteredMovies[index],
+                  ).animate().fadeIn(
+                        duration: const Duration(milliseconds: 300),
+                      );
+                },
+              );
+            }
           }
         },
       ),

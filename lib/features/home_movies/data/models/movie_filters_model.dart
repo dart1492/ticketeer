@@ -9,46 +9,59 @@ class MovieFiltersModel extends MovieFilters {
     required super.maxYear,
     required super.minYear,
     required super.age,
+    required super.savedIndexes,
+    required super.isShowingSaved,
   });
 
-  /// Copy with constructor
+  /// copy with
   MovieFiltersModel copyWith({
     int? minYear,
     int? maxYear,
     int? age,
+    List<int>? savedIndexes,
+    bool? isShowingSaved,
   }) {
     return MovieFiltersModel(
       minYear: minYear ?? this.minYear,
       maxYear: maxYear ?? this.maxYear,
       age: age ?? this.age,
+      savedIndexes: savedIndexes ?? this.savedIndexes,
+      isShowingSaved: isShowingSaved ?? this.isShowingSaved,
     );
   }
 
-  /// To map conversion
+  /// to map conversion
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'minYear': minYear,
       'maxYear': maxYear,
       'age': age,
+      'savedIndexes': savedIndexes,
+      'isShowingSaved': isShowingSaved,
     };
   }
 
-  ///  from map conversion
+  /// From map conversion
   factory MovieFiltersModel.fromMap(Map<String, dynamic> map) {
+    final List<dynamic> savedIndexesDynamic =
+        map['savedIndexes'] as List<dynamic>;
+    final List<int> savedIndexes = [];
+    for (int i = 0; i < savedIndexesDynamic.length; i++) {
+      savedIndexes.add(savedIndexesDynamic[i] as int);
+    }
     return MovieFiltersModel(
       minYear: map['minYear'] as int,
       maxYear: map['maxYear'] as int,
       age: map['age'] as int,
+      isShowingSaved: map['isShowingSaved'] as bool,
+      savedIndexes: savedIndexes,
     );
   }
 
-  /// Converts map to json string
+  /// to json string
   String toJson() => json.encode(toMap());
 
-  /// Converts from json string to object
+  /// from json string
   factory MovieFiltersModel.fromJson(String source) =>
       MovieFiltersModel.fromMap(json.decode(source) as Map<String, dynamic>);
-
-  @override
-  String toString() => 'MovieFilters(minYear: $minYear, maxYear: $maxYear)';
 }

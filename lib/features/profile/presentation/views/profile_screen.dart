@@ -72,7 +72,8 @@ class ProfileScreen extends StatelessWidget {
                     vertical: 45,
                     horizontal: 40,
                   ),
-                  child: Column(
+                  child: ListView(
+                    physics: const BouncingScrollPhysics(),
                     children: [
                       SizedBox(
                         width: double.infinity,

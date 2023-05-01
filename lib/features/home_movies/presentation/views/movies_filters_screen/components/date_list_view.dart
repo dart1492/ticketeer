@@ -24,8 +24,9 @@ class DateListView extends StatelessWidget {
       child: BlocBuilder<HomeMoviesCubit, HomeMoviesState>(
         builder: (context, state) {
           return Wrap(
+            alignment: WrapAlignment.center,
             spacing: 10,
-            runSpacing: 10,
+            runSpacing: 15,
             children: List.generate(
               20,
               (index) {
@@ -37,8 +38,8 @@ class DateListView extends StatelessWidget {
                     state.queryDate.day.toString() == representedDay;
 
                 return CustomChip(
-                  height: 50,
-                  width: 50,
+                  height: 55,
+                  width: 55,
                   onTap: () {
                     context
                         .read<HomeMoviesCubit>()

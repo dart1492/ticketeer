@@ -8,6 +8,8 @@ class HomeMoviesState {
   /// movies list
   final List<Movie> movies;
 
+  final List<Movie> filteredMovies;
+
   /// Query text
   String queryText;
 
@@ -24,6 +26,7 @@ class HomeMoviesState {
   /// State when the list of movies is loaded
   HomeMoviesState({
     required this.movies,
+    required this.filteredMovies,
     required this.queryText,
     required this.queryDate,
     required this.isLoading,
@@ -32,14 +35,15 @@ class HomeMoviesState {
 
   HomeMoviesState copyWith({
     List<Movie>? movies,
+    List<Movie>? filteredMovies,
     String? queryText,
     DateTime? queryDate,
     bool? isLoading,
-    bool? sortByYearAscending,
     MovieFilters? movieFilters,
   }) {
     return HomeMoviesState(
       movies: movies ?? this.movies,
+      filteredMovies: filteredMovies ?? this.filteredMovies,
       queryText: queryText ?? this.queryText,
       queryDate: queryDate ?? this.queryDate,
       isLoading: isLoading ?? this.isLoading,

@@ -24,6 +24,11 @@ Future<Failure> errorHandler(Object error, Failure? defaultFailure) async {
       }
     }
 
+    if (error is Exception) {
+      print(error);
+      return Failure(errorMessage: error.toString());
+    }
+
     // NetworkInfo networkInfo = sl();
     // if (!(await networkInfo.isConnected)) {
     //   return InternetConnectionFailure();
@@ -31,6 +36,6 @@ Future<Failure> errorHandler(Object error, Failure? defaultFailure) async {
 
     return defaultFailure!;
   } catch (err) {
-    return Failure();
+    return Failure(errorMessage: err.toString());
   }
 }

@@ -15,7 +15,9 @@ class HomeMoviesCubit extends Cubit<HomeMoviesState> {
   static final _defaultMovieFilters = MovieFiltersModel(
     minYear: 2005,
     maxYear: 2023,
-    age: 15,
+    age: 18,
+    savedIndexes: [],
+    isShowingSaved: false,
   );
 
   /// Cubit that is responsible for getting movies -
@@ -25,6 +27,7 @@ class HomeMoviesCubit extends Cubit<HomeMoviesState> {
           HomeMoviesState(
             isLoading: false,
             movies: [],
+            filteredMovies: [],
             queryText: '',
             queryDate: DateTime.now(),
             movieFilters: _defaultMovieFilters,
@@ -35,44 +38,30 @@ class HomeMoviesCubit extends Cubit<HomeMoviesState> {
   Future<void> getMovies({
     String? queryText,
     DateTime? queryDate,
-    MovieFilters? movieFilters,
   }) async {
     emit(state.copyWith(isLoading: true));
-
-    if (movieFilters != null) {
-      await repo.setMovieFilters(movieFilters);
-    }
-
-    final filtersResult = await repo.getMovieFilters();
-
-    MovieFilters appliedMovieFilters = _defaultMovieFilters;
-
-    filtersResult.fold(
-      (l) => null,
-      (r) {
-        if (r == null) {
-          repo.setMovieFilters(
-            appliedMovieFilters,
-          );
-        } else {
-          appliedMovieFilters = r;
-        }
-      },
-    );
 
     final moviesResult = await repo.getMovies(
       queryText ?? state.queryText,
       queryDate ?? state.queryDate,
     );
 
+    final filterResult = await repo.getMovieFilters();
+    MovieFilters appliedFilters = _defaultMovieFilters;
+
+    filterResult.fold((l) => null, (r) {
+      appliedFilters = r ?? _defaultMovieFilters;
+    });
+
     moviesResult.fold(
       (l) => null, // TODO: IMPLEMENT ERROR HANDLING
       (r) {
         emit(
           state.copyWith(
-            movieFilters: appliedMovieFilters,
             queryDate: queryDate,
-            movies: _applyMovieFilters(r, appliedMovieFilters),
+            movies: r,
+            filteredMovies: _applyMovieFilters(r, appliedFilters),
+            movieFilters: appliedFilters,
             isLoading: false,
           ),
         );
@@ -80,18 +69,55 @@ class HomeMoviesCubit extends Cubit<HomeMoviesState> {
     );
   }
 
+  /// Set new filters for movies
+  Future<void> updateFilters({
+    int? minYear,
+    int? maxYear,
+    int? age,
+    List<int>? savedIndexes,
+    bool? isShowingSaved,
+  }) async {
+    final newFilters = (state.movieFilters as MovieFiltersModel).copyWith(
+      minYear: minYear,
+      maxYear: maxYear,
+      age: age,
+      savedIndexes: savedIndexes,
+      isShowingSaved: isShowingSaved,
+    );
+    final result = await repo.setMovieFilters(newFilters);
+    result.fold(
+      (l) => null,
+      (r) => emit(
+        state.copyWith(
+          movieFilters: newFilters,
+          filteredMovies: _applyMovieFilters(state.movies, newFilters),
+        ),
+      ),
+    );
+  }
+
   /// apply additional filtering
   /// for a list of movies that we get from the server.
   List<Movie> _applyMovieFilters(List<Movie> movies, MovieFilters filters) {
-    // movies.forEach((element) {
-    //   print(element.year);
-    // });
     final List<Movie> resultingMovies = [];
-    for (int i = 0; i < movies.length; i++) {
-      if (movies[i].year < filters.maxYear &&
-          movies[i].year > filters.minYear &&
-          movies[i].age < filters.age) {
-        resultingMovies.add(movies[i]);
+    if (filters.isShowingSaved) {
+      for (int i = 0; i < movies.length; i++) {
+        if (movies[i].year < filters.maxYear &&
+            movies[i].year > filters.minYear &&
+            movies[i].age < filters.age &&
+            filters.savedIndexes.contains(
+              movies[i].id,
+            )) {
+          resultingMovies.add(movies[i]);
+        }
+      }
+    } else {
+      for (int i = 0; i < movies.length; i++) {
+        if (movies[i].year < filters.maxYear &&
+            movies[i].year > filters.minYear &&
+            movies[i].age < filters.age) {
+          resultingMovies.add(movies[i]);
+        }
       }
     }
 
