@@ -77,16 +77,32 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
       value: widget.cubit,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: colors.backgrounds.secondary,
+          toolbarHeight: 50,
+          scrolledUnderElevation: 0.0,
+          backgroundColor: Colors.transparent,
           elevation: 0,
+          leadingWidth: 100,
           leading: GestureDetector(
             onTap: () {
               context.popRoute();
             },
-            child: Icon(
-              Icons.arrow_back_ios,
-              color: colors.accents.blue,
-              size: 25,
+            child: Container(
+              padding: const EdgeInsets.only(left: 15),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.arrow_back_ios,
+                    color: colors.accents.blue,
+                    size: 20,
+                  ),
+                  Text(
+                    "components.app-bar.back".tr(),
+                    style: open.s16.copyWith(
+                      color: colors.fonts.main,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

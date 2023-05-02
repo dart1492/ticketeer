@@ -8,7 +8,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:ticketeer/core/components/custom_toasts.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
-import 'package:ticketeer/core/util/date_time_converter.dart';
+import 'package:ticketeer/core/util/date_time_helper.dart';
 import 'package:ticketeer/features/profile/presentation/cubits/profile_cubit/profile_cubit.dart';
 import 'package:ticketeer/features/profile/presentation/cubits/profile_cubit/profile_state.dart';
 import 'package:ticketeer/features/profile/presentation/views/components/change_name_button_builder.dart';
@@ -34,7 +34,7 @@ class ProfileScreen extends StatelessWidget {
   /// Helper method to display day / month / year of creation on the screen
   static String _displayDateTimeString(DateTime dateTime) {
     // ignore: lines_longer_than_80_chars
-    return "${dateTime.day} ${DateTimeHelper.monthToShortString(dateTime.month).tr()} ${dateTime.year}";
+    return "${dateTime.day} ${DateTimeHelper.monthToFullString(dateTime.month).tr()} ${dateTime.year}";
   }
 
   bool _listenWhen(previous, current) {

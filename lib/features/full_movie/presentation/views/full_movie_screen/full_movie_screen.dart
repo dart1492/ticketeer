@@ -67,16 +67,32 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
       builder: (context, trailerPlayer) {
         return Scaffold(
           appBar: AppBar(
-            backgroundColor: colors.backgrounds.secondary,
+            toolbarHeight: 50,
+            scrolledUnderElevation: 0.0,
+            backgroundColor: Colors.transparent,
             elevation: 0,
+            leadingWidth: 100,
             leading: GestureDetector(
               onTap: () {
                 context.popRoute();
               },
-              child: Icon(
-                Icons.arrow_back_ios,
-                color: colors.accents.blue,
-                size: 25,
+              child: Container(
+                padding: const EdgeInsets.only(left: 15),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.arrow_back_ios,
+                      color: colors.accents.blue,
+                      size: 20,
+                    ),
+                    Text(
+                      "components.app-bar.back".tr(),
+                      style: open.s18.copyWith(
+                        color: colors.fonts.main,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -224,6 +240,16 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                         height: 20,
                       ),
                       CustomButton(
+                        childAlignment: Alignment.center,
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        width: double.infinity,
+                        onTap: () {
+                          context.router.push(
+                            SessionRoute(
+                              movieObj: widget.movieObj,
+                            ),
+                          );
+                        },
                         child: Text(
                           "${_basePath}view-sessions".tr(),
                           style: open.s18.copyWith(
@@ -234,18 +260,16 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Text(
-                        "${_basePath}or".tr(),
-                        style: open.s16.copyWith(
-                          color: colors.fonts.secondary,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
                       Builder(
                         builder: (context) {
                           return CustomButton(
+                            color: colors.components.blocks.background,
+                            border: Border.all(
+                              color: colors.components.blocks.border,
+                            ),
+                            childAlignment: Alignment.center,
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            width: double.infinity,
                             onTap: () {
                               context.router.push(
                                 CommentsRoute(

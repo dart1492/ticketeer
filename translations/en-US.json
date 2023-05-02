@@ -58,6 +58,12 @@
             "refresh" : "Refresh",
             "label" : "Write your comment",
             "success" : "Comment added!"
+        },
+        "all-sessions" : {
+            "starting-from" : "Starting from:",
+            "room" : "room",
+            "header" : "Available sessions for:",
+            "seats" : "Seats available:"
         }
     },
 
@@ -66,6 +72,9 @@
             "home" : "Movies",
             "tickets" : "Tickets",
             "profile" : "Profile"
+        },
+        "app-bar" : {
+            "back" : "Back"
         }
     },
 
@@ -74,7 +83,7 @@
 
     },
     
-    "months": {
+    "months_short": {
         "1": "Jan",
         "2": "Feb",
         "3": "Mar",
@@ -87,5 +96,20 @@
         "10": "Oct",
         "11": "Nov",
         "12": "Dec"
-    }
+    },
+
+    "months_full" : {
+        "1": "January",
+        "2": "February",
+        "3": "March",
+        "4": "April",
+        "5": "May",
+        "6": "June",
+        "7": "July",
+        "8": "August",
+        "9": "September",
+        "10": "October",
+        "11": "November",
+        "12": "December"
+      }
 }

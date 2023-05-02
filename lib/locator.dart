@@ -15,6 +15,7 @@ import 'package:ticketeer/features/localization/data/localization_datasource.dar
 import 'package:ticketeer/features/localization/data/localization_repository_impl.dart';
 import 'package:ticketeer/features/localization/domain/localization_repository.dart';
 import 'package:ticketeer/features/profile/injection.dart';
+import 'package:ticketeer/features/session/injection.dart';
 import 'package:ticketeer/features/theme/injection.dart';
 import 'package:ticketeer/features/user_tickets/injection.dart';
 
@@ -73,4 +74,5 @@ Future<void> setupLocator() async {
   userTicketsDependencyInjection();
   profileDependencyInjection();
   movieDependencyInjection();
+  sessionDependencyInjection();
 }

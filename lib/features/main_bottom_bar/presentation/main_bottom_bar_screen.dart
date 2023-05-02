@@ -18,7 +18,7 @@ class MainBottomBarScreen extends StatelessWidget {
   const MainBottomBarScreen({super.key});
 
   /// Base path for nav bar localization
-  static const _basePath = "components.nav_bar.";
+  static const _basePath = "components.nav-bar.";
 
   @override
   Widget build(BuildContext context) {
