@@ -17,6 +17,11 @@ class AppTheme {
   /// Light theme
   static ThemeData get light {
     return ThemeData(
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: const Color(0xFF446DFF),
+        selectionColor: const Color(0xFF446DFF).withOpacity(0.3),
+        selectionHandleColor: const Color(0xFF446DFF),
+      ),
       useMaterial3: true,
       extensions: <ThemeExtension<dynamic>>[
         AppColorScheme(
@@ -51,6 +56,11 @@ class AppTheme {
   static ThemeData get dark {
     return ThemeData(
       useMaterial3: true,
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: const Color(0xFF446DFF),
+        selectionColor: const Color(0xFF446DFF).withOpacity(0.3),
+        selectionHandleColor: const Color(0xFF446DFF),
+      ),
       extensions: <ThemeExtension<AppColorScheme>>[
         AppColorScheme(
           accents: Accents(

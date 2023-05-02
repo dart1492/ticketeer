@@ -35,6 +35,7 @@
             "filters-button" : "Фільтри",
             "refresh-button" : "Оновити",
             "filters-screen" : {
+                "show-only-saved" : "Показувати тільки збережені:",
                 "back" : "Назад",
                 "date" : "Оберіть дату сеансів:",
                 "year" : "Рік:",

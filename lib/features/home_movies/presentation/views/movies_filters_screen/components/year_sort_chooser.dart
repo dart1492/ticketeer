@@ -42,6 +42,7 @@ class YearChooser extends StatelessWidget {
               SizedBox(
                 width: 60,
                 child: CustomTextField(
+                  charLimit: 4,
                   keyboardType: TextInputType.number,
                   controller: minYearController,
                 ),
@@ -61,6 +62,7 @@ class YearChooser extends StatelessWidget {
               SizedBox(
                 width: 60,
                 child: CustomTextField(
+                  charLimit: 4,
                   keyboardType: TextInputType.number,
                   controller: maxYearController,
                 ),

@@ -49,9 +49,14 @@ class HomeMoviesCubit extends Cubit<HomeMoviesState> {
     final filterResult = await repo.getMovieFilters();
     MovieFilters appliedFilters = _defaultMovieFilters;
 
-    filterResult.fold((l) => null, (r) {
-      appliedFilters = r ?? _defaultMovieFilters;
-    });
+    filterResult.fold(
+      (l) => null,
+      (r) {
+        if (r != null) {
+          appliedFilters = r;
+        }
+      },
+    );
 
     moviesResult.fold(
       (l) => null, // TODO: IMPLEMENT ERROR HANDLING

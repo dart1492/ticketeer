@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:ticketeer/core/components/custom_button.dart';
 import 'package:ticketeer/core/components/custom_text_field.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
@@ -35,7 +34,8 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
 
   late TextEditingController ageController;
 
-  // TODO: ADD MORE FILTERS (OPTIONAL)
+  late bool isShowingOnlySaved;
+
   @override
   void initState() {
     minYearController = TextEditingController.fromValue(
@@ -56,6 +56,8 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
       ),
     );
 
+    isShowingOnlySaved = widget.cubit.state.movieFilters.isShowingSaved;
+
     super.initState();
   }
 
@@ -74,6 +76,20 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
     return BlocProvider.value(
       value: widget.cubit,
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: colors.backgrounds.secondary,
+          elevation: 0,
+          leading: GestureDetector(
+            onTap: () {
+              context.popRoute();
+            },
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: colors.accents.blue,
+              size: 25,
+            ),
+          ),
+        ),
         resizeToAvoidBottomInset: false,
         backgroundColor: colors.backgrounds.main,
         body: SafeArea(
@@ -82,29 +98,6 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
             child: ListView(
               physics: const BouncingScrollPhysics(),
               children: [
-                GestureDetector(
-                  onTap: () {
-                    context.popRoute();
-                  },
-                  child: Row(
-                    children: [
-                      Icon(
-                        Iconsax.backward,
-                        size: 25,
-                        color: colors.accents.blue,
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "${_basePath}back".tr(),
-                        style: open.s18.copyWith(
-                          color: colors.fonts.main,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
                 const SizedBox(
                   height: 10,
                 ),
@@ -116,6 +109,9 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
                   height: 10,
                 ),
                 const DateListView(),
+                const SizedBox(
+                  height: 10,
+                ),
                 YearChooser(
                   maxYearController: maxYearController,
                   minYearController: minYearController,
@@ -145,7 +141,7 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
                 Row(
                   children: [
                     Text(
-                      "Show only saved:",
+                      "${_basePath}show-only-saved".tr(),
                       style: open.s18.copyWith(
                         color: colors.fonts.main,
                       ),
@@ -154,11 +150,11 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
                     BlocBuilder<HomeMoviesCubit, HomeMoviesState>(
                       builder: (context, state) {
                         return Switch(
-                          value: state.movieFilters.isShowingSaved,
+                          value: isShowingOnlySaved,
                           onChanged: (newValue) {
-                            context.read<HomeMoviesCubit>().updateFilters(
-                                  isShowingSaved: newValue,
-                                );
+                            setState(() {
+                              isShowingOnlySaved = newValue;
+                            });
                           },
                           inactiveTrackColor: colors.components.blocks.border,
                           inactiveThumbColor:
@@ -177,6 +173,7 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
                     return CustomButton(
                       onTap: () {
                         context.read<HomeMoviesCubit>().updateFilters(
+                              isShowingSaved: isShowingOnlySaved,
                               maxYear: int.parse(maxYearController.text),
                               minYear: int.parse(minYearController.text),
                               age: int.parse(ageController.text),

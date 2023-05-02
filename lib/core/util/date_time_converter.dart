@@ -16,12 +16,6 @@ class DateTimeHelper {
     12: 'months.12',
   };
 
-  /// Helper method to convert DateTime object into
-  /// the string to display it on the screen
-  static String displayDateTimeString(DateTime dateTime) {
-    return "${dateTime.day}.${dateTime.month}.${dateTime.year}";
-  }
-
   /// Convert month number into a short string form
   static String monthToShortString(int month) {
     return _monthsDict[month] ?? '';

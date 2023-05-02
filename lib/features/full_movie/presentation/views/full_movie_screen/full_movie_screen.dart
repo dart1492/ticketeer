@@ -6,14 +6,15 @@ import 'package:ticketeer/core/components/custom_button.dart';
 import 'package:ticketeer/core/routing/app_router.gr.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
-import 'package:ticketeer/features/full_movie/presentation/views/full_movie_screen/components/background_movie_image.dart';
+
 import 'package:ticketeer/features/full_movie/presentation/views/full_movie_screen/components/film_feature_chip.dart';
 import 'package:ticketeer/features/home_movies/domain/entities/movie.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 /// Screen where user can view full info about the movie
 /// and comments, attached to it
 @RoutePage()
-class FullMovieScreen extends StatelessWidget {
+class FullMovieScreen extends StatefulWidget {
   /// Movie obj, represented in the UI
   final Movie movieObj;
 
@@ -21,8 +22,34 @@ class FullMovieScreen extends StatelessWidget {
   /// and comments, attached to it
   const FullMovieScreen({super.key, required this.movieObj});
 
+  @override
+  State<FullMovieScreen> createState() => _FullMovieScreenState();
+}
+
+class _FullMovieScreenState extends State<FullMovieScreen> {
   /// Base path for welcome screen localization
   static const _basePath = "screens.full-movie.";
+
+  late YoutubePlayerController _trailerController;
+
+  @override
+  void initState() {
+    _trailerController = YoutubePlayerController(
+      initialVideoId:
+          YoutubePlayer.convertUrlToId(widget.movieObj.trailerLink) ?? "",
+      flags: const YoutubePlayerFlags(
+        autoPlay: false,
+        mute: false,
+      ),
+    );
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _trailerController.dispose();
+    super.dispose();
+  }
 
   List<String> _splitSingleStrings(String genresString) {
     return genresString.split(',').map((genre) => genre.trim()).toList();
@@ -32,26 +59,30 @@ class FullMovieScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
 
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: colors.backgrounds.secondary,
-        elevation: 0,
-        leading: GestureDetector(
-          onTap: () {
-            context.popRoute();
-          },
-          child: Icon(
-            Icons.arrow_back_ios,
-            color: colors.accents.blue,
-            size: 25,
-          ),
-        ),
+    return YoutubePlayerBuilder(
+      player: YoutubePlayer(
+        controller: _trailerController,
+        progressIndicatorColor: colors.accents.blue,
       ),
-      backgroundColor: colors.backgrounds.main,
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Padding(
+      builder: (context, trailerPlayer) {
+        return Scaffold(
+          appBar: AppBar(
+            backgroundColor: colors.backgrounds.secondary,
+            elevation: 0,
+            leading: GestureDetector(
+              onTap: () {
+                context.popRoute();
+              },
+              child: Icon(
+                Icons.arrow_back_ios,
+                color: colors.accents.blue,
+                size: 25,
+              ),
+            ),
+          ),
+          backgroundColor: colors.backgrounds.main,
+          body: SafeArea(
+            child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: ListView(
                 physics: const BouncingScrollPhysics(),
@@ -59,13 +90,10 @@ class FullMovieScreen extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),
-                  BackgroundMovieImage(
-                    trailerLink: movieObj.trailerLink,
-                  ),
+                  trailerPlayer,
                   SizedBox(
-                    width: 300,
                     child: Text(
-                      movieObj.name,
+                      widget.movieObj.name,
                       style: open.s36.w700.copyWith(
                         color: colors.fonts.main,
                       ),
@@ -79,13 +107,13 @@ class FullMovieScreen extends StatelessWidget {
                     runSpacing: 10,
                     children: [
                       MovieFeatureChip(
-                        text: "${movieObj.age.toString()}+",
+                        text: "${widget.movieObj.age.toString()}+",
                       ),
                       MovieFeatureChip(
-                        text: movieObj.year.toString(),
+                        text: widget.movieObj.year.toString(),
                       ),
                       MovieFeatureChip(
-                        text: movieObj.country,
+                        text: widget.movieObj.country,
                       ),
                     ],
                   ),
@@ -96,64 +124,60 @@ class FullMovieScreen extends StatelessWidget {
                     spacing: 10,
                     runSpacing: 10,
                     children: List.generate(
-                      _splitSingleStrings(movieObj.genre).length,
+                      _splitSingleStrings(widget.movieObj.genre).length,
                       (index) => MovieFeatureChip(
-                        text: _splitSingleStrings(movieObj.genre)[index],
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 10),
-                    alignment: Alignment.center,
-                    child: Row(
-                      children: [
-                        Text(
-                          "${_basePath}rating".tr(),
-                          style: open.s18.copyWith(
-                            color: colors.fonts.main,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 1),
-                          child: Text(
-                            movieObj.rating,
-                            style: open.s18.w700.copyWith(
-                              color: colors.fonts.main,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        RatingBarIndicator(
-                          unratedColor: colors.backgrounds.secondary,
-                          rating: double.parse(movieObj.rating),
-                          itemBuilder: (context, index) => Icon(
-                            Icons.star,
-                            color: colors.accents.blue,
-                          ),
-                          itemCount: 5,
-                          itemSize: 20,
-                          direction: Axis.horizontal,
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    child: Text(
-                      movieObj.plotText,
-                      textAlign: TextAlign.justify,
-                      style: open.s16.copyWith(
-                        color: colors.fonts.secondary,
+                        text: _splitSingleStrings(widget.movieObj.genre)[index],
                       ),
                     ),
                   ),
                   const SizedBox(
                     height: 10,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "${_basePath}rating".tr(),
+                        style: open.s18.copyWith(
+                          color: colors.fonts.main,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 1),
+                        child: Text(
+                          widget.movieObj.rating,
+                          style: open.s18.w700.copyWith(
+                            color: colors.fonts.main,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      RatingBarIndicator(
+                        unratedColor: colors.backgrounds.secondary,
+                        rating: double.parse(widget.movieObj.rating),
+                        itemBuilder: (context, index) => Icon(
+                          Icons.star,
+                          color: colors.accents.blue,
+                        ),
+                        itemCount: 5,
+                        itemSize: 20,
+                        direction: Axis.horizontal,
+                      ),
+                    ],
+                  ),
+                  Text(
+                    widget.movieObj.plotText,
+                    textAlign: TextAlign.justify,
+                    style: open.s16.copyWith(
+                      color: colors.fonts.secondary,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 5,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -165,11 +189,13 @@ class FullMovieScreen extends StatelessWidget {
                         ),
                       ),
                       ...List.generate(
-                        _splitSingleStrings(movieObj.starring).length,
+                        _splitSingleStrings(widget.movieObj.starring).length,
                         (index) => Padding(
                           padding: const EdgeInsets.symmetric(vertical: 3),
                           child: Text(
-                            _splitSingleStrings(movieObj.starring)[index],
+                            _splitSingleStrings(
+                              widget.movieObj.starring,
+                            )[index],
                             style: open.s16.copyWith(
                               color: colors.fonts.secondary,
                             ),
@@ -189,7 +215,7 @@ class FullMovieScreen extends StatelessWidget {
                         height: 5,
                       ),
                       Text(
-                        movieObj.director,
+                        widget.movieObj.director,
                         style: open.s16.copyWith(
                           color: colors.fonts.secondary,
                         ),
@@ -223,7 +249,7 @@ class FullMovieScreen extends StatelessWidget {
                             onTap: () {
                               context.router.push(
                                 CommentsRoute(
-                                  movieId: movieObj.id,
+                                  movieId: widget.movieObj.id,
                                 ),
                               );
                             },
@@ -244,9 +270,9 @@ class FullMovieScreen extends StatelessWidget {
                 ],
               ),
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }

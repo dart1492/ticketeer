@@ -8,7 +8,6 @@ environment:
 dependencies:
   animations: ^2.0.7
   dio: ^4.0.6
-  file_picker: ^5.2.10
   get_it: ^7.2.0
   auto_route: ^6.3.0
   flutter_otp_text_field: ^1.1.1

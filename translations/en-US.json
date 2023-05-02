@@ -35,6 +35,7 @@
             "filters-button" : "Filters",
             "refresh-button" : "Refresh",
             "filters-screen" : {
+                "show-only-saved" : "Show only saved:",
                 "back" : "Back",
                 "date" : "Choose date for the film session",
                 "year" : "Year:",

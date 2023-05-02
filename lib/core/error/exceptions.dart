@@ -6,7 +6,7 @@ import 'package:ticketeer/locator.dart';
 /// Handles the [error] object - if it is a DioError converts it into
 /// a failure wth DioError message.
 ///
-/// If [error ] is not a DioError than it just gets converted into regular
+/// If [error ] is not a DioError than it just gets converted into default
 ///  Failure
 Future<Failure> errorHandler(Object error, Failure? defaultFailure) async {
   try {
@@ -24,11 +24,6 @@ Future<Failure> errorHandler(Object error, Failure? defaultFailure) async {
       }
     }
 
-    if (error is Exception) {
-      print(error);
-      return Failure(errorMessage: error.toString());
-    }
-
     // NetworkInfo networkInfo = sl();
     // if (!(await networkInfo.isConnected)) {
     //   return InternetConnectionFailure();
@@ -36,6 +31,6 @@ Future<Failure> errorHandler(Object error, Failure? defaultFailure) async {
 
     return defaultFailure!;
   } catch (err) {
-    return Failure(errorMessage: err.toString());
+    return Failure();
   }
 }

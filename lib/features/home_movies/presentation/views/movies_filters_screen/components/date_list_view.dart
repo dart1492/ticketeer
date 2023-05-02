@@ -24,7 +24,7 @@ class DateListView extends StatelessWidget {
       child: BlocBuilder<HomeMoviesCubit, HomeMoviesState>(
         builder: (context, state) {
           return Wrap(
-            alignment: WrapAlignment.center,
+            alignment: WrapAlignment.spaceBetween,
             spacing: 10,
             runSpacing: 15,
             children: List.generate(

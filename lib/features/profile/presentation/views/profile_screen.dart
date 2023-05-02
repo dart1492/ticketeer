@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:ticketeer/core/components/custom_toasts.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
@@ -29,6 +30,12 @@ class ProfileScreen extends StatelessWidget {
 
   /// Path for the localization
   static const _basePath = "screens.profile";
+
+  /// Helper method to display day / month / year of creation on the screen
+  static String _displayDateTimeString(DateTime dateTime) {
+    // ignore: lines_longer_than_80_chars
+    return "${dateTime.day} ${DateTimeHelper.monthToShortString(dateTime.month).tr()} ${dateTime.year}";
+  }
 
   bool _listenWhen(previous, current) {
     if (previous is ProfileSuccess &&
@@ -122,7 +129,7 @@ class ProfileScreen extends StatelessWidget {
                                     ),
                                   ),
                                   Text(
-                                    DateTimeHelper.displayDateTimeString(
+                                    _displayDateTimeString(
                                       state.user.createdAt,
                                     ),
                                     style: open.s18.copyWith(
@@ -135,14 +142,8 @@ class ProfileScreen extends StatelessWidget {
                                   );
                             } else {
                               // TODO: FIND USER LOADING ANIMATION
-                              return Container(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  "Loading user...",
-                                  style: open.s16.w700.copyWith(
-                                    color: colors.accents.blue,
-                                  ),
-                                ),
+                              return SpinKitDualRing(
+                                color: colors.accents.blue,
                               );
                             }
                           },
