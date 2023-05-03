@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ticketeer/core/components/custom_chip.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
+import 'package:ticketeer/features/home_movies/domain/entities/movie.dart';
 import 'package:ticketeer/features/session/domain/entities/session.dart';
 
 /// Tile that gives user general info about the session
@@ -10,12 +11,16 @@ class SessionPreviewTile extends StatelessWidget {
   /// represented session object
   final Session sessionObj;
 
+  /// represented movie obj
+  final Movie movieObj;
+
   final String _basePath;
 
   /// Tile that gives user general info about the session
   const SessionPreviewTile({
     super.key,
     required this.sessionObj,
+    required this.movieObj,
     required String basePath,
   }) : _basePath = basePath;
 

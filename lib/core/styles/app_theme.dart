@@ -65,10 +65,10 @@ class AppTheme {
         AppColorScheme(
           accents: Accents(
             purple: const Color(0xFF7000FF),
-            red: const Color(0xFFFF4B4B),
+            red: const Color(0xFFFF375F),
             blue: const Color(0xFF446DFF),
             green: const Color(0xFF38FF64),
-            gold: const Color(0xFFE5FF46),
+            gold: const Color(0xFFFFB340),
           ),
           backgrounds: Backgrounds(
             main: const Color(0xFF121215),

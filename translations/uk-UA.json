@@ -68,7 +68,7 @@
         }
     },
     "components" : {
-        "nav-bar" : {
+        "nav_bar" : {
             "home" : "Фільми",
             "tickets" : "Квитки",
             "profile" : "Профіль"
