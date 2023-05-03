@@ -33,47 +33,63 @@ class RoomSeat extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
 
-    return GestureDetector(
-      child: BlocBuilder<RoomCubit, GeneralRoomState>(
-        builder: (context, state) {
-          final cubit = context.read<RoomCubit>();
-          final bool isChosen = state.chosenSeats.any(
-            (element) => element.id == seatObj.id,
-          );
-          Color assignedColor = colors.backgrounds.main;
+    return BlocBuilder<RoomCubit, GeneralRoomState>(
+      builder: (context, state) {
+        final cubit = context.read<RoomCubit>();
+        final bool isChosen = state.chosenSeats.any(
+          (element) => element.id == seatObj.id,
+        );
+        Color assignedColor = colors.backgrounds.main;
 
-          if (seatObj.isAvailable) {
-            assignedColor = _typeColorDecider(colors);
-            if (isChosen) {
-              assignedColor = assignedColor.withOpacity(0.5);
-            }
-          }
-
-          void Function()? onTap;
-
+        if (seatObj.isAvailable) {
+          assignedColor = _typeColorDecider(colors);
           if (isChosen) {
-            onTap = () {
-              cubit.removeFromChosen(seatObj.id);
-            };
-          } else {
-            onTap = () {
-              cubit.addSeatToChosen(seatObj);
-            };
+            assignedColor = colors.accents.green;
           }
+        }
 
-          if (!seatObj.isAvailable) {
-            onTap = null;
-          }
+        void Function()? onTap;
 
-          return GestureDetector(
-            onTap: onTap,
-            child: Container(
-              height: 30,
-              width: 30,
-              margin: const EdgeInsets.symmetric(horizontal: 5),
-              child: Stack(
-                children: [
-                  Container(
+        if (isChosen) {
+          onTap = () {
+            cubit.removeFromChosen(seatObj.id);
+          };
+        } else {
+          onTap = () {
+            cubit.addSeatToChosen(seatObj);
+          };
+        }
+
+        if (!seatObj.isAvailable) {
+          onTap = null;
+        }
+
+        return GestureDetector(
+          onTap: onTap,
+          child: Container(
+            height: 30,
+            width: 20,
+            margin: const EdgeInsets.symmetric(horizontal: 5),
+            child: Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: assignedColor.withOpacity(0.5),
+                    border: seatObj.isAvailable
+                        ? Border.all(
+                            color: assignedColor,
+                          )
+                        : Border.all(
+                            color: colors.components.blocks.border,
+                          ),
+                  ),
+                  margin: const EdgeInsets.fromLTRB(5, 10, 5, 5),
+                  height: 10,
+                  width: 10,
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Container(
                     decoration: BoxDecoration(
                       color: assignedColor.withOpacity(0.5),
                       border: seatObj.isAvailable
@@ -84,52 +100,34 @@ class RoomSeat extends StatelessWidget {
                               color: colors.components.blocks.border,
                             ),
                     ),
-                    margin: const EdgeInsets.fromLTRB(5, 10, 5, 5),
-                    height: 10,
-                    width: 20,
+                    margin: const EdgeInsets.only(top: 5),
+                    height: 15,
+                    width: 5,
                   ),
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: assignedColor.withOpacity(0.5),
-                        border: seatObj.isAvailable
-                            ? Border.all(
-                                color: assignedColor,
-                              )
-                            : Border.all(
-                                color: colors.components.blocks.border,
-                              ),
-                      ),
-                      margin: const EdgeInsets.only(top: 5),
-                      height: 15,
-                      width: 5,
+                ),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: assignedColor.withOpacity(0.5),
+                      border: seatObj.isAvailable
+                          ? Border.all(
+                              color: assignedColor,
+                            )
+                          : Border.all(
+                              color: colors.components.blocks.border,
+                            ),
                     ),
+                    margin: const EdgeInsets.only(top: 5),
+                    height: 15,
+                    width: 5,
                   ),
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: assignedColor.withOpacity(0.5),
-                        border: seatObj.isAvailable
-                            ? Border.all(
-                                color: assignedColor,
-                              )
-                            : Border.all(
-                                color: colors.components.blocks.border,
-                              ),
-                      ),
-                      margin: const EdgeInsets.only(top: 5),
-                      height: 15,
-                      width: 5,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

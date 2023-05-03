@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
 
@@ -26,6 +27,10 @@ class CustomTextField extends StatelessWidget {
 
   final int? charLimit;
 
+  final List<TextInputFormatter>? formatters;
+
+  final bool? isObscured;
+
   /// Stylized textfield
   const CustomTextField({
     super.key,
@@ -38,7 +43,9 @@ class CustomTextField extends StatelessWidget {
     this.borderRadius,
     this.labelText,
     this.keyboardType,
+    this.formatters,
     this.charLimit,
+    this.isObscured,
   });
 
   @override
@@ -46,6 +53,8 @@ class CustomTextField extends StatelessWidget {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
 
     return TextField(
+      obscureText: isObscured ?? false,
+      inputFormatters: formatters,
       maxLength: charLimit,
       keyboardType: keyboardType,
       focusNode: focusNode,

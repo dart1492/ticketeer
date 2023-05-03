@@ -5,7 +5,11 @@ import 'package:ticketeer/features/session/domain/entities/seat.dart';
 
 class GeneralRoomState {
   List<Seat> chosenSeats;
+  String? errorText;
+  bool bookingSuccess;
   GeneralRoomState({
     required this.chosenSeats,
+    required this.bookingSuccess,
+    this.errorText,
   });
 }

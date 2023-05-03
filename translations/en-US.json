@@ -64,6 +64,31 @@
             "room" : "room",
             "header" : "Available sessions for:",
             "seats" : "Seats available:"
+        },
+        "room" : {
+            "seat_types" : {
+                "taken" : "Taken",
+                "normal" : "Normal",
+                "better" : "Better",
+                "vip" : "VIP",
+                "chosen" : "Chosen"
+            },
+            "book" : "Book"
+        },
+        "payment": {
+            "labels" : {
+                "email" : "Email",
+                "card" : "Card number",
+                "date" : "Expired date",
+                "cvv" : "CVV"
+            },
+            "invalid" : {
+                "email" : "Invalid email",
+                "card" : "Invalid card number",
+                "date" : "Invalid date",
+                "cvv" : "Invalid cvv"
+            },
+            "buy" : "Buy"
         }
     },
 

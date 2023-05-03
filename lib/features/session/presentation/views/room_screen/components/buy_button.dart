@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
@@ -8,8 +9,17 @@ import 'package:ticketeer/features/session/presentation/cubits/room_cubit/room_s
 
 /// Buy button with displayed price
 class BuyButton extends StatelessWidget {
+  /// session id for booking tickets
+  final int sessionId;
+
+  final String _basePath;
+
   /// Buy button with displayed price
-  const BuyButton({super.key});
+  const BuyButton({
+    super.key,
+    required this.sessionId,
+    required String basePath,
+  }) : _basePath = basePath;
 
   @override
   Widget build(BuildContext context) {
@@ -26,34 +36,51 @@ class BuyButton extends StatelessWidget {
 
     return BlocBuilder<RoomCubit, GeneralRoomState>(
       builder: (context, state) {
-        return Container(
-          margin: const EdgeInsets.symmetric(horizontal: 15),
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: colors.components.blocks.border,
+        return GestureDetector(
+          onTap: () {
+            context.read<RoomCubit>().bookSeats(sessionId);
+          },
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 15),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: colors.accents.blue,
+              ),
+              borderRadius: BorderRadius.circular(5),
             ),
-            borderRadius: BorderRadius.circular(5),
-          ),
-          padding: const EdgeInsets.symmetric(vertical: 15),
-          child: Row(
-            children: [
-              Expanded(
-                flex: 3,
-                child: Container(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "${_totalPrice(state.chosenSeats)} \$",
-                    style: open.s24.copyWith(
-                      color: colors.fonts.main,
+            height: 50,
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "${_totalPrice(state.chosenSeats)} \$",
+                      style: open.s18.copyWith(
+                        color: colors.fonts.main,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 6,
-                child: Container(),
-              ),
-            ],
+                Expanded(
+                  flex: 6,
+                  child: Container(
+                    height: double.infinity,
+                    decoration: BoxDecoration(
+                      color: colors.accents.blue.withOpacity(0.5),
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      "${_basePath}book".tr(),
+                      style: open.s18.copyWith(
+                        color: colors.fonts.main,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },
