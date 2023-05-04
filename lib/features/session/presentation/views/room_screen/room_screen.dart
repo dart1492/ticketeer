@@ -52,7 +52,10 @@ class RoomScreen extends StatelessWidget {
 
           if (state.bookingSuccess) {
             context.router.replace(
-              const PaymentRoute(),
+              PaymentRoute(
+                seatIds: state.chosenSeats.map((e) => e.id).toList(),
+                sessionId: sessionObj.id,
+              ),
             );
           }
         },

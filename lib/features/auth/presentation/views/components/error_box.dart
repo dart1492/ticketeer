@@ -22,7 +22,7 @@ class ErrorBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
     return Container(
-      height: 40,
+      height: 50,
       alignment: Alignment.centerLeft,
       child: AnimatedSwitcher(
         duration: const Duration(milliseconds: 200),

@@ -2,23 +2,34 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:ticketeer/core/components/custom_button.dart';
 import 'package:ticketeer/core/components/custom_text_field.dart';
+import 'package:ticketeer/core/components/custom_toasts.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
-import 'package:ticketeer/core/util/custom_formatters.dart';
 import 'package:ticketeer/features/auth/presentation/views/components/error_box.dart';
 import 'package:ticketeer/features/session/presentation/cubits/payment_cubit/payment_cubit.dart';
 import 'package:ticketeer/features/session/presentation/cubits/payment_cubit/payment_state.dart';
+import 'package:ticketeer/features/session/presentation/views/payment_screen/components/credit_card_widget.dart';
+import 'package:ticketeer/features/session/presentation/views/payment_screen/components/date_cvv_row.dart';
 import 'package:ticketeer/locator.dart';
 
 @RoutePage()
 
 /// Screen where user can pay for his booked tickets
 class PaymentScreen extends StatelessWidget {
+  /// List of chosen seat ids
+  final List<int> seatIds;
+
+  /// Session id
+  final int sessionId;
+
   /// Screen where user can pay for his tickets
-  const PaymentScreen({super.key});
+  const PaymentScreen({
+    super.key,
+    required this.seatIds,
+    required this.sessionId,
+  });
 
   static const _basePath = "screens.payment.";
 
@@ -28,81 +39,79 @@ class PaymentScreen extends StatelessWidget {
 
     return BlocProvider(
       create: (context) => sl<PaymentCubit>(),
-      child: Scaffold(
-        backgroundColor: colors.backgrounds.main,
-        appBar: AppBar(
-          toolbarHeight: 50,
-          scrolledUnderElevation: 0.0,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          leadingWidth: 100,
-          leading: GestureDetector(
-            onTap: () {
-              context.popRoute();
-            },
-            child: Container(
-              padding: const EdgeInsets.only(left: 15),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.arrow_back_ios,
-                    color: colors.accents.blue,
-                    size: 20,
-                  ),
-                  Text(
-                    "components.app-bar.back".tr(),
-                    style: open.s18.copyWith(
-                      color: colors.fonts.main,
+      child: BlocListener<PaymentCubit, GeneralPaymentState>(
+        listener: (context, state) {
+          if (state.isSuccess) {
+            showSuccessToast(
+              text: "Successfully purchased!",
+              colors: colors,
+            );
+            context.router.popUntilRoot();
+          }
+
+          if (state.errorText != null) {
+            showErrorToast(
+              text: state.errorText!,
+              colors: colors,
+            );
+          }
+        },
+        child: Scaffold(
+          resizeToAvoidBottomInset: true,
+          backgroundColor: colors.backgrounds.main,
+          appBar: AppBar(
+            toolbarHeight: 50,
+            scrolledUnderElevation: 0.0,
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            leadingWidth: 100,
+            leading: GestureDetector(
+              onTap: () {
+                context.popRoute();
+              },
+              child: Container(
+                padding: const EdgeInsets.only(left: 15),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.arrow_back_ios,
+                      color: colors.accents.blue,
+                      size: 20,
                     ),
-                  ),
-                ],
+                    Text(
+                      "components.app-bar.back".tr(),
+                      style: open.s18.copyWith(
+                        color: colors.fonts.main,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-        body: Column(
-          children: [
-            BlocBuilder<PaymentCubit, GeneralPaymentState>(
-              builder: (context, state) {
-                return CreditCardWidget(
-                  glassmorphismConfig: Glassmorphism(
-                    blurX: 7,
-                    blurY: 7,
-                    gradient: LinearGradient(
-                      colors: [
-                        colors.accents.blue,
-                        colors.accents.blue.withOpacity(0.5)
-                      ],
-                    ),
-                  ),
-
-                  onCreditCardWidgetChange: (p0) {},
-                  cardNumber: state.cardNumber,
-                  expiryDate: state.expirationDate,
-                  cardHolderName: state.email,
-                  cvvCode: state.cvv,
-                  showBackView:
-                      false, //true when you want to show cvv(back) view
-                );
-              },
-            ),
-            Expanded(
-              child: Builder(
+          body: ListView(
+            children: [
+              const CreditCard(),
+              Builder(
                 builder: (context) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: ListView(
-                      physics: const BouncingScrollPhysics(),
+                    child: Column(
                       children: [
                         BlocBuilder<PaymentCubit, GeneralPaymentState>(
                           builder: (context, state) {
                             return ErrorBox(
                               errorText: "${_basePath}invalid.email".tr(),
-                              isShown: state.isNumberValidated,
+                              isShown: state.isEmailValidated,
                             );
                           },
                         ),
                         CustomTextField(
+                          onTap: () {
+                            context.read<PaymentCubit>().clearValidation(
+                                  email: true,
+                                );
+                          },
                           labelText: "${_basePath}labels.email".tr(),
                           borderRadius: BorderRadius.circular(5),
                           onChanged: (p0) {
@@ -120,6 +129,11 @@ class PaymentScreen extends StatelessWidget {
                           },
                         ),
                         CustomTextField(
+                          onTap: () {
+                            context.read<PaymentCubit>().clearValidation(
+                                  card: true,
+                                );
+                          },
                           labelText: "${_basePath}labels.card".tr(),
                           keyboardType: TextInputType.number,
                           borderRadius: BorderRadius.circular(5),
@@ -129,72 +143,18 @@ class PaymentScreen extends StatelessWidget {
                                 .updateValues(cardNumber: p0);
                           },
                         ),
-                        Row(
-                          children: [
-                            Column(
-                              children: [
-                                BlocBuilder<PaymentCubit, GeneralPaymentState>(
-                                  builder: (context, state) {
-                                    return ErrorBox(
-                                      errorText:
-                                          "${_basePath}invalid.date".tr(),
-                                      isShown: state.isNumberValidated,
-                                    );
-                                  },
-                                ),
-                                SizedBox(
-                                  width: 170,
-                                  child: CustomTextField(
-                                    charLimit: 5,
-                                    formatters: [CardExpirationFormatter()],
-                                    labelText: "${_basePath}labels.date".tr(),
-                                    keyboardType: TextInputType.number,
-                                    borderRadius: BorderRadius.circular(5),
-                                    onChanged: (p0) {
-                                      context.read<PaymentCubit>().updateValues(
-                                            expirationDate: p0,
-                                          );
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const Expanded(
-                              child: SizedBox(),
-                            ),
-                            Column(
-                              children: [
-                                BlocBuilder<PaymentCubit, GeneralPaymentState>(
-                                  builder: (context, state) {
-                                    return ErrorBox(
-                                      errorText: "${_basePath}invalid.cvv".tr(),
-                                      isShown: state.isNumberValidated,
-                                    );
-                                  },
-                                ),
-                                SizedBox(
-                                  width: 100,
-                                  child: CustomTextField(
-                                    isObscured: true,
-                                    charLimit: 3,
-                                    labelText: "${_basePath}labels.cvv".tr(),
-                                    keyboardType: TextInputType.number,
-                                    borderRadius: BorderRadius.circular(5),
-                                    onChanged: (p0) {
-                                      context.read<PaymentCubit>().updateValues(
-                                            cvv: p0,
-                                          );
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                        const DateCvvRow(basePath: _basePath),
                         const SizedBox(
                           height: 40,
                         ),
                         CustomButton(
+                          onTap: () {
+                            if (context.read<PaymentCubit>().validateValues()) {
+                              context
+                                  .read<PaymentCubit>()
+                                  .purchaseTickets(seatIds, sessionId);
+                            }
+                          },
                           childAlignment: Alignment.center,
                           padding: const EdgeInsets.symmetric(vertical: 10),
                           child: Text(
@@ -204,13 +164,16 @@ class PaymentScreen extends StatelessWidget {
                             ),
                           ),
                         ),
+                        const SizedBox(
+                          height: 40,
+                        ),
                       ],
                     ),
                   );
                 },
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -9,6 +9,9 @@ class GeneralPaymentState {
   bool isEmailValidated;
   bool isDateValidated;
   bool isCvvValidated;
+  bool isCvvFocused;
+  String? errorText;
+  bool isSuccess;
 
   GeneralPaymentState({
     required this.cardNumber,
@@ -19,6 +22,9 @@ class GeneralPaymentState {
     required this.isEmailValidated,
     required this.isDateValidated,
     required this.isCvvValidated,
+    required this.isCvvFocused,
+    this.errorText,
+    required this.isSuccess,
   });
 
   GeneralPaymentState copyWith({
@@ -30,6 +36,9 @@ class GeneralPaymentState {
     bool? isEmailValidated,
     bool? isDateValidated,
     bool? isCvvValidated,
+    bool? isCvvFocused,
+    String? errorText,
+    bool? isSuccess,
   }) {
     return GeneralPaymentState(
       cardNumber: cardNumber ?? this.cardNumber,
@@ -40,6 +49,9 @@ class GeneralPaymentState {
       isEmailValidated: isEmailValidated ?? this.isEmailValidated,
       isDateValidated: isDateValidated ?? this.isDateValidated,
       isCvvValidated: isCvvValidated ?? this.isCvvValidated,
+      isCvvFocused: isCvvFocused ?? this.isCvvFocused,
+      errorText: errorText ?? this.errorText,
+      isSuccess: isSuccess ?? this.isSuccess,
     );
   }
 }

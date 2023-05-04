@@ -34,14 +34,14 @@ import 'package:ticketeer/features/profile/presentation/views/profile_screen.dar
 import 'package:ticketeer/features/session/domain/entities/session.dart'
     as _i19;
 import 'package:ticketeer/features/session/presentation/views/all_sessions_screen/all_sessions_screen.dart'
-    as _i12;
-import 'package:ticketeer/features/session/presentation/views/payment_screen/payment_screen.dart'
-    as _i14;
-import 'package:ticketeer/features/session/presentation/views/room_screen/room_screen.dart'
-    as _i13;
-import 'package:ticketeer/features/user_tickets/presentation/views/user_tickets_screen.dart'
     as _i10;
-import 'package:ticketeer/features/welcome/welcome_screen.dart' as _i11;
+import 'package:ticketeer/features/session/presentation/views/payment_screen/payment_screen.dart'
+    as _i11;
+import 'package:ticketeer/features/session/presentation/views/room_screen/room_screen.dart'
+    as _i12;
+import 'package:ticketeer/features/user_tickets/presentation/views/user_tickets_screen.dart'
+    as _i13;
+import 'package:ticketeer/features/welcome/welcome_screen.dart' as _i14;
 
 abstract class $AppRouter extends _i15.RootStackRouter {
   $AppRouter({super.navigatorKey});
@@ -118,25 +118,24 @@ abstract class $AppRouter extends _i15.RootStackRouter {
         child: const _i9.ProfileScreen(),
       );
     },
-    UserTicketsRoute.name: (routeData) {
-      return _i15.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i10.UserTicketsScreen(),
-      );
-    },
-    WelcomeRoute.name: (routeData) {
-      return _i15.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i11.WelcomeScreen(),
-      );
-    },
     SessionRoute.name: (routeData) {
       final args = routeData.argsAs<SessionRouteArgs>();
       return _i15.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i12.SessionScreen(
+        child: _i10.SessionScreen(
           key: args.key,
           movieObj: args.movieObj,
+        ),
+      );
+    },
+    PaymentRoute.name: (routeData) {
+      final args = routeData.argsAs<PaymentRouteArgs>();
+      return _i15.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i11.PaymentScreen(
+          key: args.key,
+          seatIds: args.seatIds,
+          sessionId: args.sessionId,
         ),
       );
     },
@@ -144,17 +143,23 @@ abstract class $AppRouter extends _i15.RootStackRouter {
       final args = routeData.argsAs<RoomRouteArgs>();
       return _i15.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i13.RoomScreen(
+        child: _i12.RoomScreen(
           key: args.key,
           movieObj: args.movieObj,
           sessionObj: args.sessionObj,
         ),
       );
     },
-    PaymentRoute.name: (routeData) {
+    UserTicketsRoute.name: (routeData) {
       return _i15.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i14.PaymentScreen(),
+        child: const _i13.UserTicketsScreen(),
+      );
+    },
+    WelcomeRoute.name: (routeData) {
+      return _i15.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i14.WelcomeScreen(),
       );
     },
   };
@@ -383,35 +388,7 @@ class ProfileRoute extends _i15.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i10.UserTicketsScreen]
-class UserTicketsRoute extends _i15.PageRouteInfo<void> {
-  const UserTicketsRoute({List<_i15.PageRouteInfo>? children})
-      : super(
-          UserTicketsRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'UserTicketsRoute';
-
-  static const _i15.PageInfo<void> page = _i15.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i11.WelcomeScreen]
-class WelcomeRoute extends _i15.PageRouteInfo<void> {
-  const WelcomeRoute({List<_i15.PageRouteInfo>? children})
-      : super(
-          WelcomeRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'WelcomeRoute';
-
-  static const _i15.PageInfo<void> page = _i15.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i12.SessionScreen]
+/// [_i10.SessionScreen]
 class SessionRoute extends _i15.PageRouteInfo<SessionRouteArgs> {
   SessionRoute({
     _i16.Key? key,
@@ -449,7 +426,50 @@ class SessionRouteArgs {
 }
 
 /// generated route for
-/// [_i13.RoomScreen]
+/// [_i11.PaymentScreen]
+class PaymentRoute extends _i15.PageRouteInfo<PaymentRouteArgs> {
+  PaymentRoute({
+    _i16.Key? key,
+    required List<int> seatIds,
+    required int sessionId,
+    List<_i15.PageRouteInfo>? children,
+  }) : super(
+          PaymentRoute.name,
+          args: PaymentRouteArgs(
+            key: key,
+            seatIds: seatIds,
+            sessionId: sessionId,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'PaymentRoute';
+
+  static const _i15.PageInfo<PaymentRouteArgs> page =
+      _i15.PageInfo<PaymentRouteArgs>(name);
+}
+
+class PaymentRouteArgs {
+  const PaymentRouteArgs({
+    this.key,
+    required this.seatIds,
+    required this.sessionId,
+  });
+
+  final _i16.Key? key;
+
+  final List<int> seatIds;
+
+  final int sessionId;
+
+  @override
+  String toString() {
+    return 'PaymentRouteArgs{key: $key, seatIds: $seatIds, sessionId: $sessionId}';
+  }
+}
+
+/// generated route for
+/// [_i12.RoomScreen]
 class RoomRoute extends _i15.PageRouteInfo<RoomRouteArgs> {
   RoomRoute({
     _i16.Key? key,
@@ -492,15 +512,29 @@ class RoomRouteArgs {
 }
 
 /// generated route for
-/// [_i14.PaymentScreen]
-class PaymentRoute extends _i15.PageRouteInfo<void> {
-  const PaymentRoute({List<_i15.PageRouteInfo>? children})
+/// [_i13.UserTicketsScreen]
+class UserTicketsRoute extends _i15.PageRouteInfo<void> {
+  const UserTicketsRoute({List<_i15.PageRouteInfo>? children})
       : super(
-          PaymentRoute.name,
+          UserTicketsRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'PaymentRoute';
+  static const String name = 'UserTicketsRoute';
+
+  static const _i15.PageInfo<void> page = _i15.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i14.WelcomeScreen]
+class WelcomeRoute extends _i15.PageRouteInfo<void> {
+  const WelcomeRoute({List<_i15.PageRouteInfo>? children})
+      : super(
+          WelcomeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'WelcomeRoute';
 
   static const _i15.PageInfo<void> page = _i15.PageInfo<void>(name);
 }
