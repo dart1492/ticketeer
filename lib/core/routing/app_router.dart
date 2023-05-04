@@ -61,6 +61,10 @@ class AppRouter extends gr.$AppRouter {
           transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
         CustomRoute(
+          page: gr.FullTicketRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
           page: gr.PaymentRoute.page,
           transitionsBuilder: TransitionsBuilders.fadeIn,
         ),

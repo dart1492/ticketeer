@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:logger/logger.dart';
 import 'package:ticketeer/features/user_tickets/data/models/ticket_model.dart';
 import 'package:ticketeer/features/user_tickets/domain/entities/ticket.dart';
+import 'package:ticketeer/locator.dart';
 
 /// Datasource that interacts with api to get a list of tickets
 abstract class UserTicketsDatasource {
@@ -21,6 +23,8 @@ class UserTicketsDatasourceImpl extends UserTicketsDatasource {
     final result = await dio.get("/api/user/tickets");
     // ignore: avoid_dynamic_calls
     final mapList = result.data['data'] as List<dynamic>;
+
+    sl<Logger>().i(result.data['data']);
     final List<Ticket> returnList = [];
     for (final Map<String, dynamic> map in mapList) {
       returnList.add(TicketModel.fromMap(map));

@@ -9,6 +9,9 @@ class TicketModel extends Ticket {
     required super.name,
     required super.imageLink,
     required super.smallImageLink,
+    required super.date,
+    required super.rowIndex,
+    required super.seatIndex,
   });
 
   /// Copy with constructor
@@ -18,6 +21,9 @@ class TicketModel extends Ticket {
     String? name,
     String? imageLink,
     String? smallImageLink,
+    DateTime? date,
+    int? rowIndex,
+    int? seatIndex,
   }) {
     return TicketModel(
       id: id ?? this.id,
@@ -25,6 +31,9 @@ class TicketModel extends Ticket {
       name: name ?? this.name,
       imageLink: imageLink ?? this.imageLink,
       smallImageLink: smallImageLink ?? this.smallImageLink,
+      date: date ?? this.date,
+      seatIndex: seatIndex ?? this.seatIndex,
+      rowIndex: rowIndex ?? this.rowIndex,
     );
   }
 
@@ -42,11 +51,14 @@ class TicketModel extends Ticket {
   /// from map conversion
   factory TicketModel.fromMap(Map<String, dynamic> map) {
     return TicketModel(
+      date: DateTime.fromMillisecondsSinceEpoch(map["date"] as int),
       id: map['id'] as int,
       movieId: map['movieId'] as int,
       name: map['name'] as String,
-      imageLink: map['imageLink'] as String,
-      smallImageLink: map['smallImageLink'] as String,
+      imageLink: map['image'] as String,
+      smallImageLink: map['smallImage'] as String,
+      rowIndex: map['rowIndex'] as int,
+      seatIndex: map['seatIndex'] as int,
     );
   }
 }
