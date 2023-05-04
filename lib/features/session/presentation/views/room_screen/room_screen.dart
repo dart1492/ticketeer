@@ -48,6 +48,7 @@ class RoomScreen extends StatelessWidget {
         listener: (context, state) {
           if (state.errorText != null) {
             showErrorToast(text: state.errorText!, colors: colors);
+            context.router.pop();
           }
 
           if (state.bookingSuccess) {

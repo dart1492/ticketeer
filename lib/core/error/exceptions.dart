@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
+import 'package:ticketeer/core/error/error_model.dart';
 import 'package:ticketeer/core/error/failure.dart';
 import 'package:ticketeer/locator.dart';
 
@@ -14,13 +15,32 @@ Future<Failure> errorHandler(Object error, Failure? defaultFailure) async {
     if (error is DioError) {
       sl<Logger>().e(error.response!.data, StackTrace);
       if (error.response != null) {
-        final String? serverError =
-            // ignore: avoid_dynamic_calls
-            error.response?.data['data'];
-        return Failure(
-          errorMessage: serverError ??
-              "Sorry, we cannot process your request at the moment.",
-        );
+        final response = error.response!;
+        // for validation errors
+        if (response.statusCode == 422) {
+          final List<dynamic> validationErrorsDynamic =
+              // ignore: avoid_dynamic_calls
+              response.data['data'] as List<dynamic>;
+
+          final List<ErrorModel> validationErrors = [];
+
+          for (int i = 0; i < validationErrorsDynamic.length; i++) {
+            validationErrors.add(
+              ErrorModel.fromMap(
+                validationErrorsDynamic[i],
+              ),
+            );
+          }
+
+          return Failure(
+            errorData: validationErrors,
+            errorCode: 422,
+            errorMessage: "Validation error",
+          );
+        } else {
+          // ignore: avoid_dynamic_calls
+          return Failure(errorMessage: response.data['data']);
+        }
       }
     }
 

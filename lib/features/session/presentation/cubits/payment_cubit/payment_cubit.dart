@@ -105,6 +105,13 @@ class PaymentCubit extends Cubit<GeneralPaymentState> {
     );
   }
 
+  /// reset error state
+  void resetError() {
+    emit(
+      state.copyWith(errorText: null),
+    );
+  }
+
   /// Purchase tickets for the movie
   Future<void> purchaseTickets(List<int> seatIds, int sessionId) async {
     final PaymentCredentials credits = PaymentCredentialsModel(
@@ -116,16 +123,19 @@ class PaymentCubit extends Cubit<GeneralPaymentState> {
     final result = await repo.buyTickets(seatIds, sessionId, credits);
     result.fold(
       (l) {
-        emit(
-          state.copyWith(
-            errorText: l.errorMessage,
-          ),
-        );
-        emit(
-          state.copyWith(
-            errorText: null,
-          ),
-        );
+        if (l.errorCode == 422 && l.errorData != null) {
+          emit(
+            state.copyWith(
+              errorText: l.errorData![0].error,
+            ),
+          );
+        } else {
+          emit(
+            state.copyWith(
+              errorText: l.errorMessage,
+            ),
+          );
+        }
       },
       (r) => emit(
         state.copyWith(

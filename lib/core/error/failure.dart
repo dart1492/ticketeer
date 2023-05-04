@@ -2,7 +2,7 @@
 
 import 'package:ticketeer/core/error/error_model.dart';
 
-/// Failure object - kind of like a custom error object.
+/// Failure object - wrapper for errors
 class Failure {
   /// Message of this failure
   final String errorMessage;

@@ -41,19 +41,20 @@ class PaymentScreen extends StatelessWidget {
       create: (context) => sl<PaymentCubit>(),
       child: BlocListener<PaymentCubit, GeneralPaymentState>(
         listener: (context, state) {
+          if (state.errorText != null) {
+            showErrorToast(
+              text: state.errorText!,
+              colors: colors,
+            );
+            context.read<PaymentCubit>().resetError();
+          }
+
           if (state.isSuccess) {
             showSuccessToast(
               text: "Successfully purchased!",
               colors: colors,
             );
             context.router.popUntilRoot();
-          }
-
-          if (state.errorText != null) {
-            showErrorToast(
-              text: state.errorText!,
-              colors: colors,
-            );
           }
         },
         child: Scaffold(

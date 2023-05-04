@@ -1,3 +1,4 @@
+import 'package:ticketeer/core/error/failure.dart';
 import 'package:ticketeer/core/error/request_handler.dart';
 import 'package:ticketeer/features/session/data/session_datasource.dart';
 import 'package:ticketeer/features/session/domain/entities/payment_credentials.dart';
@@ -27,6 +28,9 @@ class SessionRepositoryImpl extends SessionRepository {
   ) {
     return RepositoryRequestHandler()(
       request: () => datasource.buyTickets(seatIds, sessionId, credentials),
+      defaultFailure: Failure(
+        errorMessage: "Wrong payment credentials",
+      ),
     );
   }
 
