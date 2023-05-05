@@ -8,9 +8,9 @@ import 'package:ticketeer/features/localization/domain/localization_repository.d
 import 'package:ticketeer/locator.dart';
 
 /// Row with two buttons to set language
-class LanguageChooseRow extends StatelessWidget {
+class LanguageChooseColumn extends StatelessWidget {
   /// Row with two buttons to set language
-  const LanguageChooseRow({
+  const LanguageChooseColumn({
     super.key,
     required String basePath,
   }) : _basePath = basePath;
@@ -43,7 +43,7 @@ class LanguageChooseRow extends StatelessWidget {
                     : colors.components.blocks.border,
               ),
               child: Text(
-                "$_basePath.eng-switch".tr(),
+                "${_basePath}eng-switch".tr(),
                 style: open.s14.copyWith(color: colors.fonts.main),
               ),
             ),
@@ -63,7 +63,7 @@ class LanguageChooseRow extends StatelessWidget {
               childAlignment: Alignment.center,
               height: 40,
               child: Text(
-                "$_basePath.ukr-switch".tr(),
+                "${_basePath}ukr-switch".tr(),
                 style: open.s14.copyWith(color: colors.fonts.main),
               ),
               onTap: () {

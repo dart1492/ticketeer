@@ -15,6 +15,8 @@ class FullTicketScreen extends StatelessWidget {
   /// represented ticket obj
   final Ticket ticketObj;
 
+  static const _baseUrl = "screens.ticket.";
+
   /// Screen with full ticket and bar code for it
   const FullTicketScreen({
     super.key,
@@ -33,8 +35,8 @@ class FullTicketScreen extends StatelessWidget {
   }
 
   String _parseSeat() {
-    const String seat = "Seat:";
-    const String row = "Row:";
+    final String seat = "${_baseUrl}seat".tr();
+    final String row = "${_baseUrl}row".tr();
     return "$seat ${ticketObj.seatIndex}, $row ${ticketObj.rowIndex}";
   }
 
@@ -127,10 +129,14 @@ class FullTicketScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        "You may use the code below for entrance.",
-                        style: open.s16.w700.copyWith(
-                          color: colors.fonts.main,
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width - 40,
+                        child: Text(
+                          "${_baseUrl}hint".tr(),
+                          textAlign: TextAlign.center,
+                          style: open.s16.w700.copyWith(
+                            color: colors.fonts.main,
+                          ),
                         ),
                       ),
                       const SizedBox(

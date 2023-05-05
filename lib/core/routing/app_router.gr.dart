@@ -42,10 +42,10 @@ import 'package:ticketeer/features/session/presentation/views/room_screen/room_s
 import 'package:ticketeer/features/user_tickets/domain/entities/ticket.dart'
     as _i21;
 import 'package:ticketeer/features/user_tickets/presentation/views/full_ticket_screen/full_ticket_screen.dart'
-    as _i14;
+    as _i13;
 import 'package:ticketeer/features/user_tickets/presentation/views/user_tickets_screen/user_tickets_screen.dart'
-    as _i15;
-import 'package:ticketeer/features/welcome/welcome_screen.dart' as _i13;
+    as _i14;
+import 'package:ticketeer/features/welcome/welcome_screen.dart' as _i15;
 
 abstract class $AppRouter extends _i16.RootStackRouter {
   $AppRouter({super.navigatorKey});
@@ -154,17 +154,11 @@ abstract class $AppRouter extends _i16.RootStackRouter {
         ),
       );
     },
-    WelcomeRoute.name: (routeData) {
-      return _i16.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i13.WelcomeScreen(),
-      );
-    },
     FullTicketRoute.name: (routeData) {
       final args = routeData.argsAs<FullTicketRouteArgs>();
       return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i14.FullTicketScreen(
+        child: _i13.FullTicketScreen(
           key: args.key,
           ticketObj: args.ticketObj,
         ),
@@ -173,7 +167,13 @@ abstract class $AppRouter extends _i16.RootStackRouter {
     UserTicketsRoute.name: (routeData) {
       return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i15.UserTicketsScreen(),
+        child: const _i14.UserTicketsScreen(),
+      );
+    },
+    WelcomeRoute.name: (routeData) {
+      return _i16.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i15.WelcomeScreen(),
       );
     },
   };
@@ -526,21 +526,7 @@ class RoomRouteArgs {
 }
 
 /// generated route for
-/// [_i13.WelcomeScreen]
-class WelcomeRoute extends _i16.PageRouteInfo<void> {
-  const WelcomeRoute({List<_i16.PageRouteInfo>? children})
-      : super(
-          WelcomeRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'WelcomeRoute';
-
-  static const _i16.PageInfo<void> page = _i16.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i14.FullTicketScreen]
+/// [_i13.FullTicketScreen]
 class FullTicketRoute extends _i16.PageRouteInfo<FullTicketRouteArgs> {
   FullTicketRoute({
     _i17.Key? key,
@@ -578,7 +564,7 @@ class FullTicketRouteArgs {
 }
 
 /// generated route for
-/// [_i15.UserTicketsScreen]
+/// [_i14.UserTicketsScreen]
 class UserTicketsRoute extends _i16.PageRouteInfo<void> {
   const UserTicketsRoute({List<_i16.PageRouteInfo>? children})
       : super(
@@ -587,6 +573,20 @@ class UserTicketsRoute extends _i16.PageRouteInfo<void> {
         );
 
   static const String name = 'UserTicketsRoute';
+
+  static const _i16.PageInfo<void> page = _i16.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i15.WelcomeScreen]
+class WelcomeRoute extends _i16.PageRouteInfo<void> {
+  const WelcomeRoute({List<_i16.PageRouteInfo>? children})
+      : super(
+          WelcomeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'WelcomeRoute';
 
   static const _i16.PageInfo<void> page = _i16.PageInfo<void>(name);
 }

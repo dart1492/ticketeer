@@ -7,6 +7,8 @@
             "start" : "Почати"
         },
         "profile" : {
+            "success_change" : "Successfully changed!",
+            "error_change" : "Error during changing, try again!",
             "with-us" : "З нами з:",
             "done-change-username" : "Готово",
             "abort-change-username" : "Відмінити",
@@ -23,7 +25,7 @@
             "description" : "Для того щоб авторизуватись, введіть ваш номер телефону, ми надішлемо повідомлення:",
             "bad-example" : "Погано: 0960789678",
             "good-example" : "Добре: 380660000000",
-            "validation-error" : "Неправильний номер телефону",
+            "validation-error" : "Некоректний номер телефону",
             "button" : "Авторизуватись"
         },
         "otp" : {
@@ -64,7 +66,9 @@
             "starting-from" : "Починаючи з:",
             "room" : "кімната",
             "header" : "Доступні сеанси на:",
-            "seats" : "Місць доступно:"
+            "seats" : "Місць доступно:",
+            "pick_date" : "Оберіть дату"
+
         },
         "room" : {
             "seat_types" : {
@@ -90,6 +94,11 @@
                 "cvv" : "Некоректний cvv"
             },
             "buy" : "Купити"
+        },
+        "ticket" : {
+            "seat" : "Сидіння:",
+            "row" : "Ряд:",
+            "hint" : "Ви можете використати код нижче для входу в зал."
         }
     },
     "components" : {
@@ -98,7 +107,7 @@
             "tickets" : "Квитки",
             "profile" : "Профіль"
         },
-        "app-bar" : {
+        "app_bar" : {
             "back" : "Назад"
         }
   

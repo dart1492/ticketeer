@@ -13,6 +13,8 @@ class TicketPreview extends StatelessWidget {
   /// Ticket object, represented in the UI
   final Ticket ticketObj;
 
+  static const _baseUrl = "screens.ticket.";
+
   /// Ticket preview with main movie image, it's name and date of the session
   const TicketPreview({
     super.key,
@@ -31,8 +33,8 @@ class TicketPreview extends StatelessWidget {
   }
 
   String _parseSeat() {
-    const String seat = "Seat:";
-    const String row = "Row:";
+    final String seat = "${_baseUrl}seat".tr();
+    final String row = "${_baseUrl}row".tr();
     return "$seat ${ticketObj.seatIndex}, $row ${ticketObj.rowIndex}";
   }
 

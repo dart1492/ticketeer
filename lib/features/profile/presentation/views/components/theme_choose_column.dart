@@ -9,9 +9,9 @@ import 'package:ticketeer/features/theme/theme_cubit/theme_cubit.dart';
 import 'package:ticketeer/features/theme/theme_cubit/theme_state.dart';
 
 /// Row with two buttons to set theme
-class ThemeChooseRow extends StatelessWidget {
+class ThemeChooseColumn extends StatelessWidget {
   /// Row with two buttons to set theme
-  const ThemeChooseRow({
+  const ThemeChooseColumn({
     super.key,
     required String basePath,
   }) : _basePath = basePath;
@@ -42,7 +42,7 @@ class ThemeChooseRow extends StatelessWidget {
               childAlignment: Alignment.center,
               height: 40,
               child: Text(
-                "$_basePath.dark-switch".tr(),
+                "${_basePath}dark-switch".tr(),
                 style: open.s14.copyWith(color: colors.fonts.main),
               ),
             ),
@@ -62,7 +62,7 @@ class ThemeChooseRow extends StatelessWidget {
                     : colors.components.blocks.border,
               ),
               child: Text(
-                "$_basePath.light-switch".tr(),
+                "${_basePath}light-switch".tr(),
                 style: open.s14.copyWith(color: colors.fonts.main),
               ),
               onTap: () {

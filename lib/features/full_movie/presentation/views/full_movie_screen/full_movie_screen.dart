@@ -86,7 +86,7 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                       size: 20,
                     ),
                     Text(
-                      "components.app-bar.back".tr(),
+                      "components.app_bar.back".tr(),
                       style: open.s18.copyWith(
                         color: colors.fonts.main,
                       ),

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:ticketeer/core/components/custom_button.dart';
 import 'package:ticketeer/core/components/custom_text_field.dart';
 import 'package:ticketeer/core/components/custom_toasts.dart';
@@ -51,10 +52,9 @@ class PaymentScreen extends StatelessWidget {
 
           if (state.isSuccess) {
             showSuccessToast(
-              text: "Successfully purchased!",
+              text: "Those seats are yours!",
               colors: colors,
             );
-            context.router.popUntilRoot();
           }
         },
         child: Scaffold(
@@ -80,7 +80,7 @@ class PaymentScreen extends StatelessWidget {
                       size: 20,
                     ),
                     Text(
-                      "components.app-bar.back".tr(),
+                      "components.app_bar.back".tr(),
                       style: open.s18.copyWith(
                         color: colors.fonts.main,
                       ),
@@ -148,22 +148,31 @@ class PaymentScreen extends StatelessWidget {
                         const SizedBox(
                           height: 40,
                         ),
-                        CustomButton(
-                          onTap: () {
-                            if (context.read<PaymentCubit>().validateValues()) {
-                              context
-                                  .read<PaymentCubit>()
-                                  .purchaseTickets(seatIds, sessionId);
+                        BlocBuilder<PaymentCubit, GeneralPaymentState>(
+                          builder: (context, state) {
+                            final cubit = context.read<PaymentCubit>();
+                            if (state.isLoading) {
+                              return SpinKitDualRing(
+                                color: colors.accents.blue,
+                              );
                             }
+
+                            return CustomButton(
+                              onTap: () {
+                                if (cubit.validateValues()) {
+                                  cubit.purchaseTickets(seatIds, sessionId);
+                                }
+                              },
+                              childAlignment: Alignment.center,
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child: Text(
+                                "${_basePath}buy".tr(),
+                                style: open.s24.w700.copyWith(
+                                  color: colors.fonts.main,
+                                ),
+                              ),
+                            );
                           },
-                          childAlignment: Alignment.center,
-                          padding: const EdgeInsets.symmetric(vertical: 10),
-                          child: Text(
-                            "${_basePath}buy".tr(),
-                            style: open.s24.w700.copyWith(
-                              color: colors.fonts.main,
-                            ),
-                          ),
                         ),
                         const SizedBox(
                           height: 40,

@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.10.0"
+  animated_check:
+    dependency: "direct main"
+    description:
+      name: animated_check
+      sha256: "1da103a44b6aeacbecec799343b7170e627f4af465ca642b430c1d94922868aa"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.5"
   animations:
     dependency: "direct main"
     description:
@@ -962,22 +970,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
-  syncfusion_flutter_core:
-    dependency: transitive
-    description:
-      name: syncfusion_flutter_core
-      sha256: c1c65f1fc377ff101ab5f840b9013c5267658e1185abb32df1a23c0aa0508974
-      url: "https://pub.dev"
-    source: hosted
-    version: "21.2.3"
-  syncfusion_flutter_datepicker:
-    dependency: "direct main"
-    description:
-      name: syncfusion_flutter_datepicker
-      sha256: cdc7f12804d609935400262f8d05d9eda8a1f3dbdfef363fb837f09b1f35023d
-      url: "https://pub.dev"
-    source: hosted
-    version: "21.2.3"
   system_theme:
     dependency: "direct main"
     description:

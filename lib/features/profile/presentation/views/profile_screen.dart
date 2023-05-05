@@ -29,7 +29,7 @@ class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   /// Path for the localization
-  static const _basePath = "screens.profile";
+  static const _basePath = "screens.profile.";
 
   /// Helper method to display day / month / year of creation on the screen
   static String _displayDateTimeString(DateTime dateTime) {
@@ -55,12 +55,15 @@ class ProfileScreen extends StatelessWidget {
         listenWhen: _listenWhen,
         listener: (context, state) {
           if (state is ProfileError) {
-            showErrorToast(text: state.errorMessage, colors: colors);
+            showErrorToast(
+              text: "${_basePath}error_change".tr(),
+              colors: colors,
+            );
           }
 
           if (state is ProfileIdle) {
             showSuccessToast(
-              text: "messages.success".tr(),
+              text: "${_basePath}success_change".tr(),
               colors: colors,
             );
           }
@@ -108,7 +111,7 @@ class ProfileScreen extends StatelessWidget {
                                     height: 20,
                                   ),
                                   Text(
-                                    "$_basePath.phone-text".tr(),
+                                    "${_basePath}phone-text".tr(),
                                     style: open.s16.copyWith(
                                       color: colors.fonts.main,
                                     ),
@@ -123,7 +126,7 @@ class ProfileScreen extends StatelessWidget {
                                     height: 20,
                                   ),
                                   Text(
-                                    "$_basePath.with-us".tr(),
+                                    "${_basePath}with-us".tr(),
                                     style: open.s16.copyWith(
                                       color: colors.fonts.main,
                                     ),
@@ -155,7 +158,7 @@ class ProfileScreen extends StatelessWidget {
                           Column(
                             children: [
                               Text(
-                                "$_basePath.choose-theme".tr(),
+                                "${_basePath}choose-theme".tr(),
                                 style: open.s16.w700.copyWith(
                                   color: colors.fonts.main,
                                 ),
@@ -167,7 +170,7 @@ class ProfileScreen extends StatelessWidget {
                               const SizedBox(
                                 height: 20,
                               ),
-                              const ThemeChooseRow(
+                              const ThemeChooseColumn(
                                 basePath: _basePath,
                               ),
                             ],
@@ -175,7 +178,7 @@ class ProfileScreen extends StatelessWidget {
                           Column(
                             children: [
                               Text(
-                                "$_basePath.choose-lang".tr(),
+                                "${_basePath}choose-lang".tr(),
                                 style: open.s16.w700
                                     .copyWith(color: colors.fonts.main),
                               ),
@@ -186,7 +189,7 @@ class ProfileScreen extends StatelessWidget {
                               const SizedBox(
                                 height: 20,
                               ),
-                              const LanguageChooseRow(basePath: _basePath),
+                              const LanguageChooseColumn(basePath: _basePath),
                             ],
                           ),
                         ],

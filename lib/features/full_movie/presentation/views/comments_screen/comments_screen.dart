@@ -97,7 +97,7 @@ class CommentsScreen extends StatelessWidget {
                       size: 20,
                     ),
                     Text(
-                      "Back",
+                      "components.app_bar.back".tr(),
                       style: open.s18.copyWith(
                         color: colors.fonts.main,
                       ),

@@ -34,7 +34,7 @@ class ChangeNameButton extends StatelessWidget {
                   context.read<ProfileCubit>().changeUsername();
                 },
                 child: Text(
-                  "$_basePath.done-change-username".tr(),
+                  "${_basePath}done-change-username".tr(),
                   style: open.s14.copyWith(
                     color: colors.fonts.main,
                   ),
@@ -53,7 +53,7 @@ class ChangeNameButton extends StatelessWidget {
                   color: colors.components.blocks.border,
                 ),
                 child: Text(
-                  "$_basePath.abort-change-username".tr(),
+                  "${_basePath}abort-change-username".tr(),
                   style: open.s14.copyWith(
                     color: colors.fonts.main,
                   ),
@@ -75,7 +75,7 @@ class ChangeNameButton extends StatelessWidget {
               vertical: 6,
             ),
             child: Text(
-              "$_basePath.change-username".tr(),
+              "${_basePath}change-username".tr(),
               style: open.s14.copyWith(
                 color: colors.fonts.main,
               ),

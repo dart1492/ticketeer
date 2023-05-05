@@ -15,7 +15,12 @@ import 'package:ticketeer/features/theme/theme_cubit/theme_state.dart';
 /// Allows user to pick date of the session
 class DatePickScroller extends StatelessWidget {
   /// Allows user to pick date of the session
-  const DatePickScroller({super.key});
+  const DatePickScroller({
+    super.key,
+    required String basePath,
+  }) : _basePath = basePath;
+
+  final String _basePath;
 
   Future<void> _selectDate({
     required BuildContext context,
@@ -31,14 +36,20 @@ class DatePickScroller extends StatelessWidget {
       builder: (context, child) {
         return Theme(
           data: ThemeData(
+            dialogBackgroundColor: colors.backgrounds.secondary,
+            useMaterial3: true,
             primaryColor: colors.accents.blue,
             colorScheme: theme == darkTheme
                 ? ColorScheme.dark(
+                    surface: colors.backgrounds.main,
+                    onPrimary: colors.fonts.main,
                     primary: colors.accents.blue,
                     background: colors.backgrounds.main,
                     onBackground: colors.fonts.main,
                   )
                 : ColorScheme.light(
+                    surface: colors.backgrounds.main,
+                    onPrimary: colors.fonts.reversed,
                     primary: colors.accents.blue,
                     background: colors.backgrounds.main,
                     onBackground: colors.fonts.main,
@@ -82,7 +93,7 @@ class DatePickScroller extends StatelessWidget {
               return CustomChip(
                 isSelected: false,
                 child: Text(
-                  "Pick\ndate",
+                  "${_basePath}pick_date".tr(),
                   style: open.s14.copyWith(color: colors.fonts.main),
                 ),
                 onTap: () => _selectDate(

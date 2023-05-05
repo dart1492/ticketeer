@@ -56,7 +56,7 @@ class SessionScreen extends StatelessWidget {
                     size: 20,
                   ),
                   Text(
-                    "components.app-bar.back".tr(),
+                    "components.app_bar.back".tr(),
                     style: open.s18.copyWith(
                       color: colors.fonts.main,
                     ),
@@ -81,7 +81,9 @@ class SessionScreen extends StatelessWidget {
               ),
               const SizedBox(
                 height: 55,
-                child: DatePickScroller(),
+                child: DatePickScroller(
+                  basePath: _basePath,
+                ),
               ),
               const SizedBox(
                 height: 10,

@@ -12,6 +12,7 @@ class GeneralPaymentState {
   bool isCvvFocused;
   String? errorText;
   bool isSuccess;
+  bool isLoading;
 
   GeneralPaymentState({
     required this.cardNumber,
@@ -25,6 +26,7 @@ class GeneralPaymentState {
     required this.isCvvFocused,
     this.errorText,
     required this.isSuccess,
+    required this.isLoading,
   });
 
   GeneralPaymentState copyWith({
@@ -39,6 +41,7 @@ class GeneralPaymentState {
     bool? isCvvFocused,
     String? errorText,
     bool? isSuccess,
+    bool? isLoading,
   }) {
     return GeneralPaymentState(
       cardNumber: cardNumber ?? this.cardNumber,
@@ -52,6 +55,7 @@ class GeneralPaymentState {
       isCvvFocused: isCvvFocused ?? this.isCvvFocused,
       errorText: errorText ?? this.errorText,
       isSuccess: isSuccess ?? this.isSuccess,
+      isLoading: isLoading ?? this.isLoading,
     );
   }
 }

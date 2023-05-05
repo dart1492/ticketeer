@@ -7,6 +7,8 @@
             "start" : "Start"
         },
         "profile" : {
+            "success_change" : "Успішно змінено!",
+            "error_change" : "Помилка зміни, спробуйте знов!",
             "with-us" : "With us since:",
             "change-username" : "Change username",
             "done-change-username" : "Done",
@@ -63,7 +65,8 @@
             "starting-from" : "Starting from:",
             "room" : "room",
             "header" : "Available sessions for:",
-            "seats" : "Seats available:"
+            "seats" : "Seats available:",
+            "pick_date" : "Pick date"
         },
         "room" : {
             "seat_types" : {
@@ -89,6 +92,11 @@
                 "cvv" : "Invalid cvv"
             },
             "buy" : "Buy"
+        },
+        "ticket" : {
+            "seat" : "Seat:",
+            "row" : "Row:",
+            "hint" : "You may use the code below for entrance"
         }
     },
 
@@ -98,7 +106,7 @@
             "tickets" : "Tickets",
             "profile" : "Profile"
         },
-        "app-bar" : {
+        "app_bar" : {
             "back" : "Back"
         }
     },

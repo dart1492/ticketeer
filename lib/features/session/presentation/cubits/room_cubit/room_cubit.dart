@@ -46,6 +46,10 @@ class RoomCubit extends Cubit<GeneralRoomState> {
 
   /// book chosen seats
   Future<void> bookSeats(int sessionId) async {
+    if (state.chosenSeats.isEmpty) {
+      return;
+    }
+
     final result = await repo.bookSeats(
       state.chosenSeats.map((e) => e.id).toList(),
       sessionId,

@@ -39,7 +39,7 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   flutter_credit_card: ^3.0.6
   barcode_widget: ^2.0.3
-  syncfusion_flutter_datepicker: ^21.2.3
+  animated_check: ^1.0.5
   
 
 dev_dependencies:
