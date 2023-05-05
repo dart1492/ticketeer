@@ -6,9 +6,9 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:ticketeer/core/components/custom_button.dart';
 import 'package:ticketeer/core/components/custom_text_field.dart';
 import 'package:ticketeer/core/components/custom_toasts.dart';
+import 'package:ticketeer/core/components/validation_error_box.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
-import 'package:ticketeer/features/auth/presentation/views/components/error_box.dart';
 import 'package:ticketeer/features/session/presentation/cubits/payment_cubit/payment_cubit.dart';
 import 'package:ticketeer/features/session/presentation/cubits/payment_cubit/payment_state.dart';
 import 'package:ticketeer/features/session/presentation/views/payment_screen/components/credit_card_widget.dart';
@@ -101,7 +101,7 @@ class PaymentScreen extends StatelessWidget {
                       children: [
                         BlocBuilder<PaymentCubit, GeneralPaymentState>(
                           builder: (context, state) {
-                            return ErrorBox(
+                            return ValidationErrorBox(
                               errorText: "${_basePath}invalid.email".tr(),
                               isShown: state.isEmailValidated,
                             );
@@ -123,7 +123,7 @@ class PaymentScreen extends StatelessWidget {
                         ),
                         BlocBuilder<PaymentCubit, GeneralPaymentState>(
                           builder: (context, state) {
-                            return ErrorBox(
+                            return ValidationErrorBox(
                               errorText: "${_basePath}invalid.card".tr(),
                               isShown: state.isNumberValidated,
                             );

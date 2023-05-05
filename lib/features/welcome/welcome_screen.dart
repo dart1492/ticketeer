@@ -3,9 +3,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:ticketeer/core/components/custom_button.dart';
+import 'package:ticketeer/core/components/buttons/custom_highlighted_button.dart';
 import 'package:ticketeer/core/components/feature_badge.dart';
 import 'package:ticketeer/core/components/stacked_gradient.dart';
+import 'package:ticketeer/core/constants/image_names.dart';
 import 'package:ticketeer/core/routing/app_router.gr.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
@@ -45,7 +46,7 @@ class WelcomeScreen extends StatelessWidget {
                   children: [
                     FeatureBadge(
                       imageIcon: Image.asset(
-                        'assets/welcome_icon_1.png',
+                        ImageNames.secondWelcomeIcon,
                         height: 24,
                         width: 24,
                       ),
@@ -58,7 +59,7 @@ class WelcomeScreen extends StatelessWidget {
                   children: [
                     FeatureBadge(
                       imageIcon: Image.asset(
-                        'assets/welcome_icon_2.png',
+                        ImageNames.firstWelcomeIcon,
                         height: 24,
                         width: 24,
                       ),
@@ -71,7 +72,7 @@ class WelcomeScreen extends StatelessWidget {
                   children: [
                     FeatureBadge(
                       imageIcon: Image.asset(
-                        'assets/welcome_icon_3.png',
+                        ImageNames.thirdWelcomeIcon,
                         height: 24,
                         width: 24,
                       ),
@@ -80,12 +81,8 @@ class WelcomeScreen extends StatelessWidget {
                     StackedGradient(color: colors.accents.red),
                   ],
                 ),
-                CustomButton(
-                  childAlignment: Alignment.center,
-                  width: double.infinity,
+                CustomHighlightedButton(
                   padding: const EdgeInsets.symmetric(vertical: 15),
-                  color: colors.accents.blue.withOpacity(0.3),
-                  border: Border.all(color: colors.accents.blue),
                   child: Text(
                     "${_basePath}start".tr(),
                     style: open.s24.w700.copyWith(
@@ -97,9 +94,6 @@ class WelcomeScreen extends StatelessWidget {
                       const PhoneRoute(),
                     );
                   },
-                ),
-                const SizedBox(
-                  height: 10,
                 ),
               ]
                   .animate(

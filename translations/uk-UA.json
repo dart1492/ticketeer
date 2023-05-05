@@ -6,6 +6,17 @@
             "badge_3" : "Сотні захопливих фільмів!",
             "start" : "Почати"
         },
+        "phone" : {
+            "description" : "Для того щоб авторизуватись, введіть ваш номер телефону, ми надішлемо повідомлення:",
+            "bad_example" : "Погано: 0960789678",
+            "good_example" : "Добре: 380660000000",
+            "validation_error" : "Некоректний номер телефону",
+            "auth_button" : "Авторизуватись"
+        },
+        "otp" : {
+            "description" : "Одноразовий пароль:",
+            "success" : "Успішно!"
+        },
         "profile" : {
             "success_change" : "Successfully changed!",
             "error_change" : "Error during changing, try again!",
@@ -21,17 +32,7 @@
             "eng-switch" : "Англійська",
             "ukr-switch" : "Українська"
         },
-        "phone" : {
-            "description" : "Для того щоб авторизуватись, введіть ваш номер телефону, ми надішлемо повідомлення:",
-            "bad-example" : "Погано: 0960789678",
-            "good-example" : "Добре: 380660000000",
-            "validation-error" : "Некоректний номер телефону",
-            "button" : "Авторизуватись"
-        },
-        "otp" : {
-            "description" : "Одноразовий пароль:",
-            "success" : "Успішно!"
-        },
+        
         "movies-home" : {
             "search" : "Пошук",
             "filters-button" : "Фільтри",

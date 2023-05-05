@@ -4,7 +4,7 @@ import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
 
 /// Validation failure box which indicates that textfield validation is failed
-class ErrorBox extends StatelessWidget {
+class ValidationErrorBox extends StatelessWidget {
   /// Text of the validation error
   final String errorText;
 
@@ -12,7 +12,7 @@ class ErrorBox extends StatelessWidget {
   final bool isShown;
 
   /// Validation failure box which indicates that textfield validation is failed
-  const ErrorBox({
+  const ValidationErrorBox({
     super.key,
     required this.errorText,
     required this.isShown,
@@ -26,8 +26,9 @@ class ErrorBox extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: AnimatedSwitcher(
         duration: const Duration(milliseconds: 200),
-        child: !isShown
-            ? Row(
+        child: isShown
+            ? null
+            : Row(
                 children: [
                   Icon(
                     FeatherIcons.alertTriangle,
@@ -47,8 +48,7 @@ class ErrorBox extends StatelessWidget {
                     ),
                   ),
                 ],
-              )
-            : null,
+              ),
       ),
     );
   }

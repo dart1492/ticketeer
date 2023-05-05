@@ -3,16 +3,16 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:ticketeer/core/components/custom_button.dart';
+import 'package:ticketeer/core/components/buttons/custom_highlighted_button.dart';
 import 'package:ticketeer/core/components/custom_toasts.dart';
 import 'package:ticketeer/core/components/feature_badge.dart';
 import 'package:ticketeer/core/components/stacked_gradient.dart';
+import 'package:ticketeer/core/components/validation_error_box.dart';
 import 'package:ticketeer/core/routing/app_router.gr.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
 import 'package:ticketeer/features/auth/presentation/cubits/phone_cubit/phone_cubit.dart';
 import 'package:ticketeer/features/auth/presentation/cubits/phone_cubit/phone_state.dart';
-import 'package:ticketeer/features/auth/presentation/views/components/error_box.dart';
 import 'package:ticketeer/features/auth/presentation/views/components/phone_field.dart';
 import 'package:ticketeer/locator.dart';
 
@@ -79,7 +79,7 @@ class PhoneScreen extends StatelessWidget {
                             Iconsax.dislike,
                             color: colors.accents.red,
                           ),
-                          text: "${_basePath}bad-example".tr(),
+                          text: "${_basePath}bad_example".tr(),
                         ),
                         StackedGradient(color: colors.accents.red),
                       ],
@@ -94,7 +94,7 @@ class PhoneScreen extends StatelessWidget {
                             Iconsax.like_1,
                             color: colors.accents.green,
                           ),
-                          text: "${_basePath}good-example".tr(),
+                          text: "${_basePath}good_example".tr(),
                         ),
                         StackedGradient(color: colors.accents.green),
                       ],
@@ -102,8 +102,8 @@ class PhoneScreen extends StatelessWidget {
                     BlocBuilder<PhoneCubit, PhoneState>(
                       buildWhen: _buildErrorBoxWhen,
                       builder: (context, state) {
-                        return ErrorBox(
-                          errorText: "${_basePath}validation-error".tr(),
+                        return ValidationErrorBox(
+                          errorText: "${_basePath}validation_error".tr(),
                           isShown: (state as AcceptingPhoneState).isValidated,
                         );
                       },
@@ -114,14 +114,10 @@ class PhoneScreen extends StatelessWidget {
                     ),
                     Builder(
                       builder: (context) {
-                        return CustomButton(
-                          border: Border.all(color: colors.accents.blue),
-                          childAlignment: Alignment.center,
-                          width: double.infinity,
-                          color: colors.accents.blue.withOpacity(0.3),
+                        return CustomHighlightedButton(
                           padding: const EdgeInsets.symmetric(vertical: 10),
                           child: Text(
-                            "${_basePath}button".tr(),
+                            "${_basePath}auth_button".tr(),
                             style: open.s24.w700.copyWith(
                               color: colors.fonts.main,
                             ),

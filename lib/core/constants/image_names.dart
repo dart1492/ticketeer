@@ -1,23 +1,37 @@
 /// Variables for asset names
+// ignore_for_file: public_member_api_docs
+
 class ImageNames {
+  static const String firstWelcomeMoviePoster = "assets/movie_1.jpg";
+
+  static const String secondWelcomeMoviePoster = "assets/movie_2.jpg";
+
+  static const String thirdWelcomeMoviePoster = "assets/movie_3.jpg";
+
+  static const String firstWelcomeIcon = "assets/welcome_icon_1.png";
+
+  static const String secondWelcomeIcon = "assets/welcome_icon_2.png";
+
+  static const String thirdWelcomeIcon = "assets/welcome_icon_3.png";
+
   /// Dark mode image in profile screen
-  static const darkMode = "moon.png";
+  static const String darkMode = "moon.png";
 
   /// Light mode image in profile screen
-  static const lightMode = "sun.png";
+  static const String lightMode = "sun.png";
 
   /// English gif for language in profile screen
-  static const englishGif = "english.gif";
+  static const String englishGif = "english.gif";
 
   /// Ukrainian gif for language in profile screen
-  static const ukrainianGif = "ukrainian.gif";
+  static const String ukrainianGif = "ukrainian.gif";
 
   /// First movie image on the welcome screen
-  static const movieFirst = "movie_1.jpg";
+  static const String movieFirst = "movie_1.jpg";
 
   /// Second movie image on the welcome screen
-  static const movieSecond = "movie_2.jpg";
+  static const String movieSecond = "movie_2.jpg";
 
   /// Third movie image on the welcome screen
-  static const thirdSecond = "movie_3.jpg";
+  static const String thirdSecond = "movie_3.jpg";
 }

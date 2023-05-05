@@ -2,8 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/components/custom_text_field.dart';
+import 'package:ticketeer/core/components/validation_error_box.dart';
 import 'package:ticketeer/core/util/custom_formatters.dart';
-import 'package:ticketeer/features/auth/presentation/views/components/error_box.dart';
 import 'package:ticketeer/features/session/presentation/cubits/payment_cubit/payment_cubit.dart';
 import 'package:ticketeer/features/session/presentation/cubits/payment_cubit/payment_state.dart';
 import 'package:ticketeer/features/session/presentation/views/payment_screen/components/cvv_field.dart';
@@ -27,7 +27,7 @@ class DateCvvRow extends StatelessWidget {
           children: [
             BlocBuilder<PaymentCubit, GeneralPaymentState>(
               builder: (context, state) {
-                return ErrorBox(
+                return ValidationErrorBox(
                   errorText: "${_basePath}invalid.date".tr(),
                   isShown: state.isDateValidated,
                 );
@@ -63,7 +63,7 @@ class DateCvvRow extends StatelessWidget {
           children: [
             BlocBuilder<PaymentCubit, GeneralPaymentState>(
               builder: (context, state) {
-                return ErrorBox(
+                return ValidationErrorBox(
                   errorText: "${_basePath}invalid.cvv".tr(),
                   isShown: state.isCvvValidated,
                 );

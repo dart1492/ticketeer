@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:ticketeer/core/components/custom_text_field.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
-import 'package:ticketeer/core/styles/custom_text_style.dart';
 import 'package:ticketeer/features/auth/presentation/cubits/phone_cubit/phone_cubit.dart';
 
 /// Phone field
@@ -22,6 +22,11 @@ class _PhoneFieldState extends State<PhoneField> {
   @override
   void initState() {
     focusNode.requestFocus();
+    focusNode.addListener(() {
+      setState(() {
+        isFocused = focusNode.hasFocus;
+      });
+    });
     super.initState();
   }
 
@@ -34,34 +39,21 @@ class _PhoneFieldState extends State<PhoneField> {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
-    return TextField(
+
+    return CustomTextField(
+      charLimit: 15,
       onTap: () => context.read<PhoneCubit>().resetPhoneNumberField(),
-      keyboardType: TextInputType.number,
       onChanged: (value) => context.read<PhoneCubit>().updatePhoneNumber(value),
-      cursorColor: colors.accents.blue,
-      style: open.s16.copyWith(color: colors.fonts.main),
       focusNode: focusNode,
-      decoration: InputDecoration(
-        floatingLabelBehavior: FloatingLabelBehavior.never,
-        labelStyle: open.s16.copyWith(color: colors.fonts.secondary),
-        prefixIcon: Padding(
-          padding: const EdgeInsets.only(bottom: 4),
-          child: Icon(
-            FeatherIcons.phone,
-            color: colors.accents.blue,
-          ),
-        ),
-        fillColor: colors.components.blocks.background,
-        filled: true,
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: colors.components.blocks.border,
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: colors.accents.blue,
-          ),
+      contentPadding: const EdgeInsets.symmetric(vertical: 20),
+      keyboardType: TextInputType.number,
+      borderRadius: BorderRadius.circular(5),
+      prefixIcon: Padding(
+        padding: const EdgeInsets.only(bottom: 4),
+        child: Icon(
+          FeatherIcons.phone,
+          color:
+              isFocused ? colors.accents.blue : colors.components.blocks.border,
         ),
       ),
     );

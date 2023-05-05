@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ticketeer/core/constants/image_names.dart';
 
 /// Carousel with the movie images
 class MoviesCarousel extends StatelessWidget {
@@ -23,7 +24,9 @@ class MoviesCarousel extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6),
                 image: const DecorationImage(
                   fit: BoxFit.fill,
-                  image: AssetImage("assets/movie_2.jpg"),
+                  image: AssetImage(
+                    ImageNames.firstWelcomeMoviePoster,
+                  ),
                 ),
               ),
             ),
@@ -37,7 +40,9 @@ class MoviesCarousel extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6),
                 image: const DecorationImage(
                   fit: BoxFit.fill,
-                  image: AssetImage("assets/movie_3.jpg"),
+                  image: AssetImage(
+                    ImageNames.secondWelcomeMoviePoster,
+                  ),
                 ),
               ),
             ),
@@ -49,7 +54,9 @@ class MoviesCarousel extends StatelessWidget {
               borderRadius: BorderRadius.circular(6),
               image: const DecorationImage(
                 fit: BoxFit.fill,
-                image: AssetImage("assets/movie_1.jpg"),
+                image: AssetImage(
+                  ImageNames.thirdWelcomeMoviePoster,
+                ),
               ),
             ),
           ),
