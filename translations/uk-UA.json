@@ -21,16 +21,16 @@
             "success_change" : "Successfully changed!",
             "error_change" : "Error during changing, try again!",
             "with-us" : "З нами з:",
-            "done-change-username" : "Готово",
-            "abort-change-username" : "Відмінити",
-            "phone-text" : "Номер телефону:",
-            "change-username" : "Змінити ім'я",
-            "choose-theme" : "Тема:",
-            "dark-switch" : "Темна",
-            "light-switch" : "Світла",
-            "choose-lang" : "Мова:",
-            "eng-switch" : "Англійська",
-            "ukr-switch" : "Українська"
+            "done_change_username" : "Готово",
+            "abort_change_username" : "Відмінити",
+            "phone_text" : "Номер телефону:",
+            "change_username" : "Змінити ім'я",
+            "choose_theme" : "Тема:",
+            "dark_switch" : "Темна",
+            "light_switch" : "Світла",
+            "choose_lang" : "Мова:",
+            "eng_switch" : "Англійська",
+            "ukr_switch" : "Українська"
         },
         
         "movies-home" : {

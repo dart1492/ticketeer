@@ -1,7 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ticketeer/core/components/custom_button.dart';
+import 'package:ticketeer/core/components/buttons/custom_default_button.dart';
+import 'package:ticketeer/core/components/buttons/custom_highlighted_button.dart';
 import 'package:ticketeer/core/constants/string_constants.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
@@ -24,51 +25,60 @@ class ThemeChooseColumn extends StatelessWidget {
     return BlocBuilder<ThemeCubit, ThemeState>(
       builder: (context, state) {
         final cState = state as LoadedThemeState;
+        final cubit = context.read<ThemeCubit>();
         return Column(
           children: [
-            CustomButton(
-              onTap: () {
-                context.read<ThemeCubit>().setNewTheme(darkTheme);
-              },
-              color: cState.currentTheme == "dark"
-                  ? colors.accents.blue.withOpacity(0.3)
-                  : colors.components.blocks.background,
-              border: Border.all(
-                color: cState.currentTheme == "dark"
-                    ? colors.accents.blue
-                    : colors.components.blocks.border,
+            if (cState.currentTheme == darkTheme)
+              CustomHighlightedButton(
+                height: 40,
+                width: 110,
+                onTap: () {
+                  cubit.setNewTheme(darkTheme);
+                },
+                child: Text(
+                  "${_basePath}dark_switch".tr(),
+                  style: open.s14.copyWith(color: colors.fonts.main),
+                ),
+              )
+            else
+              CustomDefaultButton(
+                height: 40,
+                width: 110,
+                onTap: () {
+                  cubit.setNewTheme(darkTheme);
+                },
+                child: Text(
+                  "${_basePath}dark_switch".tr(),
+                  style: open.s14.copyWith(color: colors.fonts.main),
+                ),
               ),
-              width: 110,
-              childAlignment: Alignment.center,
-              height: 40,
-              child: Text(
-                "${_basePath}dark-switch".tr(),
-                style: open.s14.copyWith(color: colors.fonts.main),
-              ),
-            ),
             const SizedBox(
               height: 10,
             ),
-            CustomButton(
-              width: 110,
-              childAlignment: Alignment.center,
-              height: 40,
-              color: cState.currentTheme == "light"
-                  ? colors.accents.blue.withOpacity(0.3)
-                  : colors.components.blocks.background,
-              border: Border.all(
-                color: cState.currentTheme == "light"
-                    ? colors.accents.blue
-                    : colors.components.blocks.border,
-              ),
-              child: Text(
-                "${_basePath}light-switch".tr(),
-                style: open.s14.copyWith(color: colors.fonts.main),
-              ),
-              onTap: () {
-                context.read<ThemeCubit>().setNewTheme(lightTheme);
-              },
-            ),
+            if (cState.currentTheme == lightTheme)
+              CustomHighlightedButton(
+                height: 40,
+                width: 110,
+                child: Text(
+                  "${_basePath}light_switch".tr(),
+                  style: open.s14.copyWith(color: colors.fonts.main),
+                ),
+                onTap: () {
+                  context.read<ThemeCubit>().setNewTheme(lightTheme);
+                },
+              )
+            else
+              CustomDefaultButton(
+                height: 40,
+                width: 110,
+                child: Text(
+                  "${_basePath}light_switch".tr(),
+                  style: open.s14.copyWith(color: colors.fonts.main),
+                ),
+                onTap: () {
+                  context.read<ThemeCubit>().setNewTheme(lightTheme);
+                },
+              )
           ],
         );
       },

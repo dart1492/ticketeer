@@ -26,15 +26,16 @@ class ChangeNameButton extends StatelessWidget {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
+        final cubit = context.read<ProfileCubit>();
         if (state is ProfileEditing) {
           return Row(
             children: [
               CustomButton(
                 onTap: () {
-                  context.read<ProfileCubit>().changeUsername();
+                  cubit.changeUsername();
                 },
                 child: Text(
-                  "${_basePath}done-change-username".tr(),
+                  "${_basePath}done_change_username".tr(),
                   style: open.s14.copyWith(
                     color: colors.fonts.main,
                   ),
@@ -45,7 +46,7 @@ class ChangeNameButton extends StatelessWidget {
               ),
               CustomButton(
                 onTap: () {
-                  context.read<ProfileCubit>().abortEditUsername();
+                  cubit.abortEditUsername();
                   FocusScope.of(context).unfocus();
                 },
                 color: colors.components.blocks.background,
@@ -53,7 +54,7 @@ class ChangeNameButton extends StatelessWidget {
                   color: colors.components.blocks.border,
                 ),
                 child: Text(
-                  "${_basePath}abort-change-username".tr(),
+                  "${_basePath}abort_change_username".tr(),
                   style: open.s14.copyWith(
                     color: colors.fonts.main,
                   ),
@@ -64,7 +65,7 @@ class ChangeNameButton extends StatelessWidget {
         } else {
           return CustomButton(
             onTap: () {
-              context.read<ProfileCubit>().editUsername();
+              cubit.editUsername();
             },
             color: colors.components.blocks.background,
             border: Border.all(
@@ -75,7 +76,7 @@ class ChangeNameButton extends StatelessWidget {
               vertical: 6,
             ),
             child: Text(
-              "${_basePath}change-username".tr(),
+              "${_basePath}change_username".tr(),
               style: open.s14.copyWith(
                 color: colors.fonts.main,
               ),

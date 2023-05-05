@@ -15,16 +15,16 @@ class ImageNames {
   static const String thirdWelcomeIcon = "assets/welcome_icon_3.png";
 
   /// Dark mode image in profile screen
-  static const String darkMode = "moon.png";
+  static const String moon = "assets/moon.png";
 
   /// Light mode image in profile screen
-  static const String lightMode = "sun.png";
+  static const String sun = "assets/sun.png";
 
   /// English gif for language in profile screen
-  static const String englishGif = "english.gif";
+  static const String english = "assets/english.gif";
 
   /// Ukrainian gif for language in profile screen
-  static const String ukrainianGif = "ukrainian.gif";
+  static const String ukrainian = "assets/ukrainian.gif";
 
   /// First movie image on the welcome screen
   static const String movieFirst = "movie_1.jpg";

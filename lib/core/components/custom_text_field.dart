@@ -48,6 +48,8 @@ class CustomTextField extends StatelessWidget {
     this.isObscured,
   });
 
+  static final BorderRadius _defaultBorderRadius = BorderRadius.circular(5);
+
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
@@ -81,19 +83,13 @@ class CustomTextField extends StatelessWidget {
           borderSide: BorderSide(
             color: colors.components.blocks.border,
           ),
-          borderRadius: borderRadius ??
-              BorderRadius.circular(
-                10,
-              ),
+          borderRadius: borderRadius ?? _defaultBorderRadius,
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: colors.accents.blue,
           ),
-          borderRadius: borderRadius ??
-              BorderRadius.circular(
-                10,
-              ),
+          borderRadius: borderRadius ?? _defaultBorderRadius,
         ),
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/components/custom_text_field.dart';
+import 'package:ticketeer/core/components/static_elements/validation_error_box.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
 import 'package:ticketeer/features/profile/presentation/cubits/profile_cubit/profile_cubit.dart';
@@ -23,11 +24,25 @@ class UserName extends StatelessWidget {
         if (state is ProfileEditing) {
           return const NameTextField();
         }
-        return Text(
-          (state as ProfileLoaded).user.name,
-          style: open.s32.w700.copyWith(
-            color: colors.accents.blue,
-          ),
+
+        if (state is ProfileLoaded) {
+          if (state.user.name.isEmpty) {
+            return const ValidationErrorBox(
+              errorText: "Empty username!",
+              isShown: false,
+            );
+          }
+          return Text(
+            state.user.name,
+            style: open.s32.w700.copyWith(
+              color: colors.accents.blue,
+            ),
+          );
+        }
+
+        return const ValidationErrorBox(
+          errorText: "Something went wrong!",
+          isShown: false,
         );
       },
     );

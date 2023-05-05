@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/components/custom_text_field.dart';
-import 'package:ticketeer/core/components/validation_error_box.dart';
+import 'package:ticketeer/core/components/static_elements/validation_error_box.dart';
 import 'package:ticketeer/core/util/custom_formatters.dart';
 import 'package:ticketeer/features/session/presentation/cubits/payment_cubit/payment_cubit.dart';
 import 'package:ticketeer/features/session/presentation/cubits/payment_cubit/payment_state.dart';

@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:ticketeer/core/components/custom_button.dart';
+import 'package:ticketeer/core/components/buttons/custom_default_button.dart';
+import 'package:ticketeer/core/components/buttons/custom_highlighted_button.dart';
 import 'package:ticketeer/core/constants/object_constants.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
@@ -26,51 +27,61 @@ class LanguageChooseColumn extends StatelessWidget {
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CustomButton(
-              width: 110,
-              childAlignment: Alignment.center,
-              height: 40,
-              onTap: () {
-                context.setLocale(englishLocale);
-                sl<LocalizationRepository>().setNewLocale(englishLocale);
-              },
-              color: context.locale == englishLocale
-                  ? colors.accents.blue.withOpacity(0.3)
-                  : colors.components.blocks.background,
-              border: Border.all(
-                color: context.locale == englishLocale
-                    ? colors.accents.blue
-                    : colors.components.blocks.border,
+            if (context.locale == englishLocale)
+              CustomHighlightedButton(
+                width: 110,
+                height: 40,
+                onTap: () {
+                  context.setLocale(englishLocale);
+                  sl<LocalizationRepository>().setNewLocale(englishLocale);
+                },
+                child: Text(
+                  "${_basePath}eng_switch".tr(),
+                  style: open.s14.copyWith(color: colors.fonts.main),
+                ),
+              )
+            else
+              CustomDefaultButton(
+                width: 110,
+                height: 40,
+                onTap: () {
+                  context.setLocale(englishLocale);
+                  sl<LocalizationRepository>().setNewLocale(englishLocale);
+                },
+                child: Text(
+                  "${_basePath}eng_switch".tr(),
+                  style: open.s14.copyWith(color: colors.fonts.main),
+                ),
               ),
-              child: Text(
-                "${_basePath}eng-switch".tr(),
-                style: open.s14.copyWith(color: colors.fonts.main),
-              ),
-            ),
             const SizedBox(
               height: 10,
             ),
-            CustomButton(
-              color: context.locale == ukrainianLocale
-                  ? colors.accents.blue.withOpacity(0.3)
-                  : colors.components.blocks.background,
-              border: Border.all(
-                color: context.locale == ukrainianLocale
-                    ? colors.accents.blue
-                    : colors.components.blocks.border,
-              ),
-              width: 110,
-              childAlignment: Alignment.center,
-              height: 40,
-              child: Text(
-                "${_basePath}ukr-switch".tr(),
-                style: open.s14.copyWith(color: colors.fonts.main),
-              ),
-              onTap: () {
-                context.setLocale(ukrainianLocale);
-                sl<LocalizationRepository>().setNewLocale(ukrainianLocale);
-              },
-            ),
+            if (context.locale == ukrainianLocale)
+              CustomHighlightedButton(
+                width: 110,
+                height: 40,
+                onTap: () {
+                  context.setLocale(ukrainianLocale);
+                  sl<LocalizationRepository>().setNewLocale(ukrainianLocale);
+                },
+                child: Text(
+                  "${_basePath}ukr_switch".tr(),
+                  style: open.s14.copyWith(color: colors.fonts.main),
+                ),
+              )
+            else
+              CustomDefaultButton(
+                width: 110,
+                height: 40,
+                onTap: () {
+                  context.setLocale(ukrainianLocale);
+                  sl<LocalizationRepository>().setNewLocale(ukrainianLocale);
+                },
+                child: Text(
+                  "${_basePath}ukr_switch".tr(),
+                  style: open.s14.copyWith(color: colors.fonts.main),
+                ),
+              )
           ],
         );
       },

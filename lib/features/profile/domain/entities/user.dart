@@ -22,11 +22,3 @@ class User {
     required this.createdAt,
   });
 }
-
-// "data": {
-//     "id": 30,
-//     "name": "User2123",
-//     "phoneNumber": "+380974658394",
-//     "createdAt": 1656668403,
-//     "updatedAt": 1656668403
-//   }

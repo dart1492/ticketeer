@@ -46,6 +46,14 @@ class ProfileScreen extends StatelessWidget {
     return false;
   }
 
+  bool _buildWhen(previous, current) {
+    if (previous is ProfileEditing && current is ProfileEditing) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
@@ -76,126 +84,118 @@ class ProfileScreen extends StatelessWidget {
               statusBarColor: colors.backgrounds.main,
             ),
             child: SafeArea(
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 45,
-                    horizontal: 40,
-                  ),
-                  child: ListView(
-                    physics: const BouncingScrollPhysics(),
-                    children: [
-                      SizedBox(
-                        width: double.infinity,
-                        height: MediaQuery.of(context).size.height / 3,
-                        child: BlocBuilder<ProfileCubit, ProfileState>(
-                          buildWhen: (previous, current) {
-                            if (previous is ProfileEditing &&
-                                current is ProfileEditing) {
-                              return false;
-                            } else {
-                              return true;
-                            }
-                          },
-                          builder: (context, state) {
-                            if (state is ProfileLoaded) {
-                              return Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const UserName(),
-                                  const SizedBox(
-                                    height: 15,
-                                  ),
-                                  const ChangeNameButton(basePath: _basePath),
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  Text(
-                                    "${_basePath}phone-text".tr(),
-                                    style: open.s16.copyWith(
-                                      color: colors.fonts.main,
-                                    ),
-                                  ),
-                                  Text(
-                                    state.user.phoneNumber,
-                                    style: open.s18.copyWith(
-                                      color: colors.accents.blue,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  Text(
-                                    "${_basePath}with-us".tr(),
-                                    style: open.s16.copyWith(
-                                      color: colors.fonts.main,
-                                    ),
-                                  ),
-                                  Text(
-                                    _displayDateTimeString(
-                                      state.user.createdAt,
-                                    ),
-                                    style: open.s18.copyWith(
-                                      color: colors.accents.blue,
-                                    ),
-                                  ),
-                                ],
-                              ).animate().fadeIn(
-                                    duration: const Duration(milliseconds: 300),
-                                  );
-                            } else {
-                              // TODO: FIND USER LOADING ANIMATION
-                              return SpinKitDualRing(
-                                color: colors.accents.blue,
-                              );
-                            }
-                          },
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            children: [
-                              Text(
-                                "${_basePath}choose-theme".tr(),
-                                style: open.s16.w700.copyWith(
-                                  color: colors.fonts.main,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 45,
+                  horizontal: 40,
+                ),
+                child: ListView(
+                  physics: const BouncingScrollPhysics(),
+                  children: [
+                    SizedBox(
+                      width: double.infinity,
+                      height: MediaQuery.of(context).size.height / 3,
+                      child: BlocBuilder<ProfileCubit, ProfileState>(
+                        buildWhen: _buildWhen,
+                        builder: (context, state) {
+                          if (state is ProfileLoaded) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const UserName(),
+                                const SizedBox(
+                                  height: 15,
                                 ),
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              const ThemeIndicatorImage(),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              const ThemeChooseColumn(
-                                basePath: _basePath,
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Text(
-                                "${_basePath}choose-lang".tr(),
-                                style: open.s16.w700
-                                    .copyWith(color: colors.fonts.main),
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              const LanguageIndicatorImage(),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              const LanguageChooseColumn(basePath: _basePath),
-                            ],
-                          ),
-                        ],
+                                const ChangeNameButton(basePath: _basePath),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "${_basePath}phone_text".tr(),
+                                  style: open.s16.copyWith(
+                                    color: colors.fonts.main,
+                                  ),
+                                ),
+                                Text(
+                                  state.user.phoneNumber,
+                                  style: open.s18.copyWith(
+                                    color: colors.accents.blue,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "${_basePath}with_us".tr(),
+                                  style: open.s16.copyWith(
+                                    color: colors.fonts.main,
+                                  ),
+                                ),
+                                Text(
+                                  _displayDateTimeString(
+                                    state.user.createdAt,
+                                  ),
+                                  style: open.s18.copyWith(
+                                    color: colors.accents.blue,
+                                  ),
+                                ),
+                              ],
+                            ).animate().fadeIn(
+                                  duration: const Duration(milliseconds: 300),
+                                );
+                          } else {
+                            return SpinKitDualRing(
+                              color: colors.accents.blue,
+                            );
+                          }
+                        },
                       ),
-                    ],
-                  ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              "${_basePath}choose_theme".tr(),
+                              style: open.s16.w700.copyWith(
+                                color: colors.fonts.main,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            const ThemeIndicatorImage(),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            const ThemeChooseColumn(
+                              basePath: _basePath,
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "${_basePath}choose_lang".tr(),
+                              style: open.s16.w700
+                                  .copyWith(color: colors.fonts.main),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            const LanguageIndicatorImage(),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            const LanguageChooseColumn(
+                              basePath: _basePath,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ),

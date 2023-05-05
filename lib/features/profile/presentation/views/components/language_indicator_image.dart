@@ -1,7 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:ticketeer/core/components/static_elements/custom_container.dart';
+import 'package:ticketeer/core/constants/image_names.dart';
 import 'package:ticketeer/core/constants/object_constants.dart';
-import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 
 /// Image that gets shown depending on current locale
 class LanguageIndicatorImage extends StatelessWidget {
@@ -12,44 +13,24 @@ class LanguageIndicatorImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).extension<AppColorScheme>()!;
-
-    return Container(
-      padding: const EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        color: colors.components.blocks.background,
-        borderRadius: BorderRadius.circular(5),
-        border: Border.all(
-          color: colors.components.blocks.border,
-        ),
-      ),
+    return CustomContainer(
       child: Builder(
         builder: (context) {
-          if (context.locale == englishLocale) {
-            return Container(
-              height: 100,
-              width: 100,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage('assets/english.gif'),
+          return Container(
+            height: 100,
+            width: 100,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage(
+                  context.locale == englishLocale
+                      ? ImageNames.english
+                      : ImageNames.ukrainian,
                 ),
               ),
-            );
-          } else {
-            return Container(
-              height: 100,
-              width: 100,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage('assets/ukrainian.gif'),
-                ),
-              ),
-            );
-          }
+            ),
+          );
         },
       ),
     );

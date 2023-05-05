@@ -20,17 +20,17 @@
         "profile" : {
             "success_change" : "Успішно змінено!",
             "error_change" : "Помилка зміни, спробуйте знов!",
-            "with-us" : "With us since:",
-            "change-username" : "Change username",
-            "done-change-username" : "Done",
-            "abort-change-username" : "Abort",
-            "phone-text" : "Phone number:",
-            "choose-theme" : "Theme:",
-            "dark-switch" : "Dark",
-            "light-switch" : "Light",
-            "choose-lang" : "Language:",
-            "eng-switch" : "English",
-            "ukr-switch" : "Ukrainian"
+            "with_us" : "With us since:",
+            "change_username" : "Change username",
+            "done_change_username" : "Done",
+            "abort_change_username" : "Abort",
+            "phone_text" : "Phone number:",
+            "choose_theme" : "Theme:",
+            "dark_switch" : "Dark",
+            "light_switch" : "Light",
+            "choose_lang" : "Language:",
+            "eng_switch" : "English",
+            "ukr_switch" : "Ukrainian"
         },
         
         "movies-home" : {
