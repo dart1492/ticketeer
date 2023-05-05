@@ -28,12 +28,13 @@ class FullTicketScreen extends StatelessWidget {
   }
 
   String _parseTime() {
+    // ignore: lines_longer_than_80_chars
     return "${ticketObj.date.hour.toString()}:${ticketObj.date.minute.toString()}";
   }
 
   String _parseSeat() {
-    String seat = "Seat:";
-    String row = "Row:";
+    const String seat = "Seat:";
+    const String row = "Row:";
     return "$seat ${ticketObj.seatIndex}, $row ${ticketObj.rowIndex}";
   }
 
@@ -95,7 +96,29 @@ class FullTicketScreen extends StatelessWidget {
                   );
                 },
                 blendMode: BlendMode.dstIn,
-                child: Image.network(ticketObj.imageLink),
+                child: ShaderMask(
+                  shaderCallback: (rect) {
+                    return const LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color.fromARGB(16, 0, 0, 0),
+                        Colors.black,
+                      ],
+                    ).createShader(
+                      Rect.fromLTRB(
+                        0,
+                        0,
+                        rect.width,
+                        rect.height,
+                      ),
+                    );
+                  },
+                  blendMode: BlendMode.dstIn,
+                  child: Image.network(
+                    ticketObj.imageLink,
+                  ),
+                ),
               ),
               Positioned(
                 bottom: 40,

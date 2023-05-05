@@ -26,6 +26,7 @@ class TicketPreview extends StatelessWidget {
   }
 
   String _parseTime() {
+    // ignore: lines_longer_than_80_chars
     return "${ticketObj.date.hour.toString()}:${ticketObj.date.minute.toString()}";
   }
 
@@ -48,32 +49,21 @@ class TicketPreview extends StatelessWidget {
         );
       },
       color: colors.components.blocks.background,
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 15,
+        vertical: 15,
+      ),
       border: Border.all(
         color: colors.components.blocks.border,
       ),
       child: Row(
         children: [
-          Container(
-            height: 70,
-            width: 50,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: NetworkImage(
-                  ticketObj.smallImageLink,
-                ),
-              ),
-            ),
-          ),
-          const Expanded(child: SizedBox()),
           Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 ticketObj.name,
-                style: open.s16.copyWith(
+                style: open.s18.copyWith(
                   color: colors.fonts.main,
                 ),
               ),
@@ -112,7 +102,21 @@ class TicketPreview extends StatelessWidget {
                 ),
               ),
             ],
-          )
+          ),
+          const Expanded(child: SizedBox()),
+          Container(
+            height: 70,
+            width: 50,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: NetworkImage(
+                  ticketObj.smallImageLink,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

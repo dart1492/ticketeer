@@ -35,6 +35,14 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
   late TextEditingController ageController;
 
   late bool isShowingOnlySaved;
+  void _saveFilters(BuildContext context) {
+    context.read<HomeMoviesCubit>().updateFilters(
+          isShowingSaved: isShowingOnlySaved,
+          maxYear: int.parse(maxYearController.text),
+          minYear: int.parse(minYearController.text),
+          age: int.parse(ageController.text),
+        );
+  }
 
   @override
   void initState() {
@@ -82,28 +90,33 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           leadingWidth: 100,
-          leading: GestureDetector(
-            onTap: () {
-              context.popRoute();
+          leading: Builder(
+            builder: (context) {
+              return GestureDetector(
+                onTap: () {
+                  _saveFilters(context);
+                  context.popRoute();
+                },
+                child: Container(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.arrow_back_ios,
+                        color: colors.accents.blue,
+                        size: 20,
+                      ),
+                      Text(
+                        "components.app-bar.back".tr(),
+                        style: open.s16.copyWith(
+                          color: colors.fonts.main,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
             },
-            child: Container(
-              padding: const EdgeInsets.only(left: 15),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.arrow_back_ios,
-                    color: colors.accents.blue,
-                    size: 20,
-                  ),
-                  Text(
-                    "components.app-bar.back".tr(),
-                    style: open.s16.copyWith(
-                      color: colors.fonts.main,
-                    ),
-                  ),
-                ],
-              ),
-            ),
           ),
         ),
         resizeToAvoidBottomInset: false,
@@ -187,14 +200,7 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
                 Builder(
                   builder: (context) {
                     return CustomButton(
-                      onTap: () {
-                        context.read<HomeMoviesCubit>().updateFilters(
-                              isShowingSaved: isShowingOnlySaved,
-                              maxYear: int.parse(maxYearController.text),
-                              minYear: int.parse(minYearController.text),
-                              age: int.parse(ageController.text),
-                            );
-                      },
+                      onTap: () => _saveFilters(context),
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       childAlignment: Alignment.center,
                       width: double.infinity,

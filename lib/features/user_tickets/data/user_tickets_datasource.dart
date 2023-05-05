@@ -24,6 +24,7 @@ class UserTicketsDatasourceImpl extends UserTicketsDatasource {
     // ignore: avoid_dynamic_calls
     final mapList = result.data['data'] as List<dynamic>;
 
+    // ignore: avoid_dynamic_calls
     sl<Logger>().i(result.data['data']);
     final List<Ticket> returnList = [];
     for (final Map<String, dynamic> map in mapList) {

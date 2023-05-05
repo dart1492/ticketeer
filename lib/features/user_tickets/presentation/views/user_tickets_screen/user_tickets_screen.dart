@@ -28,7 +28,7 @@ class UserTicketsScreen extends StatelessWidget {
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 30,
+              horizontal: 15,
               vertical: 25,
             ),
             child: Column(
