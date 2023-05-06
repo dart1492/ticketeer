@@ -19,6 +19,7 @@ class RoomCubit extends Cubit<GeneralRoomState> {
   void addSeatToChosen(Seat seat) {
     if (state is LoadedRoomState) {
       final prevState = state as LoadedRoomState;
+
       emit(
         prevState.copyWith(
           chosenSeats: [...prevState.chosenSeats, seat],
@@ -32,7 +33,13 @@ class RoomCubit extends Cubit<GeneralRoomState> {
     if (state is LoadedRoomState) {
       final prevState = state as LoadedRoomState;
       prevState.chosenSeats.removeWhere((element) => element.id == seatId);
-      emit(prevState);
+
+      emit(
+        LoadedRoomState(
+          session: prevState.session,
+          chosenSeats: prevState.chosenSeats,
+        ),
+      );
     }
   }
 

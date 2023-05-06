@@ -80,7 +80,8 @@
                 "vip" : "VIP",
                 "chosen" : "Chosen"
             },
-            "book" : "Book"
+            "book" : "Book",
+            "min" : "min:"
         },
         "payment": {
             "labels" : {

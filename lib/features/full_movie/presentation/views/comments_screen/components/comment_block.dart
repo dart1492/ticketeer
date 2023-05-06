@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
 import 'package:ticketeer/features/full_movie/domain/entities/comment.dart';
@@ -74,15 +75,34 @@ class CommentBlock extends StatelessWidget {
             ),
           ),
           if (commentObj.isMine)
-            GestureDetector(
-              onTap: () {
-                context.read<CommentsCubit>().deleteComment(commentObj.id);
-              },
-              child: Icon(
-                FeatherIcons.delete,
-                color: colors.accents.red,
-                size: 25,
-              ),
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Share.share(
+                      commentObj.content,
+                    );
+                  },
+                  child: Icon(
+                    Icons.share,
+                    color: colors.accents.blue,
+                    size: 25,
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    context.read<CommentsCubit>().deleteComment(commentObj.id);
+                  },
+                  child: Icon(
+                    FeatherIcons.delete,
+                    color: colors.accents.red,
+                    size: 25,
+                  ),
+                ),
+              ],
             ),
           const SizedBox(
             width: 10,

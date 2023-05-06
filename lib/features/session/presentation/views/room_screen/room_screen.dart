@@ -97,85 +97,78 @@ class RoomScreen extends StatelessWidget {
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    movieObj.name,
-                    style: open.s24.copyWith(
-                      color: colors.fonts.main,
-                    ),
-                  ),
-                  Expanded(
-                    child: BlocBuilder<RoomCubit, GeneralRoomState>(
-                      builder: (context, state) {
-                        if (state is LoadedRoomState) {
-                          return Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    state.session.room.name,
-                                    style: open.s16.copyWith(
-                                      color: colors.fonts.main,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-                                  Container(
-                                    height: 20,
-                                    width: 2,
-                                    color: colors.accents.blue,
-                                  ),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    _parseTime(state.session),
-                                    style: open.s16.copyWith(
-                                      color: colors.fonts.main,
-                                    ),
-                                  ),
-                                ],
+              child: BlocBuilder<RoomCubit, GeneralRoomState>(
+                builder: (context, state) {
+                  if (state is LoadedRoomState) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          movieObj.name,
+                          style: open.s24.copyWith(
+                            color: colors.fonts.main,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              state.session.room.name,
+                              style: open.s16.copyWith(
+                                color: colors.fonts.main,
                               ),
-                              const SizedBox(
-                                height: 10,
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            Container(
+                              height: 20,
+                              width: 2,
+                              color: colors.accents.blue,
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              _parseTime(state.session),
+                              style: open.s16.copyWith(
+                                color: colors.fonts.main,
                               ),
-                              Image.asset('assets/screen.png'),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              SeatGrid(sessionObj: state.session),
-                              const SizedBox(
-                                height: 15,
-                              ),
-                              TagsRow(
-                                sessionObj: state.session,
-                                basePath: _basePath,
-                              ),
-                              const SizedBox(
-                                height: 15,
-                              ),
-                              BookTicketsButton(
-                                basePath: _basePath,
-                                sessionId: state.session.id,
-                              ),
-                            ],
-                          ).animate().fadeIn(
-                                duration: const Duration(milliseconds: 300),
-                              );
-                        }
-
-                        return SpinKitDualRing(
-                          color: colors.accents.blue,
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Image.asset('assets/screen.png'),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        SeatGrid(sessionObj: state.session),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        TagsRow(
+                          sessionObj: state.session,
+                          basePath: _basePath,
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        BookTicketsButton(
+                          basePath: _basePath,
+                          sessionId: state.session.id,
+                        ),
+                      ],
+                    ).animate().fadeIn(
+                          duration: const Duration(milliseconds: 300),
                         );
-                      },
-                    ),
-                  ),
-                ],
+                  }
+
+                  return SpinKitDualRing(
+                    color: colors.accents.blue,
+                  );
+                },
               ),
             ),
           ),

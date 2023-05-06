@@ -21,10 +21,11 @@ class TagsRow extends StatelessWidget {
   }) : _basePath = basePath;
 
   String? _getSeatPrice(SeatType type) {
+    final String from = "${_basePath}min".tr();
     for (final roomRow in sessionObj.room.rows) {
       for (final seat in roomRow.seats) {
         if (seat.type == type) {
-          return "${seat.price.toString()} \$";
+          return "$from ${seat.price.toString()} \$";
         }
       }
     }

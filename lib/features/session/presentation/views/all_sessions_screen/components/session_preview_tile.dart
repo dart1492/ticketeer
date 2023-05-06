@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:ticketeer/core/components/buttons/custom_default_button.dart';
-import 'package:ticketeer/core/components/static_elements/custom_chip.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
 import 'package:ticketeer/features/home_movies/domain/entities/movie.dart';

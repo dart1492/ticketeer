@@ -43,7 +43,7 @@ class CommentModel extends Comment {
     return CommentModel(
       id: map['id'] as int,
       author: map['author'] as String? ?? "",
-      content: map['content'] as String,
+      content: map['content'] as String? ?? "",
       rating: map['rating'] as int,
       isMine: map["isMy"] as bool,
     );
