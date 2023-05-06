@@ -1,13 +1,28 @@
 # Ticketeer
-`General`
 
-A mobile movie theater app. Here you can view hundreds of interesting movies, purchase tickets with ease, customize your profile - change theme and language.
+#### Ticketeer is a mobile movie theater app
+Here you can:
+- View latest releases and timeless classic
+- Get detailed information about each and every movie: watch trailers, look at the cast and more...
+- Share your thoughts with community of movie-lovers just like yourself
+- Save your favorite movies to find them later
+- Purchase tickets for our cosmically - named, intriguing sessions...
+- Use generated bar-code to enter the theater and enjoy the movie
+- Experience dark and light theme for your own taste
+- Adapt contents of the app to english or ukrainian language
+- And many more...
 
-`For devs`
+Only one way to discover everything - install now!
+- Latest apk for Android
 
-In this app I try to implement Clean Code and Architecture to the best of my abilities. Also, here is the list of tools (important packages) that I use:
-- [easy_localization](https://pub.dev/packages/easy_localization). For ukrainian and english languages
-- [bloc](https://pub.dev/packages/bloc). For state management and BLoC pattern.
-- [auto_route](https://pub.dev/packages/auto_route). For easy routing
+
+`Technical information`
+
+This app was written with Clean Architecture and best software design patterns in mind. It makes use of classical Flutter packages, like:
+- [bloc](https://pub.dev/packages/flutter_bloc)
+- [easy localization](https://pub.dev/packages/easy_localization)
+- [get it](https://pub.dev/packages/get_it)
+
+You will be able to see the full list in pubspec.yaml file of the project.
 
 
