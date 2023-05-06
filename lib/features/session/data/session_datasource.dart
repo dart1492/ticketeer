@@ -18,6 +18,9 @@ abstract class SessionDatasource {
     int sessionId,
     PaymentCredentials credentials,
   );
+
+  /// Get session info by its id
+  Future<Session> getSessionById(int sessionId);
 }
 
 /// Datasource to interact with the api and get sessions, book, buy tickets
@@ -72,5 +75,12 @@ class SessionDatasourceImpl extends SessionDatasource {
     }
 
     return result;
+  }
+
+  @override
+  Future<Session> getSessionById(int sessionId) async {
+    final result = await dio.get("/api/movies/sessions/$sessionId");
+    // ignore: avoid_dynamic_calls
+    return SessionModel.fromMap(result.data['data'] as Map<String, dynamic>);
   }
 }

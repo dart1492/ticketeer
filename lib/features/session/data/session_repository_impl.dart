@@ -40,4 +40,11 @@ class SessionRepositoryImpl extends SessionRepository {
       request: () => datasource.getSession(movieId, date),
     );
   }
+
+  @override
+  FutureFailable<Session> getSessionById(int sessionId) {
+    return RepositoryRequestHandler<Session>()(
+      request: () => datasource.getSessionById(sessionId),
+    );
+  }
 }

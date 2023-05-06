@@ -31,8 +31,6 @@ import 'package:ticketeer/features/main_bottom_bar/presentation/main_bottom_bar_
     as _i8;
 import 'package:ticketeer/features/profile/presentation/views/profile_screen.dart'
     as _i9;
-import 'package:ticketeer/features/session/domain/entities/session.dart'
-    as _i20;
 import 'package:ticketeer/features/session/presentation/views/all_sessions_screen/all_sessions_screen.dart'
     as _i10;
 import 'package:ticketeer/features/session/presentation/views/payment_screen/payment_screen.dart'
@@ -40,7 +38,7 @@ import 'package:ticketeer/features/session/presentation/views/payment_screen/pay
 import 'package:ticketeer/features/session/presentation/views/room_screen/room_screen.dart'
     as _i12;
 import 'package:ticketeer/features/user_tickets/domain/entities/ticket.dart'
-    as _i21;
+    as _i20;
 import 'package:ticketeer/features/user_tickets/presentation/views/full_ticket_screen/full_ticket_screen.dart'
     as _i13;
 import 'package:ticketeer/features/user_tickets/presentation/views/user_tickets_screen/user_tickets_screen.dart'
@@ -150,7 +148,7 @@ abstract class $AppRouter extends _i16.RootStackRouter {
         child: _i12.RoomScreen(
           key: args.key,
           movieObj: args.movieObj,
-          sessionObj: args.sessionObj,
+          sessionId: args.sessionId,
         ),
       );
     },
@@ -488,14 +486,14 @@ class RoomRoute extends _i16.PageRouteInfo<RoomRouteArgs> {
   RoomRoute({
     _i17.Key? key,
     required _i18.Movie movieObj,
-    required _i20.Session sessionObj,
+    required int sessionId,
     List<_i16.PageRouteInfo>? children,
   }) : super(
           RoomRoute.name,
           args: RoomRouteArgs(
             key: key,
             movieObj: movieObj,
-            sessionObj: sessionObj,
+            sessionId: sessionId,
           ),
           initialChildren: children,
         );
@@ -510,18 +508,18 @@ class RoomRouteArgs {
   const RoomRouteArgs({
     this.key,
     required this.movieObj,
-    required this.sessionObj,
+    required this.sessionId,
   });
 
   final _i17.Key? key;
 
   final _i18.Movie movieObj;
 
-  final _i20.Session sessionObj;
+  final int sessionId;
 
   @override
   String toString() {
-    return 'RoomRouteArgs{key: $key, movieObj: $movieObj, sessionObj: $sessionObj}';
+    return 'RoomRouteArgs{key: $key, movieObj: $movieObj, sessionId: $sessionId}';
   }
 }
 
@@ -530,7 +528,7 @@ class RoomRouteArgs {
 class FullTicketRoute extends _i16.PageRouteInfo<FullTicketRouteArgs> {
   FullTicketRoute({
     _i17.Key? key,
-    required _i21.Ticket ticketObj,
+    required _i20.Ticket ticketObj,
     List<_i16.PageRouteInfo>? children,
   }) : super(
           FullTicketRoute.name,
@@ -555,7 +553,7 @@ class FullTicketRouteArgs {
 
   final _i17.Key? key;
 
-  final _i21.Ticket ticketObj;
+  final _i20.Ticket ticketObj;
 
   @override
   String toString() {

@@ -17,4 +17,7 @@ abstract class SessionRepository {
     int sessionId,
     PaymentCredentials credentials,
   );
+
+  /// get session object from id
+  FutureFailable<Session> getSessionById(int sessionId);
 }

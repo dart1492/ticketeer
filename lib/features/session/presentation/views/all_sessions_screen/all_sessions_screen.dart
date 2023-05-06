@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:ticketeer/core/components/static_elements/stacked_gradient.dart';
@@ -102,17 +103,17 @@ class SessionScreen extends StatelessWidget {
                       },
                       itemCount: state.sessions.length,
                       itemBuilder: (context, index) => GestureDetector(
-                        onTap: () {
-                          context.router.push(
-                            RoomRoute(
-                              sessionObj: state.sessions[index],
-                              movieObj: movieObj,
-                            ),
-                          );
-                        },
                         child: Stack(
                           children: [
                             SessionPreviewTile(
+                              onTap: () {
+                                context.router.push(
+                                  RoomRoute(
+                                    sessionId: state.sessions[index].id,
+                                    movieObj: movieObj,
+                                  ),
+                                );
+                              },
                               basePath: _basePath,
                               movieObj: movieObj,
                               sessionObj: state.sessions[index],
@@ -121,9 +122,13 @@ class SessionScreen extends StatelessWidget {
                               color: index.isEven
                                   ? colors.accents.blue
                                   : colors.accents.red,
-                            ),
+                            )
                           ],
-                        ),
+                        ).animate().fadeIn(
+                              duration: const Duration(
+                                milliseconds: 300,
+                              ),
+                            ),
                       ),
                     );
                   },

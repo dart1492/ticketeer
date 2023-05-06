@@ -35,6 +35,7 @@ class RoomSeat extends StatelessWidget {
 
     return BlocBuilder<RoomCubit, GeneralRoomState>(
       builder: (context, state) {
+        state as LoadedRoomState;
         final cubit = context.read<RoomCubit>();
         final bool isChosen = state.chosenSeats.any(
           (element) => element.id == seatObj.id,
