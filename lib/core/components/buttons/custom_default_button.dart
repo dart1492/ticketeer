@@ -57,7 +57,7 @@ class CustomDefaultButton extends StatelessWidget {
             padding: padding ??
                 const EdgeInsets.symmetric(
                   horizontal: 10,
-                  vertical: 5,
+                  vertical: 10,
                 ),
             child: Container(
               alignment: Alignment.center,

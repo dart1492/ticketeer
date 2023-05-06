@@ -18,35 +18,36 @@
             "success" : "Успішно!"
         },
         "profile" : {
-            "success_change" : "Successfully changed!",
-            "error_change" : "Error during changing, try again!",
-            "with-us" : "З нами з:",
+            "success_change" : "Змінено успішно!",
+            "error_change" : "Помилка зміни, спробуйте знов!",
+            "with_us" : "З нами з:",
             "done_change_username" : "Готово",
             "abort_change_username" : "Відмінити",
-            "phone_text" : "Номер телефону:",
+            "phone_text" : "Номер телефону",
             "change_username" : "Змінити ім'я",
-            "choose_theme" : "Тема:",
+            "choose_theme" : "Тема",
             "dark_switch" : "Темна",
             "light_switch" : "Світла",
-            "choose_lang" : "Мова:",
+            "choose_lang" : "Мова",
             "eng_switch" : "Англійська",
             "ukr_switch" : "Українська"
         },
         
-        "movies-home" : {
+        "movies_home" : {
             "search" : "Пошук",
-            "filters-button" : "Фільтри",
-            "refresh-button" : "Оновити",
-            "filters-screen" : {
-                "show-only-saved" : "Показувати тільки збережені:",
-                "back" : "Назад",
-                "date" : "Оберіть дату сеансів:",
-                "year" : "Рік:",
-                "age" : "Вік:",
-                "to" : "до",
-                "save" : "Зберегти"
-            }
-           
+            "filters_button" : "Фільтри",
+            "refresh_button" : "Оновити",
+            "no_movies" : "Фільмів немає...",
+            "info" : "Щоб побачити більше фільмів, змініть фільтри"
+        },
+        "filters_screen" : {
+            "show_only_saved" : "Показувати тільки збережені:",
+            "back" : "Назад",
+            "date" : "Оберіть дату сеансів:",
+            "year" : "Рік:",
+            "age" : "Вік:",
+            "to" : "до",
+            "save" : "Зберегти"
         },
         "full-movie" : {
             "rating" : "Рейтинг:",

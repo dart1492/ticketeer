@@ -4,7 +4,7 @@
 class Seat {
   int id;
   int index;
-  SeatTypes type;
+  SeatType type;
   int price;
   bool isAvailable;
   Seat({
@@ -16,4 +16,4 @@ class Seat {
   });
 }
 
-enum SeatTypes { normal, better, vip }
+enum SeatType { normal, better, vip }

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:ticketeer/core/components/static_elements/custom_chip.dart';
 import 'package:ticketeer/core/constants/string_constants.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
@@ -92,9 +93,17 @@ class DatePickScroller extends StatelessWidget {
             if (index == 0) {
               return CustomChip(
                 isSelected: false,
-                child: Text(
-                  "${_basePath}pick_date".tr(),
-                  style: open.s14.copyWith(color: colors.fonts.main),
+                child: Column(
+                  children: [
+                    Text(
+                      "${_basePath}pick_date".tr(),
+                      style: open.s14.copyWith(color: colors.fonts.main),
+                    ),
+                    Icon(
+                      Iconsax.calendar,
+                      color: colors.accents.blue,
+                    ),
+                  ],
                 ),
                 onTap: () => _selectDate(
                   colors: colors,

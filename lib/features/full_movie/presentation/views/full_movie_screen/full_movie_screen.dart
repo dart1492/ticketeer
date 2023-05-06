@@ -2,11 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:ticketeer/core/components/custom_button.dart';
+import 'package:ticketeer/core/components/buttons/custom_default_button.dart';
+import 'package:ticketeer/core/components/buttons/custom_highlighted_button.dart';
 import 'package:ticketeer/core/routing/app_router.gr.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
-
 import 'package:ticketeer/features/full_movie/presentation/views/full_movie_screen/components/film_feature_chip.dart';
 import 'package:ticketeer/features/home_movies/domain/entities/movie.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -128,8 +128,13 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                       MovieFeatureChip(
                         text: widget.movieObj.year.toString(),
                       ),
-                      MovieFeatureChip(
-                        text: widget.movieObj.country,
+                      ...List.generate(
+                        _splitSingleStrings(widget.movieObj.country).length,
+                        (index) => MovieFeatureChip(
+                          text: _splitSingleStrings(
+                            widget.movieObj.country,
+                          )[index],
+                        ),
                       ),
                     ],
                   ),
@@ -239,10 +244,7 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                       const SizedBox(
                         height: 20,
                       ),
-                      CustomButton(
-                        childAlignment: Alignment.center,
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        width: double.infinity,
+                      CustomHighlightedButton(
                         onTap: () {
                           context.router.push(
                             SessionRoute(
@@ -262,14 +264,7 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                       ),
                       Builder(
                         builder: (context) {
-                          return CustomButton(
-                            color: colors.components.blocks.background,
-                            border: Border.all(
-                              color: colors.components.blocks.border,
-                            ),
-                            childAlignment: Alignment.center,
-                            padding: const EdgeInsets.symmetric(vertical: 10),
-                            width: double.infinity,
+                          return CustomDefaultButton(
                             onTap: () {
                               context.router.push(
                                 CommentsRoute(

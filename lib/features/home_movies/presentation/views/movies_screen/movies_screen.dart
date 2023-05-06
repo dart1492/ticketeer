@@ -17,6 +17,7 @@ class MoviesScreen extends StatelessWidget {
   /// here
   const MoviesScreen({super.key});
 
+  static const _basePath = "screens.movies_home.";
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
@@ -35,15 +36,21 @@ class MoviesScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
-                  MovieSearchField(),
+                  MovieSearchField(
+                    basePath: _basePath,
+                  ),
                   SizedBox(
                     height: 10,
                   ),
-                  ActionsRow(),
+                  ActionsRow(
+                    basePath: _basePath,
+                  ),
                   SizedBox(
                     height: 10,
                   ),
-                  MoviesList(),
+                  MoviesList(
+                    basePath: _basePath,
+                  ),
                 ],
               ),
             ),

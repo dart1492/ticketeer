@@ -13,9 +13,9 @@ class HomeMoviesCubit extends Cubit<HomeMoviesState> {
 
   /// Default movie filters instance
   static final _defaultMovieFilters = MovieFiltersModel(
-    minYear: 2005,
+    minYear: 1992,
     maxYear: 2023,
-    age: 18,
+    age: 21,
     savedIndexes: [],
     isShowingSaved: false,
   );
@@ -31,6 +31,8 @@ class HomeMoviesCubit extends Cubit<HomeMoviesState> {
             queryText: '',
             queryDate: DateTime.now(),
             movieFilters: _defaultMovieFilters,
+            filtersLoadError: false,
+            moviesLoadError: false,
           ),
         );
 
@@ -39,18 +41,30 @@ class HomeMoviesCubit extends Cubit<HomeMoviesState> {
     String? queryText,
     DateTime? queryDate,
   }) async {
-    emit(state.copyWith(isLoading: true));
-
-    final moviesResult = await repo.getMovies(
-      queryText ?? state.queryText,
-      queryDate ?? state.queryDate,
+    emit(
+      state.copyWith(
+        isLoading: true,
+        moviesLoadError: false,
+        filtersLoadError: false,
+      ),
     );
 
     final filterResult = await repo.getMovieFilters();
     MovieFilters appliedFilters = _defaultMovieFilters;
 
     filterResult.fold(
-      (l) => null,
+      (l) {
+        emit(
+          state.copyWith(
+            filtersLoadError: true,
+          ),
+        );
+        emit(
+          state.copyWith(
+            filtersLoadError: false,
+          ),
+        );
+      },
       (r) {
         if (r != null) {
           appliedFilters = r;
@@ -58,8 +72,20 @@ class HomeMoviesCubit extends Cubit<HomeMoviesState> {
       },
     );
 
+    final moviesResult = await repo.getMovies(
+      queryText ?? state.queryText,
+      queryDate ?? state.queryDate,
+    );
+
     moviesResult.fold(
-      (l) => null, // TODO: IMPLEMENT ERROR HANDLING
+      (l) {
+        emit(
+          state.copyWith(
+            moviesLoadError: true,
+            isLoading: false,
+          ),
+        );
+      },
       (r) {
         emit(
           state.copyWith(

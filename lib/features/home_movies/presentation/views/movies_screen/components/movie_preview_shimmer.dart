@@ -25,31 +25,48 @@ class MoviesListLoader extends StatelessWidget {
         crossAxisSpacing: 20,
       ),
       itemBuilder: (context, index) {
-        return Column(
+        return Stack(
           children: [
-            SizedBox(
-              height: 300,
-              width: 200,
-              child: Shimmer(
-                direction: ShimmerDirection.ttb,
-                gradient: LinearGradient(
-                  colors: [
-                    colors.components.blocks.border,
-                    colors.components.blocks.background
-                  ],
-                ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: colors.components.blocks.border),
-                    color: colors.components.blocks.background,
+            Column(
+              children: [
+                SizedBox(
+                  height: 300,
+                  width: 200,
+                  child: Shimmer(
+                    direction: ShimmerDirection.ttb,
+                    gradient: LinearGradient(
+                      colors: [
+                        colors.components.blocks.border,
+                        colors.components.blocks.background
+                      ],
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        border:
+                            Border.all(color: colors.components.blocks.border),
+                        color: colors.components.blocks.background,
+                      ),
+                      height: 200,
+                      width: 100,
+                    ),
                   ),
-                  height: 200,
-                  width: 100,
+                ).animate().fadeIn(
+                      duration: const Duration(milliseconds: 300),
+                    ),
+              ],
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 50),
+                child: Icon(
+                  Icons.movie,
+                  size: 30,
+                  color: colors.components.blocks.border,
                 ),
               ),
-            ).animate().fadeIn(
-                  duration: const Duration(milliseconds: 300),
-                ),
+            ),
           ],
         );
       },

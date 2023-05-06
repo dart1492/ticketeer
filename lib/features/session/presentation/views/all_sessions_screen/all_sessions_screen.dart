@@ -18,8 +18,7 @@ import 'package:ticketeer/locator.dart';
 
 /// Screen with available session for the current movie
 class SessionScreen extends StatelessWidget {
-  /// Passing movie ibj to get the id and (possibly) more needed info
-  /// // TODO: Decide if I need an object or just id
+  /// Passing movie i=obj to get the id and name
   final Movie movieObj;
 
   static const String _basePath = "screens.all-sessions.";
@@ -80,7 +79,7 @@ class SessionScreen extends StatelessWidget {
                 height: 10,
               ),
               const SizedBox(
-                height: 55,
+                height: 56,
                 child: DatePickScroller(
                   basePath: _basePath,
                 ),

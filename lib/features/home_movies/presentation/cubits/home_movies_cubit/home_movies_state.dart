@@ -23,6 +23,10 @@ class HomeMoviesState {
   ///
   MovieFilters movieFilters;
 
+  bool filtersLoadError;
+
+  bool moviesLoadError;
+
   /// State when the list of movies is loaded
   HomeMoviesState({
     required this.movies,
@@ -31,6 +35,8 @@ class HomeMoviesState {
     required this.queryDate,
     required this.isLoading,
     required this.movieFilters,
+    required this.filtersLoadError,
+    required this.moviesLoadError,
   });
 
   HomeMoviesState copyWith({
@@ -40,6 +46,8 @@ class HomeMoviesState {
     DateTime? queryDate,
     bool? isLoading,
     MovieFilters? movieFilters,
+    bool? filtersLoadError,
+    bool? moviesLoadError,
   }) {
     return HomeMoviesState(
       movies: movies ?? this.movies,
@@ -48,6 +56,8 @@ class HomeMoviesState {
       queryDate: queryDate ?? this.queryDate,
       isLoading: isLoading ?? this.isLoading,
       movieFilters: movieFilters ?? this.movieFilters,
+      filtersLoadError: filtersLoadError ?? this.filtersLoadError,
+      moviesLoadError: moviesLoadError ?? this.moviesLoadError,
     );
   }
 }

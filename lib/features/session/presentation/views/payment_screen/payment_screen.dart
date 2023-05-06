@@ -55,6 +55,7 @@ class PaymentScreen extends StatelessWidget {
               text: "Those seats are yours!",
               colors: colors,
             );
+            context.router.popUntilRoot();
           }
         },
         child: Scaffold(

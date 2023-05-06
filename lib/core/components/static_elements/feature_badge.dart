@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ticketeer/core/components/static_elements/custom_container.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
 
@@ -24,37 +25,24 @@ class FeatureBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
-    return Stack(
-      children: [
-        Container(
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: colors.components.blocks.background,
-            border: Border.all(color: colors.components.blocks.border),
-            borderRadius: BorderRadius.circular(
-              6,
+    return CustomContainer(
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
+      child: Row(
+        children: [
+          imageIcon ?? icon ?? const SizedBox(),
+          const SizedBox(
+            width: 8,
+          ),
+          Expanded(
+            child: Text(
+              text,
+              style: open.s14.copyWith(
+                color: colors.fonts.main,
+              ),
             ),
           ),
-          child: Row(
-            children: [
-              const SizedBox(
-                width: 15,
-              ),
-              imageIcon ?? icon ?? const SizedBox(),
-              const SizedBox(
-                width: 8,
-              ),
-              Text(
-                text,
-                style: open.s14.copyWith(
-                  color: colors.fonts.main,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

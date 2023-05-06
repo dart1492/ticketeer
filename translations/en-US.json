@@ -18,35 +18,38 @@
             "success" : "Success"
         },
         "profile" : {
-            "success_change" : "Успішно змінено!",
-            "error_change" : "Помилка зміни, спробуйте знов!",
+            "success_change" : "Successfully changed!",
+            "error_change" : "Changing failure, try again!",
             "with_us" : "With us since:",
             "change_username" : "Change username",
             "done_change_username" : "Done",
             "abort_change_username" : "Abort",
-            "phone_text" : "Phone number:",
-            "choose_theme" : "Theme:",
+            "phone_text" : "Phone number",
+            "choose_theme" : "Theme",
             "dark_switch" : "Dark",
             "light_switch" : "Light",
-            "choose_lang" : "Language:",
+            "choose_lang" : "Language",
             "eng_switch" : "English",
             "ukr_switch" : "Ukrainian"
         },
         
-        "movies-home" : {
+        "movies_home" : {
             "search" : "Search",
-            "filters-button" : "Filters",
-            "refresh-button" : "Refresh",
-            "filters-screen" : {
-                "show-only-saved" : "Show only saved:",
-                "back" : "Back",
-                "date" : "Choose date for the film session",
-                "year" : "Year:",
-                "age" : "Age:",
-                "to" : "to",
-                "save" : "Save"
-            }
+            "filters_button" : "Filters",
+            "refresh_button" : "Refresh",
+            "no_movies" : "No movies...",
+            "info" : "To see other movies, edit filters"
         },
+        "filters_screen" : {
+            "show_only_saved" : "Show only saved:",
+            "back" : "Back",
+            "date" : "Choose date for the film session",
+            "year" : "Year:",
+            "age" : "Age:",
+            "to" : "to",
+            "save" : "Save"
+        },
+
         "full-movie" : {
             "rating" : "Rating:",
             "starring" : "Starring:",

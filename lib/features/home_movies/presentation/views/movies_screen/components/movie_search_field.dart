@@ -10,9 +10,10 @@ import 'package:ticketeer/features/home_movies/presentation/cubits/home_movies_c
 /// Search field for filtering movies by name
 class MovieSearchField extends StatefulWidget {
   /// Search field for filtering movies by name
-  const MovieSearchField({
-    super.key,
-  });
+  const MovieSearchField({super.key, required String basePath})
+      : _basePath = basePath;
+
+  final String _basePath;
 
   @override
   State<MovieSearchField> createState() => _MovieSearchFieldState();
@@ -58,7 +59,7 @@ class _MovieSearchFieldState extends State<MovieSearchField> {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
 
     return CustomTextField(
-      labelText: "screens.movies-home.search".tr(),
+      labelText: "${widget._basePath}search".tr(),
       contentPadding: const EdgeInsets.symmetric(
         vertical: 15,
         horizontal: 5,

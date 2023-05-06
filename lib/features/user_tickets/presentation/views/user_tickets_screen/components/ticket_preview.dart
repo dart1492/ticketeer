@@ -60,61 +60,66 @@ class TicketPreview extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                ticketObj.name,
-                style: open.s18.copyWith(
-                  color: colors.fonts.main,
+          Expanded(
+            flex: 8,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  ticketObj.name,
+                  style: open.s18.copyWith(
+                    color: colors.fonts.main,
+                  ),
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    _parseDate(),
-                    style: open.s16.copyWith(
-                      color: colors.fonts.main,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      _parseDate(),
+                      style: open.s16.copyWith(
+                        color: colors.fonts.main,
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Container(
-                    height: 15,
-                    width: 2,
-                    color: colors.accents.blue,
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    _parseTime(),
-                    style: open.s16.copyWith(
-                      color: colors.fonts.main,
+                    const SizedBox(
+                      width: 5,
                     ),
-                  ),
-                ],
-              ),
-              Text(
-                _parseSeat(),
-                style: open.s16.copyWith(
-                  color: colors.fonts.main,
+                    Container(
+                      height: 15,
+                      width: 2,
+                      color: colors.accents.blue,
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      _parseTime(),
+                      style: open.s16.copyWith(
+                        color: colors.fonts.main,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
+                Text(
+                  _parseSeat(),
+                  style: open.s16.copyWith(
+                    color: colors.fonts.main,
+                  ),
+                ),
+              ],
+            ),
           ),
-          const Expanded(child: SizedBox()),
-          Container(
-            height: 70,
-            width: 50,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: NetworkImage(
-                  ticketObj.smallImageLink,
+          Expanded(
+            flex: 2,
+            child: Container(
+              height: 90,
+              width: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: NetworkImage(
+                    ticketObj.smallImageLink,
+                  ),
                 ),
               ),
             ),

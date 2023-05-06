@@ -40,6 +40,8 @@ dependencies:
   flutter_credit_card: ^3.0.6
   barcode_widget: ^2.0.3
   animated_check: ^1.0.5
+  zoom_widget: ^2.0.1
+  
   
 
 dev_dependencies:

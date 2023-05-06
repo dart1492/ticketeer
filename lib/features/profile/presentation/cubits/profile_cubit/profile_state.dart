@@ -2,10 +2,10 @@
 import 'package:ticketeer/features/profile/domain/entities/user.dart';
 
 /// General state
-class ProfileState {}
+class GeneralProfileState {}
 
 /// indicates that user profile is loaded from the server
-class ProfileLoaded extends ProfileState {
+class ProfileLoaded extends GeneralProfileState {
   /// User object
   final User user;
 
@@ -36,10 +36,10 @@ class ProfileIdle extends ProfileLoaded {
 }
 
 /// Loading state
-class ProfileLoading extends ProfileState {}
+class ProfileLoading extends GeneralProfileState {}
 
 /// Error - either in initial loading or in name changing
-class ProfileError extends ProfileState {
+class ProfileError extends GeneralProfileState {
   /// Error message
   String errorMessage;
 
@@ -51,4 +51,4 @@ class ProfileError extends ProfileState {
 
 /// Profile success - needed for listener that informs user if the name changing
 /// operation was successful
-class ProfileSuccess extends ProfileState {}
+class ProfileSuccess extends GeneralProfileState {}

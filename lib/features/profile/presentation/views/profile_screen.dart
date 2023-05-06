@@ -59,7 +59,7 @@ class ProfileScreen extends StatelessWidget {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
     return BlocProvider(
       create: (context) => sl<ProfileCubit>()..getUser(),
-      child: BlocListener<ProfileCubit, ProfileState>(
+      child: BlocListener<ProfileCubit, GeneralProfileState>(
         listenWhen: _listenWhen,
         listener: (context, state) {
           if (state is ProfileError) {
@@ -95,7 +95,7 @@ class ProfileScreen extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       height: MediaQuery.of(context).size.height / 3,
-                      child: BlocBuilder<ProfileCubit, ProfileState>(
+                      child: BlocBuilder<ProfileCubit, GeneralProfileState>(
                         buildWhen: _buildWhen,
                         builder: (context, state) {
                           if (state is ProfileLoaded) {

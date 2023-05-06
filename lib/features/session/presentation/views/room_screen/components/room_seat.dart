@@ -18,11 +18,11 @@ class RoomSeat extends StatelessWidget {
 
   Color _typeColorDecider(AppColorScheme colors) {
     switch (seatObj.type) {
-      case SeatTypes.normal:
+      case SeatType.normal:
         return colors.accents.blue;
-      case SeatTypes.better:
+      case SeatType.better:
         return colors.accents.gold;
-      case SeatTypes.vip:
+      case SeatType.vip:
         return colors.accents.red;
       default:
         return Colors.white;
@@ -64,7 +64,9 @@ class RoomSeat extends StatelessWidget {
           onTap = null;
         }
 
-        return GestureDetector(
+        return InkWell(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
           onTap: onTap,
           child: Container(
             height: 30,

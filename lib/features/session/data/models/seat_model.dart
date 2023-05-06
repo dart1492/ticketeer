@@ -18,7 +18,7 @@ class SeatModel extends Seat {
     int? index,
     int? price,
     bool? isAvailable,
-    SeatTypes? type,
+    SeatType? type,
   }) {
     return SeatModel(
       id: id ?? this.id,
@@ -45,7 +45,7 @@ class SeatModel extends Seat {
       index: map['index'] as int,
       price: map['price'] as int,
       isAvailable: map['isAvailable'] as bool,
-      type: SeatTypes.values[(map['type'] as int)],
+      type: SeatType.values[(map['type'] as int)],
     );
   }
 

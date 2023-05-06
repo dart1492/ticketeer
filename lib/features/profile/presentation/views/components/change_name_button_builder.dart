@@ -24,7 +24,7 @@ class ChangeNameButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
-    return BlocBuilder<ProfileCubit, ProfileState>(
+    return BlocBuilder<ProfileCubit, GeneralProfileState>(
       builder: (context, state) {
         final cubit = context.read<ProfileCubit>();
         if (state is ProfileEditing) {

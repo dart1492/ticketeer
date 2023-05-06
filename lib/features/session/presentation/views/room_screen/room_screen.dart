@@ -11,7 +11,7 @@ import 'package:ticketeer/features/session/domain/entities/session.dart';
 import 'package:ticketeer/features/session/presentation/cubits/room_cubit/room_cubit.dart';
 import 'package:ticketeer/features/session/presentation/cubits/room_cubit/room_state.dart';
 import 'package:ticketeer/features/session/presentation/views/room_screen/components/buy_button.dart';
-import 'package:ticketeer/features/session/presentation/views/room_screen/components/room_seat.dart';
+import 'package:ticketeer/features/session/presentation/views/room_screen/components/seat_grid.dart';
 import 'package:ticketeer/features/session/presentation/views/room_screen/components/tags_row.dart';
 import 'package:ticketeer/locator.dart';
 
@@ -98,42 +98,37 @@ class RoomScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                  Text(
+                    movieObj.name,
+                    style: open.s24.copyWith(
+                      color: colors.fonts.main,
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        movieObj.name,
-                        style: open.s24.copyWith(
+                        sessionObj.room.name,
+                        style: open.s16.copyWith(
                           color: colors.fonts.main,
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            sessionObj.room.name,
-                            style: open.s16.copyWith(
-                              color: colors.fonts.main,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Container(
-                            height: 20,
-                            width: 2,
-                            color: colors.accents.blue,
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            _parseTime(),
-                            style: open.s16.copyWith(
-                              color: colors.fonts.main,
-                            ),
-                          ),
-                        ],
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Container(
+                        height: 20,
+                        width: 2,
+                        color: colors.accents.blue,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        _parseTime(),
+                        style: open.s16.copyWith(
+                          color: colors.fonts.main,
+                        ),
                       ),
                     ],
                   ),
@@ -144,39 +139,12 @@ class RoomScreen extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  for (int i = 0; i < sessionObj.room.rows.length; i++)
-                    Container(
-                      margin: const EdgeInsets.symmetric(
-                        vertical: 3,
-                      ),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                (i + 1).toString(),
-                                style: open.s14.copyWith(
-                                  color: colors.fonts.secondary,
-                                ),
-                              ),
-                              const Expanded(child: SizedBox()),
-                              ...List.generate(
-                                sessionObj.room.rows[i].seats.length,
-                                (index) => RoomSeat(
-                                  seatObj: sessionObj.room.rows[i].seats[index],
-                                ),
-                              ),
-                              const Expanded(child: SizedBox()),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
+                  SeatGrid(sessionObj: sessionObj),
                   const SizedBox(
                     height: 15,
                   ),
-                  const TagsRow(
+                  TagsRow(
+                    sessionObj: sessionObj,
                     basePath: _basePath,
                   ),
                   const SizedBox(

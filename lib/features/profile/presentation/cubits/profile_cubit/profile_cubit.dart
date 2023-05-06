@@ -4,12 +4,12 @@ import 'package:ticketeer/features/profile/domain/repositories/profile_repositor
 import 'package:ticketeer/features/profile/presentation/cubits/profile_cubit/profile_state.dart';
 
 /// Manages profile state (retrieves and changes username)
-class ProfileCubit extends Cubit<ProfileState> {
+class ProfileCubit extends Cubit<GeneralProfileState> {
   /// Profile repository
   final ProfileRepository repo;
 
   /// Manages profile state (retrieves and changes username)
-  ProfileCubit(this.repo) : super(ProfileState());
+  ProfileCubit(this.repo) : super(GeneralProfileState());
 
   /// Get user object
   Future<void> getUser() async {
