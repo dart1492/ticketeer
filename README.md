@@ -1,6 +1,7 @@
 # Ticketeer
 
-#### Ticketeer is a mobile movie theater app
+#### General
+##### Ticketeer is a mobile movie theater app
 Here you can:
 - View latest releases and timeless classic
 - Get detailed information about each and every movie: watch trailers, look at the cast and more...
@@ -25,7 +26,7 @@ This app was written with Clean Architecture and best software design patterns i
 You will be able to see the full list in pubspec.yaml file of the project.
 
 #### Screens preview
-
+<!-- 
 <div class="image-list" style="overflow-x: auto; white-space: nowrap;">
   <img src=".showcase/image_1.jpg" alt="Image 1" style="max-width: 150px; max-height:300px">
   <img src=".showcase/image_2.jpg" alt="Image 2"  style="max-width: 150px; max-height:300px">
@@ -36,6 +37,6 @@ You will be able to see the full list in pubspec.yaml file of the project.
   <img src=".showcase/image_7.jpg" alt="Image 7"  style="max-width: 150px; max-height:300px">
   <img src=".showcase/image_8.jpg" alt="Image 8"  style="max-width: 150px; max-height:300px">
   <img src=".showcase/image_9.jpg" alt="Image 9"  style="max-width: 150px; max-height:300px">
-</div>
+</div> -->
 
 
