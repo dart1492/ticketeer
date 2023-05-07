@@ -1,4 +1,4 @@
-# Ticketeer
+<h1 style="color: #446DFF;">Ticketeer</h1>
 
 #### General
 ##### Ticketeer is a mobile movie theater app
@@ -25,7 +25,6 @@ This app was written with Clean Architecture and best software design patterns i
 
 You will be able to see the full list in pubspec.yaml file of the project.
 
-#### Screens preview
 <!-- 
 <div class="image-list" style="overflow-x: auto; white-space: nowrap;">
   <img src=".showcase/image_1.jpg" alt="Image 1" style="max-width: 150px; max-height:300px">
