@@ -29,7 +29,9 @@ class SessionPreviewTile extends StatelessWidget {
   }) : _basePath = basePath;
 
   String _parseTime() {
-    return "${sessionObj.date.hour}:${sessionObj.date.minute}";
+    final String hour = sessionObj.date.hour.toString().padLeft(2, '0');
+    final String minute = sessionObj.date.minute.toString().padLeft(2, '0');
+    return "$hour:$minute";
   }
 
   String _room() {

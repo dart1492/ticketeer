@@ -51,7 +51,9 @@ class TicketModel extends Ticket {
   /// from map conversion
   factory TicketModel.fromMap(Map<String, dynamic> map) {
     return TicketModel(
-      date: DateTime.fromMillisecondsSinceEpoch(map["date"] as int),
+      date: DateTime.fromMillisecondsSinceEpoch(
+        (map["date"] as int) * 1000,
+      ),
       id: map['id'] as int,
       movieId: map['movieId'] as int,
       name: map['name'] as String,

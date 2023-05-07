@@ -8,12 +8,14 @@ class GeneralAllSessionsState {
   DateTime chosenDate;
   int movieId;
   bool isLoading;
+  bool isError;
 
   GeneralAllSessionsState({
     required this.sessions,
     required this.chosenDate,
     required this.movieId,
     required this.isLoading,
+    required this.isError,
   });
 
   GeneralAllSessionsState copyWith({
@@ -21,12 +23,14 @@ class GeneralAllSessionsState {
     DateTime? chosenDate,
     int? movieId,
     bool? isLoading,
+    bool? isError,
   }) {
     return GeneralAllSessionsState(
       sessions: sessions ?? this.sessions,
       chosenDate: chosenDate ?? this.chosenDate,
       movieId: movieId ?? this.movieId,
       isLoading: isLoading ?? this.isLoading,
+      isError: isError ?? this.isError,
     );
   }
 }

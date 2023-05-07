@@ -30,7 +30,10 @@
             "light_switch" : "Light",
             "choose_lang" : "Language",
             "eng_switch" : "English",
-            "ukr_switch" : "Ukrainian"
+            "ukr_switch" : "Ukrainian",
+            "empty_name" : "Empty username!",
+            "error_loading" : "Couldn't load profile!",
+            "try_again" : "Try again"
         },
         
         "movies_home" : {
@@ -38,7 +41,9 @@
             "filters_button" : "Filters",
             "refresh_button" : "Refresh",
             "no_movies" : "No movies...",
-            "info" : "To see other movies, edit filters"
+            "info" : "To see other movies, edit filters",
+            "error_loading" : "Couldn't load movies!",
+            "try_again" : "Try again"
         },
         "filters_screen" : {
             "show_only_saved" : "Show only saved:",
@@ -63,14 +68,17 @@
             "header" : "Comments:",
             "refresh" : "Refresh",
             "label" : "Write your comment",
-            "success" : "Comment added!"
+            "success" : "Comment added!",
+            "loading" : "Loading..."
         },
         "all-sessions" : {
             "starting-from" : "Starting from:",
             "room" : "room",
             "header" : "Available sessions for:",
             "seats" : "Seats available:",
-            "pick_date" : "Pick date"
+            "pick_date" : "Pick date",
+            "error_loading" : "Couldn't load sessions!",
+            "try_again" : "Try again"
         },
         "room" : {
             "seat_types" : {
@@ -102,6 +110,10 @@
             "seat" : "Seat:",
             "row" : "Row:",
             "hint" : "You may use the code below for entrance"
+        },
+        "user_tickets" : {
+            "error_loading" : "Couldn't load tickets!",
+            "try_again" : "Try again"
         }
     },
 

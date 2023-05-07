@@ -39,6 +39,7 @@ class MoviesDatasourceImpl extends MoviesDatasource {
   @override
   Future<List<Movie>> getMovies(String searchText, DateTime? date) async {
     String formattedDate = "";
+
     if (date != null) {
       formattedDate = _formatDate(date);
     }

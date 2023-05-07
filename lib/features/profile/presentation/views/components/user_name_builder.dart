@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/components/custom_text_field.dart';
@@ -10,11 +11,14 @@ import 'package:ticketeer/features/profile/presentation/cubits/profile_cubit/pro
 /// User name widget that switches between the actual username and a
 /// text field to change this username
 class UserName extends StatelessWidget {
+  final String _basePath;
+
   /// User name widget that switches between the actual username and a
   /// text field to change this username
   const UserName({
     super.key,
-  });
+    required String basePath,
+  }) : _basePath = basePath;
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +31,8 @@ class UserName extends StatelessWidget {
 
         if (state is ProfileLoaded) {
           if (state.user.name.isEmpty) {
-            return const ValidationErrorBox(
-              errorText: "Empty username!",
+            return ValidationErrorBox(
+              errorText: "${_basePath}empty_name".tr(),
               isShown: false,
             );
           }

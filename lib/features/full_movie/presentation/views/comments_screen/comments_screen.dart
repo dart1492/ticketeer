@@ -121,7 +121,9 @@ class CommentsScreen extends StatelessWidget {
                       SizedBox(
                         height: 10,
                       ),
-                      CommentsList(),
+                      CommentsList(
+                        basePath: _basePath,
+                      ),
                     ],
                   ),
                 ),

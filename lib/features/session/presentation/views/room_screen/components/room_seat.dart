@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/features/session/domain/entities/seat.dart';
@@ -66,6 +67,7 @@ class RoomSeat extends StatelessWidget {
         }
 
         return InkWell(
+          borderRadius: BorderRadius.circular(15),
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           onTap: onTap,
@@ -75,7 +77,8 @@ class RoomSeat extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 5),
             child: Stack(
               children: [
-                Container(
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 150),
                   decoration: BoxDecoration(
                     color: assignedColor.withOpacity(0.5),
                     border: seatObj.isAvailable
@@ -92,7 +95,8 @@ class RoomSeat extends StatelessWidget {
                 ),
                 Align(
                   alignment: Alignment.topRight,
-                  child: Container(
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 150),
                     decoration: BoxDecoration(
                       color: assignedColor.withOpacity(0.5),
                       border: seatObj.isAvailable
@@ -110,7 +114,8 @@ class RoomSeat extends StatelessWidget {
                 ),
                 Align(
                   alignment: Alignment.topLeft,
-                  child: Container(
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 150),
                     decoration: BoxDecoration(
                       color: assignedColor.withOpacity(0.5),
                       border: seatObj.isAvailable

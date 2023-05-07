@@ -18,6 +18,7 @@ class AllSessionsCubit extends Cubit<GeneralAllSessionsState> {
             movieId: 0,
             chosenDate: DateTime.now(),
             isLoading: false,
+            isError: false,
           ),
         );
 
@@ -43,7 +44,12 @@ class AllSessionsCubit extends Cubit<GeneralAllSessionsState> {
     );
 
     result.fold(
-      (l) => null,
+      (l) => emit(
+        state.copyWith(
+          isError: true,
+          isLoading: false,
+        ),
+      ),
       (r) => emit(
         state.copyWith(
           sessions: r,

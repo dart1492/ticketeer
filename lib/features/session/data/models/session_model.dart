@@ -2,9 +2,11 @@
 
 import 'dart:convert';
 
+import 'package:logger/logger.dart';
 import 'package:ticketeer/features/session/data/models/room_model.dart';
 import 'package:ticketeer/features/session/domain/entities/room.dart';
 import 'package:ticketeer/features/session/domain/entities/session.dart';
+import 'package:ticketeer/locator.dart';
 
 class SessionModel extends Session {
   SessionModel({
@@ -42,9 +44,12 @@ class SessionModel extends Session {
   }
 
   factory SessionModel.fromMap(Map<String, dynamic> map) {
+    sl<Logger>().i(
+      DateTime.fromMillisecondsSinceEpoch((map['date'] as int) * 1000),
+    );
     return SessionModel(
       id: map['id'] as int,
-      date: DateTime.fromMillisecondsSinceEpoch(map['date'] as int),
+      date: DateTime.fromMillisecondsSinceEpoch((map['date'] as int) * 1000),
       type: map['type'] as String,
       minPrice: map['minPrice'] as int,
       room: RoomModel.fromMap(map['room'] as Map<String, dynamic>),

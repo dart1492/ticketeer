@@ -21,11 +21,10 @@ class TagsRow extends StatelessWidget {
   }) : _basePath = basePath;
 
   String? _getSeatPrice(SeatType type) {
-    final String from = "${_basePath}min".tr();
     for (final roomRow in sessionObj.room.rows) {
       for (final seat in roomRow.seats) {
         if (seat.type == type) {
-          return "$from ${seat.price.toString()} \$";
+          return "${seat.price.toString()} \$";
         }
       }
     }
@@ -51,39 +50,39 @@ class TagsRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Column(
-          children: [
-            RoomSeatStatic(
-              assignedColor: colors.backgrounds.main,
-              borderColor: colors.components.blocks.border,
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            Text(
-              "${_basePath}seat_types.taken".tr(),
-              style: open.s14.copyWith(
-                color: colors.fonts.main,
-              ),
-            ),
-          ],
-        ),
-        Column(
-          children: [
-            RoomSeatStatic(
-              assignedColor: colors.accents.green,
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            Text(
-              "${_basePath}seat_types.chosen".tr(),
-              style: open.s14.copyWith(
-                color: colors.fonts.main,
-              ),
-            ),
-          ],
-        ),
+        // Column(
+        //   children: [
+        //     RoomSeatStatic(
+        //       assignedColor: colors.backgrounds.main,
+        //       borderColor: colors.components.blocks.border,
+        //     ),
+        //     const SizedBox(
+        //       height: 5,
+        //     ),
+        //     Text(
+        //       "${_basePath}seat_types.taken".tr(),
+        //       style: open.s14.copyWith(
+        //         color: colors.fonts.main,
+        //       ),
+        //     ),
+        //   ],
+        // ),
+        // Column(
+        //   children: [
+        //     RoomSeatStatic(
+        //       assignedColor: colors.accents.green,
+        //     ),
+        //     const SizedBox(
+        //       height: 5,
+        //     ),
+        //     Text(
+        //       "${_basePath}seat_types.chosen".tr(),
+        //       style: open.s14.copyWith(
+        //         color: colors.fonts.main,
+        //       ),
+        //     ),
+        //   ],
+        // ),
         if (_hasSeatsOfType(SeatType.normal))
           Column(
             children: [

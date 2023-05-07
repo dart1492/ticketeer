@@ -1,7 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ticketeer/core/components/custom_button.dart';
+import 'package:ticketeer/core/components/buttons/custom_default_button.dart';
+import 'package:ticketeer/core/components/buttons/custom_highlighted_button.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
 import 'package:ticketeer/features/profile/presentation/cubits/profile_cubit/profile_cubit.dart';
@@ -30,7 +31,9 @@ class ChangeNameButton extends StatelessWidget {
         if (state is ProfileEditing) {
           return Row(
             children: [
-              CustomButton(
+              CustomHighlightedButton(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 onTap: () {
                   cubit.changeUsername();
                 },
@@ -44,15 +47,13 @@ class ChangeNameButton extends StatelessWidget {
               const SizedBox(
                 width: 20,
               ),
-              CustomButton(
+              CustomDefaultButton(
                 onTap: () {
                   cubit.abortEditUsername();
                   FocusScope.of(context).unfocus();
                 },
-                color: colors.components.blocks.background,
-                border: Border.all(
-                  color: colors.components.blocks.border,
-                ),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 child: Text(
                   "${_basePath}abort_change_username".tr(),
                   style: open.s14.copyWith(
@@ -63,14 +64,11 @@ class ChangeNameButton extends StatelessWidget {
             ],
           );
         } else {
-          return CustomButton(
+          return CustomDefaultButton(
+            width: 150,
             onTap: () {
               cubit.editUsername();
             },
-            color: colors.components.blocks.background,
-            border: Border.all(
-              color: colors.components.blocks.border,
-            ),
             padding: const EdgeInsets.symmetric(
               horizontal: 10,
               vertical: 6,

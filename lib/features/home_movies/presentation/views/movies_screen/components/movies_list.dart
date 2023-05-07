@@ -35,11 +35,16 @@ class MoviesList extends StatelessWidget {
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    "Couldn't load movies!",
-                    style: open.s18.copyWith(
-                      color: colors.fonts.main,
+                  SizedBox(
+                    width: 150,
+                    child: Text(
+                      "${_basePath}error_loading".tr(),
+                      textAlign: TextAlign.center,
+                      style: open.s18.copyWith(
+                        color: colors.accents.red,
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -51,8 +56,9 @@ class MoviesList extends StatelessWidget {
                       context.read<HomeMoviesCubit>().getMovies();
                     },
                     child: Text(
-                      "Try again",
-                      style: open.s18.copyWith(
+                      "${_basePath}try_again".tr(),
+                      textAlign: TextAlign.center,
+                      style: open.s16.copyWith(
                         color: colors.fonts.main,
                       ),
                     ),

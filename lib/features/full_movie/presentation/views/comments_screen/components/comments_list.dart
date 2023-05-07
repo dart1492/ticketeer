@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,10 +11,13 @@ import 'package:ticketeer/features/full_movie/presentation/views/comments_screen
 
 /// List view with comments
 class CommentsList extends StatelessWidget {
+  final String _basePath;
+
   /// List view with comments
   const CommentsList({
     super.key,
-  });
+    required String basePath,
+  }) : _basePath = basePath;
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +68,7 @@ class CommentsList extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  "Loading comments...",
+                  "${_basePath}loading".tr(),
                   style: open.s18.copyWith(
                     color: colors.fonts.main,
                   ),

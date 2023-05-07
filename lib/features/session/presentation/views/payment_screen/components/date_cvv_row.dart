@@ -41,7 +41,7 @@ class DateCvvRow extends StatelessWidget {
                         date: true,
                       );
                 },
-                charLimit: 7,
+                charLimit: 5,
                 formatters: [CardExpirationFormatter()],
                 labelText: "${_basePath}labels.date".tr(),
                 keyboardType: TextInputType.number,

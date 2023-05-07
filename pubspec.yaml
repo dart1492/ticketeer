@@ -38,6 +38,7 @@ dependencies:
   animated_check: ^1.0.5
   zoom_widget: ^2.0.1
   share_plus: ^6.3.4
+  flutter_launcher_icons: ^0.13.1
 
   
 

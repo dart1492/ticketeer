@@ -47,6 +47,7 @@ class DateTimeHelper {
     final String month = dateTime.month.toString().padLeft(2, '0');
     final String day = dateTime.day.toString().padLeft(2, '0');
     final String year = dateTime.year.toString();
+
     return '$year-$month-$day';
   }
 }

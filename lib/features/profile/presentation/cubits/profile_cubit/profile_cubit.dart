@@ -62,7 +62,7 @@ class ProfileCubit extends Cubit<GeneralProfileState> {
     final result = await repo.changeUsername(newName);
     result.fold((l) {
       emit(
-        ProfileError(errorMessage: l.errorMessage),
+        ProfileEditingError(),
       );
       emit(
         ProfileIdle(

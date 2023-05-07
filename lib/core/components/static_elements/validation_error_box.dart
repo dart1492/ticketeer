@@ -11,11 +11,15 @@ class ValidationErrorBox extends StatelessWidget {
   /// Is this box shown
   final bool isShown;
 
+  /// Text alignment
+  final Alignment? alignment;
+
   /// Validation failure box which indicates that textfield validation is failed
   const ValidationErrorBox({
     super.key,
     required this.errorText,
     required this.isShown,
+    this.alignment,
   });
 
   @override
@@ -23,10 +27,10 @@ class ValidationErrorBox extends StatelessWidget {
     final colors = Theme.of(context).extension<AppColorScheme>()!;
     return Container(
       height: 50,
-      alignment: Alignment.centerLeft,
+      alignment: alignment ?? Alignment.centerLeft,
       child: AnimatedSwitcher(
         duration: const Duration(milliseconds: 200),
-        child: isShown
+        child: !isShown
             ? null
             : Row(
                 children: [
@@ -38,7 +42,8 @@ class ValidationErrorBox extends StatelessWidget {
                   const SizedBox(
                     width: 5,
                   ),
-                  Padding(
+                  Container(
+                    alignment: Alignment.center,
                     padding: const EdgeInsets.only(top: 5),
                     child: Text(
                       errorText,

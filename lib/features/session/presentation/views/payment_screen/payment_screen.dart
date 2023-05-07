@@ -131,6 +131,7 @@ class PaymentScreen extends StatelessWidget {
                           },
                         ),
                         CustomTextField(
+                          charLimit: 19,
                           onTap: () {
                             context.read<PaymentCubit>().clearValidation(
                                   card: true,

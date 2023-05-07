@@ -23,12 +23,17 @@ class UserModel extends User {
 
   /// From map (json) conversion
   factory UserModel.fromMap(Map<String, dynamic> map) {
+    print(
+      DateTime.fromMillisecondsSinceEpoch(
+        (map["createdAt"] as int) * 1000,
+      ),
+    );
     return UserModel(
       id: map["id"] as int? ?? 0,
       name: map['name'] as String? ?? "",
       phoneNumber: map['phoneNumber'] as String,
       createdAt: DateTime.fromMillisecondsSinceEpoch(
-        map["createdAt"],
+        (map["createdAt"] as int) * 1000,
       ),
     );
   }

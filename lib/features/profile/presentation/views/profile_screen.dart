@@ -5,7 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:ticketeer/core/components/buttons/custom_highlighted_button.dart';
 import 'package:ticketeer/core/components/custom_toasts.dart';
+import 'package:ticketeer/core/components/static_elements/validation_error_box.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
 import 'package:ticketeer/core/util/date_time_helper.dart';
@@ -62,7 +64,7 @@ class ProfileScreen extends StatelessWidget {
       child: BlocListener<ProfileCubit, GeneralProfileState>(
         listenWhen: _listenWhen,
         listener: (context, state) {
-          if (state is ProfileError) {
+          if (state is ProfileEditingError) {
             showErrorToast(
               text: "${_basePath}error_change".tr(),
               colors: colors,
@@ -102,7 +104,9 @@ class ProfileScreen extends StatelessWidget {
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const UserName(),
+                                const UserName(
+                                  basePath: _basePath,
+                                ),
                                 const SizedBox(
                                   height: 15,
                                 ),
@@ -143,6 +147,37 @@ class ProfileScreen extends StatelessWidget {
                             ).animate().fadeIn(
                                   duration: const Duration(milliseconds: 300),
                                 );
+                          }
+
+                          if (state is ProfileError) {
+                            return Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "${_basePath}error_loading".tr(),
+                                  textAlign: TextAlign.center,
+                                  style: open.s18.copyWith(
+                                    color: colors.accents.red,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 15,
+                                ),
+                                CustomHighlightedButton(
+                                  onTap: () {
+                                    context.read<ProfileCubit>().getUser();
+                                  },
+                                  child: Text(
+                                    "${_basePath}try_again".tr(),
+                                    textAlign: TextAlign.center,
+                                    style: open.s16.copyWith(
+                                      color: colors.fonts.main,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
                           } else {
                             return SpinKitDualRing(
                               color: colors.accents.blue,

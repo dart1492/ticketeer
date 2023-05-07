@@ -49,6 +49,8 @@ class ProfileError extends GeneralProfileState {
   });
 }
 
+class ProfileEditingError extends GeneralProfileState {}
+
 /// Profile success - needed for listener that informs user if the name changing
 /// operation was successful
 class ProfileSuccess extends GeneralProfileState {}
