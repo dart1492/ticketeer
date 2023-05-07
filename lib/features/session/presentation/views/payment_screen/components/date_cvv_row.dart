@@ -29,7 +29,7 @@ class DateCvvRow extends StatelessWidget {
               builder: (context, state) {
                 return ValidationErrorBox(
                   errorText: "${_basePath}invalid.date".tr(),
-                  isShown: state.isDateValidated,
+                  isShown: !state.isDateValidated,
                 );
               },
             ),
@@ -65,7 +65,7 @@ class DateCvvRow extends StatelessWidget {
               builder: (context, state) {
                 return ValidationErrorBox(
                   errorText: "${_basePath}invalid.cvv".tr(),
-                  isShown: state.isCvvValidated,
+                  isShown: !state.isCvvValidated,
                 );
               },
             ),

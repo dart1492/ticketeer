@@ -104,7 +104,7 @@ class PhoneScreen extends StatelessWidget {
                       builder: (context, state) {
                         return ValidationErrorBox(
                           errorText: "${_basePath}validation_error".tr(),
-                          isShown: (state as AcceptingPhoneState).isValidated,
+                          isShown: !(state as AcceptingPhoneState).isValidated,
                         );
                       },
                     ),

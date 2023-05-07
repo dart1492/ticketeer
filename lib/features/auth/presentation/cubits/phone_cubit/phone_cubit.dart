@@ -43,7 +43,8 @@ class PhoneCubit extends Cubit<PhoneState> {
   /// because valid otp is already given
   Future<void> getOTP() async {
     final String number = (state as AcceptingPhoneState).phoneNumber;
-    if (!phoneRegExp.hasMatch(number)) {
+
+    if (!phoneRegExp.hasMatch("+$number")) {
       emit(
         (state as AcceptingPhoneState).copyWith(isValidated: false),
       );

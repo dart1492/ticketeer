@@ -7,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:ticketeer/core/components/buttons/custom_highlighted_button.dart';
 import 'package:ticketeer/core/components/custom_toasts.dart';
-import 'package:ticketeer/core/components/static_elements/validation_error_box.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
 import 'package:ticketeer/core/util/date_time_helper.dart';

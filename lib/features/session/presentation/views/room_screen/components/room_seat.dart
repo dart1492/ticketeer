@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/features/session/domain/entities/seat.dart';

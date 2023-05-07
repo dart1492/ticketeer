@@ -33,7 +33,7 @@ class UserName extends StatelessWidget {
           if (state.user.name.isEmpty) {
             return ValidationErrorBox(
               errorText: "${_basePath}empty_name".tr(),
-              isShown: false,
+              isShown: true,
             );
           }
           return Text(
@@ -46,7 +46,7 @@ class UserName extends StatelessWidget {
 
         return const ValidationErrorBox(
           errorText: "Something went wrong!",
-          isShown: false,
+          isShown: true,
         );
       },
     );

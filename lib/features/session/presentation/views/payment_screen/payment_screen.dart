@@ -104,7 +104,7 @@ class PaymentScreen extends StatelessWidget {
                           builder: (context, state) {
                             return ValidationErrorBox(
                               errorText: "${_basePath}invalid.email".tr(),
-                              isShown: state.isEmailValidated,
+                              isShown: !state.isEmailValidated,
                             );
                           },
                         ),
@@ -126,7 +126,7 @@ class PaymentScreen extends StatelessWidget {
                           builder: (context, state) {
                             return ValidationErrorBox(
                               errorText: "${_basePath}invalid.card".tr(),
-                              isShown: state.isNumberValidated,
+                              isShown: !state.isNumberValidated,
                             );
                           },
                         ),

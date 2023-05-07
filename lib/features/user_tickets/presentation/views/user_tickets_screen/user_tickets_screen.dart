@@ -38,9 +38,23 @@ class UserTicketsScreen extends StatelessWidget {
                 if (state is LoadedUserTicketsState) {
                   if (state.tickets.isEmpty) {
                     return Center(
-                      child: Text(
-                        "No tickets for you...",
-                        style: open.s24.copyWith(color: colors.fonts.main),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Opacity(
+                            opacity: 0.45,
+                            child: Image.asset(
+                              "assets/back_icon_dark.png",
+                            ),
+                          ),
+                          Text(
+                            "Here your tickets will be displayed",
+                            textAlign: TextAlign.center,
+                            style: open.s24.copyWith(
+                              color: colors.fonts.secondary,
+                            ),
+                          ),
+                        ],
                       ),
                     );
                   }
