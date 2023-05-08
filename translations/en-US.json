@@ -11,11 +11,15 @@
             "bad_example" : "Bad: 0960789678",
             "good_example" : "Good: 380660000000",
             "auth_button" : "Authorize",
-            "validation_error" : "Invalid phone number"
+            "validation_error" : "Invalid phone number",
+            "phone" : "National number",
+            "country" : "Country",
+            "processing_error" : "Processing error"
         },
         "otp" : {
             "description" : "One-Time-Password",
-            "success" : "Success"
+            "success" : "Success",
+            "clear" : "Clear"
         },
         "profile" : {
             "success_change" : "Successfully changed!",
@@ -71,8 +75,8 @@
             "success" : "Comment added!",
             "loading" : "Loading..."
         },
-        "all-sessions" : {
-            "starting-from" : "Starting from:",
+        "all_sessions" : {
+            "starting_from" : "Starting from:",
             "room" : "room",
             "header" : "Available sessions for:",
             "seats" : "Seats available:",
@@ -89,7 +93,9 @@
                 "chosen" : "Chosen"
             },
             "book" : "Book",
-            "min" : "min:"
+            "min" : "min:",
+            "error_loading" : "Error loading room!",
+            "try_again" : "Try again"
         },
         "payment": {
             "labels" : {
@@ -113,7 +119,8 @@
         },
         "user_tickets" : {
             "error_loading" : "Couldn't load tickets!",
-            "try_again" : "Try again"
+            "try_again" : "Try again",
+            "placeholder" : "Your tickets"
         }
     },
 

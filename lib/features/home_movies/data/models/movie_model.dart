@@ -103,7 +103,7 @@ class MovieModel extends Movie {
           "defaultName",
       duration: map['duration'] as int? ?? 100,
       language: map['language'] as String? ?? "defaultLanguage",
-      rating: map['rating'] as String? ?? "5.0",
+      rating: map['rating'] as String? ?? "0.0",
       year: map['year'] as int? ?? 2023,
       country: map['country'] as String? ?? "",
       genre: map['genre'] as String? ?? "",

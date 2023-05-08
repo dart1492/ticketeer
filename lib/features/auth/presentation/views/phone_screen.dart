@@ -2,11 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:ticketeer/core/components/buttons/custom_highlighted_button.dart';
 import 'package:ticketeer/core/components/custom_toasts.dart';
-import 'package:ticketeer/core/components/static_elements/feature_badge.dart';
-import 'package:ticketeer/core/components/static_elements/stacked_gradient.dart';
 import 'package:ticketeer/core/components/static_elements/validation_error_box.dart';
 import 'package:ticketeer/core/routing/app_router.gr.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
@@ -40,13 +37,16 @@ class PhoneScreen extends StatelessWidget {
       child: BlocListener<PhoneCubit, PhoneState>(
         listener: (context, state) {
           if (state is ErrorPhoneState) {
-            showErrorToast(text: state.errorText, colors: colors);
+            showErrorToast(
+              text: "${_basePath}processing_error".tr(),
+              colors: colors,
+            );
           }
 
           if (state is SuccessPhoneState) {
             context.router.replace(
               OTPRoute(
-                phoneNumber: "+${state.phoneNumber}",
+                phoneNumber: state.phoneNumber,
               ),
             );
           }
@@ -69,36 +69,6 @@ class PhoneScreen extends StatelessWidget {
                         color: colors.fonts.main,
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Stack(
-                      children: [
-                        FeatureBadge(
-                          icon: Icon(
-                            Iconsax.dislike,
-                            color: colors.accents.red,
-                          ),
-                          text: "${_basePath}bad_example".tr(),
-                        ),
-                        StackedGradient(color: colors.accents.red),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Stack(
-                      children: [
-                        FeatureBadge(
-                          icon: Icon(
-                            Iconsax.like_1,
-                            color: colors.accents.green,
-                          ),
-                          text: "${_basePath}good_example".tr(),
-                        ),
-                        StackedGradient(color: colors.accents.green),
-                      ],
-                    ),
                     BlocBuilder<PhoneCubit, PhoneState>(
                       buildWhen: _buildErrorBoxWhen,
                       builder: (context, state) {
@@ -108,7 +78,9 @@ class PhoneScreen extends StatelessWidget {
                         );
                       },
                     ),
-                    const PhoneField(),
+                    const PhoneField(
+                      basePath: _basePath,
+                    ),
                     const Expanded(
                       child: SizedBox(),
                     ),

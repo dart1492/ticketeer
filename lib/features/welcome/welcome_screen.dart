@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:ticketeer/core/components/buttons/custom_highlighted_button.dart';
 import 'package:ticketeer/core/components/static_elements/feature_badge.dart';
 import 'package:ticketeer/core/components/static_elements/stacked_gradient.dart';
@@ -23,6 +24,8 @@ class WelcomeScreen extends StatelessWidget {
   static const _basePath = "screens.welcome.";
   @override
   Widget build(BuildContext context) {
+    FlutterNativeSplash.remove();
+
     final colors = Theme.of(context).extension<AppColorScheme>()!;
     return Scaffold(
       backgroundColor: colors.backgrounds.main,
@@ -52,7 +55,7 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       text: '${_basePath}badge_1'.tr(),
                     ),
-                    StackedGradient(color: colors.accents.green),
+                    StackedGradient(color: colors.accents.blue),
                   ],
                 ),
                 Stack(
@@ -65,7 +68,7 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       text: '${_basePath}badge_2'.tr(),
                     ),
-                    StackedGradient(color: colors.accents.blue),
+                    StackedGradient(color: colors.accents.green),
                   ],
                 ),
                 Stack(

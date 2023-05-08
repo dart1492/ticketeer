@@ -7,7 +7,7 @@ environment:
 
 dependencies:
   animations: ^2.0.7
-  dio: ^4.0.6
+  dio: ^5.1.1
   get_it: ^7.2.0
   auto_route: ^6.3.0
   flutter_otp_text_field: ^1.1.1
@@ -39,8 +39,18 @@ dependencies:
   zoom_widget: ^2.0.1
   share_plus: ^6.3.4
   flutter_launcher_icons: ^0.13.1
+  intl_phone_field: ^3.1.0
+  flutter_native_splash: ^2.2.19
 
   
+flutter_native_splash:
+  color: "#121215"
+  android_12:
+    image: assets/splash_background.png
+    color: "#121215"
+    icon_background_color: "#121215"
+
+
 
 dev_dependencies:
   flutter_test:

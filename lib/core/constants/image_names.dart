@@ -34,4 +34,6 @@ class ImageNames {
 
   /// Third movie image on the welcome screen
   static const String thirdSecond = "movie_3.jpg";
+
+  static String backgroundImageDark = "assets/back_icon_dark.png";
 }

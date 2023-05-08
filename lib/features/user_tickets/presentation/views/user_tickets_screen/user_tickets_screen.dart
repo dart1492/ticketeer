@@ -47,11 +47,19 @@ class UserTicketsScreen extends StatelessWidget {
                               "assets/back_icon_dark.png",
                             ),
                           ),
-                          Text(
-                            "Here your tickets will be displayed",
-                            textAlign: TextAlign.center,
-                            style: open.s24.copyWith(
-                              color: colors.fonts.secondary,
+                          Opacity(
+                            opacity: 0.45,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 15,
+                              ),
+                              child: Text(
+                                "${_basePath}placeholder".tr(),
+                                textAlign: TextAlign.center,
+                                style: open.s22.copyWith(
+                                  color: colors.fonts.secondary,
+                                ),
+                              ),
                             ),
                           ),
                         ],

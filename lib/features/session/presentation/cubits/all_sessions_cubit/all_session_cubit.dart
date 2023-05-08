@@ -33,7 +33,11 @@ class AllSessionsCubit extends Cubit<GeneralAllSessionsState> {
   /// Get a list of sessions for new chosen date
   Future<void> getSessionsNewDate(DateTime date) async {
     emit(
-      state.copyWith(isLoading: true, chosenDate: date),
+      state.copyWith(
+        isLoading: true,
+        chosenDate: date,
+        isError: false,
+      ),
     );
 
     final result = await repo.getSessions(

@@ -24,7 +24,7 @@ class SessionScreen extends StatelessWidget {
   /// Passing movie i=obj to get the id and name
   final Movie movieObj;
 
-  static const String _basePath = "screens.all-sessions.";
+  static const String _basePath = "screens.all_sessions.";
 
   /// Screen with available session for the current movie
   const SessionScreen({

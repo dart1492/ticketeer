@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
@@ -8,10 +9,13 @@ import 'package:ticketeer/features/auth/presentation/cubits/otp_cubit/otp_cubit.
 
 /// Otp textField
 class OtpField extends StatefulWidget {
+  final String _basePath;
+
   /// Otp textField
   const OtpField({
     super.key,
-  });
+    required String basePath,
+  }) : _basePath = basePath;
 
   @override
   State<OtpField> createState() => _OtpFieldState();
@@ -60,9 +64,9 @@ class _OtpFieldState extends State<OtpField> {
           height: 20,
         ),
         CustomDefaultButton(
-          width: 80,
+          width: 120,
           child: Text(
-            "Clear",
+            "${widget._basePath}clear".tr(),
             style: open.s18.copyWith(
               color: colors.fonts.main,
             ),

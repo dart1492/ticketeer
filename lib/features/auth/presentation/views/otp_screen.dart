@@ -4,6 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/components/custom_toasts.dart';
+import 'package:ticketeer/core/constants/image_names.dart';
 import 'package:ticketeer/core/routing/app_router.gr.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
@@ -45,6 +46,7 @@ class OTPScreen extends StatelessWidget {
           }
         },
         child: Scaffold(
+          resizeToAvoidBottomInset: false,
           backgroundColor: colors.backgrounds.main,
           body: SafeArea(
             child: Padding(
@@ -63,7 +65,17 @@ class OTPScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  const OtpField(),
+                  const OtpField(
+                    basePath: _basePath,
+                  ),
+                  Expanded(
+                    child: Opacity(
+                      opacity: 0.45,
+                      child: Image.asset(
+                        ImageNames.backgroundImageDark,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

@@ -74,7 +74,7 @@ class SessionPreviewTile extends StatelessWidget {
                 ),
               ),
               Text(
-                "${_basePath}starting-from".tr(),
+                "${_basePath}starting_from".tr(),
                 style: open.s16.copyWith(
                   color: colors.fonts.main,
                 ),

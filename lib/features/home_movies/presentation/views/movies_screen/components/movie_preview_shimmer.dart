@@ -3,8 +3,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 
-// TODO: CREATE BETTER SHIMMER
-
 /// Shimmer for loading
 class MoviesListLoader extends StatelessWidget {
   /// Shimmer for loading

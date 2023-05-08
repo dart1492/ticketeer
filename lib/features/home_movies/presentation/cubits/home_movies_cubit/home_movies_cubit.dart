@@ -46,6 +46,7 @@ class HomeMoviesCubit extends Cubit<HomeMoviesState> {
         isLoading: true,
         moviesLoadError: false,
         filtersLoadError: false,
+        queryDate: queryDate,
       ),
     );
 
@@ -108,6 +109,7 @@ class HomeMoviesCubit extends Cubit<HomeMoviesState> {
     List<int>? savedIndexes,
     bool? isShowingSaved,
   }) async {
+    final oldFilters = state.movieFilters as MovieFiltersModel;
     final newFilters = (state.movieFilters as MovieFiltersModel).copyWith(
       minYear: minYear,
       maxYear: maxYear,
@@ -115,9 +117,16 @@ class HomeMoviesCubit extends Cubit<HomeMoviesState> {
       savedIndexes: savedIndexes,
       isShowingSaved: isShowingSaved,
     );
+    emit(
+      state.copyWith(
+        movieFilters: newFilters,
+      ),
+    );
     final result = await repo.setMovieFilters(newFilters);
     result.fold(
-      (l) => null,
+      (l) => emit(
+        state.copyWith(movieFilters: oldFilters),
+      ),
       (r) => emit(
         state.copyWith(
           movieFilters: newFilters,

@@ -11,11 +11,15 @@
             "bad_example" : "Погано: 0960789678",
             "good_example" : "Добре: 380660000000",
             "validation_error" : "Некоректний номер телефону",
-            "auth_button" : "Авторизуватись"
+            "auth_button" : "Авторизуватись",
+            "phone" : "Національний номер",
+            "country" : "Країна",
+            "processing_error" : "Помилка обробки"
         },
         "otp" : {
             "description" : "Одноразовий пароль:",
-            "success" : "Успішно!"
+            "success" : "Успішно!",
+            "clear" : "Очистити"
         },
         "profile" : {
             "success_change" : "Змінено успішно!",
@@ -70,14 +74,14 @@
             "success" : "Коментар додано!",
             "loading" : "Оновлення..."
         },
-        "all-sessions" : {
-            "starting-from" : "Починаючи з:",
+        "all_sessions" : {
+            "starting_from" : "Починаючи з:",
             "room" : "кімната",
             "header" : "Доступні сеанси на:",
             "seats" : "Місць доступно:",
             "pick_date" : "Оберіть дату",
             "error_loading" : "Помилка завантаження сеансів!",
-            "try_again" : "Try again"
+            "try_again" : "Спробувати знову"
 
         },
         "room" : {
@@ -89,7 +93,9 @@
                 "chosen" : "Обране"
             },
             "book" : "Забронювати",
-            "min" : "мін:"
+            "min" : "мін:",
+            "error_loading" : "Помилка завантаження залу!",
+            "try_again" : "Спробувати знову"
 
         },
         "payment": {
@@ -114,7 +120,8 @@
         },
         "user_tickets" : {
             "error_loading" : "Помилка завантаження квитків!",
-            "try_again" : "Спробувати знову"
+            "try_again" : "Спробувати знову",
+            "placeholder" : "Ваші квитки"
         }
     },
     "components" : {

@@ -54,33 +54,6 @@ class ActionsRow extends StatelessWidget {
                 ),
               ),
             ),
-            // TODO: DECIDE IF I NEED THE REFRESH HERE
-            // CustomButton(
-            //   onTap: () {
-            //     context.read<HomeMoviesCubit>().getMovies();
-            //   },
-            //   child: Row(
-            //     children: [
-            //       Text(
-            //         "${_basePath}refresh_button".tr(),
-            //         style: open.s16.copyWith(
-            //           color: colors.fonts.main,
-            //         ),
-            //       ),
-            //       const SizedBox(
-            //         width: 5,
-            //       ),
-            //       Container(
-            //         padding: const EdgeInsets.only(top: 1),
-            //         child: Icon(
-            //           Iconsax.refresh,
-            //           color: colors.accents.blue,
-            //           size: 18,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
           ],
         );
       },

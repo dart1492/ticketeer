@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:ticketeer/core/components/custom_toasts.dart';
+import 'package:ticketeer/core/components/buttons/custom_highlighted_button.dart';
 import 'package:ticketeer/core/routing/app_router.gr.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
@@ -48,11 +48,6 @@ class RoomScreen extends StatelessWidget {
       create: (context) => sl<RoomCubit>()..getSession(sessionId),
       child: BlocListener<RoomCubit, GeneralRoomState>(
         listener: (context, state) {
-          if (state is ErrorRoomState) {
-            // TODO: ERROR TEXT
-            showErrorToast(text: "Error", colors: colors);
-          }
-
           if (state is SuccessRoomState) {
             context.router.push(
               PaymentRoute(
@@ -163,6 +158,49 @@ class RoomScreen extends StatelessWidget {
                     ).animate().fadeIn(
                           duration: const Duration(milliseconds: 300),
                         );
+                  }
+
+                  if (state is ErrorRoomState) {
+                    return Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 150,
+                            child: Text(
+                              "${_basePath}error_loading".tr(),
+                              textAlign: TextAlign.center,
+                              style: open.s18.copyWith(
+                                color: colors.accents.red,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          Builder(
+                            builder: (context) {
+                              return CustomHighlightedButton(
+                                width: 150,
+                                onTap: () {
+                                  context.read<RoomCubit>().getSession(
+                                        sessionId,
+                                      );
+                                },
+                                child: Text(
+                                  "${_basePath}try_again".tr(),
+                                  textAlign: TextAlign.center,
+                                  style: open.s16.copyWith(
+                                    color: colors.fonts.main,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    );
                   }
 
                   return SpinKitDualRing(
