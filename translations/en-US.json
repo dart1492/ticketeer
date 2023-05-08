@@ -59,21 +59,22 @@
             "save" : "Save"
         },
 
-        "full-movie" : {
+        "full_movie" : {
             "rating" : "Rating:",
             "starring" : "Starring:",
             "director" : "Director:",
             "comments" : "Comments:",
-            "view-sessions" : "View available sessions",
+            "view_sessions" : "View available sessions",
             "or" : "Or",
-            "read-comments" : "Read comments"
+            "read_comments" : "Read comments"
         },
         "comments" : {
             "header" : "Comments:",
             "refresh" : "Refresh",
             "label" : "Write your comment",
             "success" : "Comment added!",
-            "loading" : "Loading..."
+            "loading" : "Loading...",
+            "placeholder" : "Comments"
         },
         "all_sessions" : {
             "starting_from" : "Starting from:",

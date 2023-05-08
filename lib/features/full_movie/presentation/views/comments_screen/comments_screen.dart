@@ -115,7 +115,7 @@ class CommentsScreen extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: const [
                       //HeaderCommentsRow(basePath: _basePath),
                       SizedBox(

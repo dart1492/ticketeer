@@ -28,7 +28,7 @@ class FullMovieScreen extends StatefulWidget {
 
 class _FullMovieScreenState extends State<FullMovieScreen> {
   /// Base path for welcome screen localization
-  static const _basePath = "screens.full-movie.";
+  static const _basePath = "screens.full_movie.";
 
   late YoutubePlayerController _trailerController;
 
@@ -253,7 +253,7 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                           );
                         },
                         child: Text(
-                          "${_basePath}view-sessions".tr(),
+                          "${_basePath}view_sessions".tr(),
                           style: open.s18.copyWith(
                             color: colors.fonts.main,
                           ),
@@ -273,7 +273,7 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                               );
                             },
                             child: Text(
-                              "${_basePath}read-comments".tr(),
+                              "${_basePath}read_comments".tr(),
                               style: open.s18.copyWith(
                                 color: colors.fonts.main,
                               ),

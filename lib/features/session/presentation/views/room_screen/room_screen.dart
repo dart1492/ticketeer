@@ -5,6 +5,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:ticketeer/core/components/buttons/custom_highlighted_button.dart';
+import 'package:ticketeer/core/constants/image_names.dart';
 import 'package:ticketeer/core/routing/app_router.gr.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
@@ -15,6 +16,8 @@ import 'package:ticketeer/features/session/presentation/cubits/room_cubit/room_s
 import 'package:ticketeer/features/session/presentation/views/room_screen/components/book_button.dart';
 import 'package:ticketeer/features/session/presentation/views/room_screen/components/seat_grid.dart';
 import 'package:ticketeer/features/session/presentation/views/room_screen/components/tags_row.dart';
+import 'package:ticketeer/features/theme/theme_cubit/theme_cubit.dart';
+import 'package:ticketeer/features/theme/theme_cubit/theme_state.dart';
 import 'package:ticketeer/locator.dart';
 
 @RoutePage()
@@ -135,7 +138,21 @@ class RoomScreen extends StatelessWidget {
                         const SizedBox(
                           height: 10,
                         ),
-                        Image.asset('assets/screen.png'),
+                        BlocBuilder<ThemeCubit, ThemeState>(
+                          builder: (context, state) {
+                            if (state is LoadedThemeState) {
+                              return Image.asset(
+                                state.currentTheme == "dark"
+                                    ? ImageNames.screenDark
+                                    : ImageNames.screenLight,
+                              );
+                            }
+
+                            return Image.asset(
+                              ImageNames.screenDark,
+                            );
+                          },
+                        ),
                         const SizedBox(
                           height: 10,
                         ),

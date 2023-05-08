@@ -26,6 +26,33 @@ class CommentsList extends StatelessWidget {
     return BlocBuilder<CommentsCubit, GeneralCommentsState>(
       builder: (context, state) {
         if (state is LoadedCommentsState) {
+          if (state.comments.isEmpty) {
+            return SizedBox(
+              width: double.infinity,
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 150,
+                  ),
+                  Opacity(
+                    opacity: 0.35,
+                    child: Image.asset(
+                      'assets/comments_placeholder.png',
+                    ),
+                  ),
+                  Opacity(
+                    opacity: 0.35,
+                    child: Text(
+                      "${_basePath}placeholder".tr(),
+                      style: open.s24.copyWith(
+                        color: colors.fonts.secondary,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }
           return Expanded(
             child: ListView.separated(
               separatorBuilder: (context, index) {

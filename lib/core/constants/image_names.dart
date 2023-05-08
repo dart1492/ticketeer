@@ -36,4 +36,8 @@ class ImageNames {
   static const String thirdSecond = "movie_3.jpg";
 
   static String backgroundImageDark = "assets/back_icon_dark.png";
+
+  static const String screenDark = "assets/dark_screen.png";
+
+  static const String screenLight = "assets/light_screen.png";
 }

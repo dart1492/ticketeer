@@ -39,7 +39,9 @@ class WelcomeScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset('assets/screen.png'),
+                Image.asset(
+                  ImageNames.screenDark,
+                ),
                 Text(
                   "TICKETEER",
                   style: open.s32.w700.copyWith(color: colors.fonts.main),

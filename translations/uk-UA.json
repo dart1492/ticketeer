@@ -58,21 +58,22 @@
             "to" : "до",
             "save" : "Зберегти"
         },
-        "full-movie" : {
+        "full_movie" : {
             "rating" : "Рейтинг:",
             "starring" : "В ролях:",
             "director" : "Режисер:",
             "comments" : "Коментарі:",
-            "view-sessions" : "Доступні сеанси",
+            "view_sessions" : "Доступні сеанси",
             "or" : "Або",
-            "read-comments" : "Коментарі"
+            "read_comments" : "Коментарі"
         },
         "comments" : {
             "header" : "Коментарі",
             "refresh" : "Оновити",
             "label" : "Напишіть ваш коментар",
             "success" : "Коментар додано!",
-            "loading" : "Оновлення..."
+            "loading" : "Оновлення...",
+            "placeholder" : "Коментарі"
         },
         "all_sessions" : {
             "starting_from" : "Починаючи з:",

@@ -1,7 +1,16 @@
-<h1 style="color: #446DFF;">Ticketeer</h1>
 
-#### General
-##### Ticketeer is a mobile movie theater app
+
+## Table of contents
+1. [General](#general)
+2.  [Features](#features)
+3.  [Packages](#packages)
+4.  [Screens](#screens)
+## General
+Ticketeer is a mobile app, built for [EMPAT](https://empat.tech/) Flutter Fundamentals course. 
+
+
+
+## Features
 Here you can:
 - View latest releases and timeless classic
 - Get detailed information about each and every movie: watch trailers, look at the cast and more...
@@ -13,29 +22,31 @@ Here you can:
 - Adapt contents of the app to english or ukrainian language
 - And many more...
 
-Only one way to discover everything - install now!
-- Latest apk for Android
-
-#### Technical information
+## Packages
 
 This app was written with Clean Architecture and best software design patterns in mind. It makes use of classical Flutter packages, like:
-- [bloc](https://pub.dev/packages/flutter_bloc)
-- [easy localization](https://pub.dev/packages/easy_localization)
-- [get it](https://pub.dev/packages/get_it)
+- [Bloc](https://pub.dev/packages/flutter_bloc)
+- [Easy localization](https://pub.dev/packages/easy_localization)
+- [Get it](https://pub.dev/packages/get_it)
 
-You will be able to see the full list in pubspec.yaml file of the project.
+I also want to mention some packages that provide specific functionality in specific parts of the app:
+- [International phone field](https://pub.dev/packages/intl_phone_field). Provides neat phone TextField widget with extended functionality
+- [Flutter credit card](https://pub.dev/packages/flutter_credit_card). Provides credit card widget that can be tied with different TextField widgets to display credit card info: number, cvv, date, etc.
+- [Barcode widget](https://pub.dev/packages/barcode_widget). Provides functionality to generate different barcode types based on some app data and display this barcode on the screen.
 
-<!-- 
-<div class="image-list" style="overflow-x: auto; white-space: nowrap;">
-  <img src=".showcase/image_1.jpg" alt="Image 1" style="max-width: 150px; max-height:300px">
-  <img src=".showcase/image_2.jpg" alt="Image 2"  style="max-width: 150px; max-height:300px">
-  <img src=".showcase/image_3.jpg" alt="Image 3"  style="max-width: 150px; max-height:300px">
-  <img src=".showcase/image_4.jpg" alt="Image 4"  style="max-width: 150px; max-height:300px">
-  <img src=".showcase/image_5.jpg" alt="Image 5"  style="max-width: 150px; max-height:300px">
-  <img src=".showcase/image_6.jpg" alt="Image 6"  style="max-width: 150px; max-height:300px">
-  <img src=".showcase/image_7.jpg" alt="Image 7"  style="max-width: 150px; max-height:300px">
-  <img src=".showcase/image_8.jpg" alt="Image 8"  style="max-width: 150px; max-height:300px">
-  <img src=".showcase/image_9.jpg" alt="Image 9"  style="max-width: 150px; max-height:300px">
-</div> -->
+## Screens
+<img src=.showcase/image_10.jpg height=300, width=150>
+<img src=.showcase/image_1.jpg height=300, width=150>
+<img src=.showcase/image_2.jpg height=300, width=150>
+<img src=.showcase/image_3.jpg height=300, width=150>
+<img src=.showcase/image_4.jpg height=300, width=150>
+<img src=.showcase/image_5.jpg height=300, width=150>
+<img src=.showcase/image_6.jpg height=300, width=150>
+<img src=.showcase/image_7.jpg height=300, width=150>
+<img src=.showcase/image_8.jpg height=300, width=150>
+<img src=.showcase/image_9.jpg height=300, width=150>
+<img src=.showcase/image_9.jpg height=300, width=150>
+
+
 
 

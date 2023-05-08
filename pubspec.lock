@@ -17,14 +17,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.10.0"
-  animated_check:
-    dependency: "direct main"
-    description:
-      name: animated_check
-      sha256: "1da103a44b6aeacbecec799343b7170e627f4af465ca642b430c1d94922868aa"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.5"
   animations:
     dependency: "direct main"
     description:
@@ -1218,14 +1210,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "8.1.2"
-  zoom_widget:
-    dependency: "direct main"
-    description:
-      name: zoom_widget
-      sha256: "50fbaa460ffc938ca14c0077f8c9e5968c437897242d7f552dacff1bf3270225"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.1"
 sdks:
   dart: ">=2.19.4 <3.0.0"
   flutter: ">=3.7.0-0"
