@@ -38,7 +38,7 @@ class UserName extends StatelessWidget {
           }
           return Text(
             state.user.name,
-            style: open.s32.w700.copyWith(
+            style: roboto.s32.w700.copyWith(
               color: colors.accents.blue,
             ),
           );

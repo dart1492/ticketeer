@@ -97,7 +97,7 @@ class DatePickScroller extends StatelessWidget {
                   children: [
                     Text(
                       "${_basePath}pick_date".tr(),
-                      style: open.s14.copyWith(color: colors.fonts.main),
+                      style: roboto.s14.copyWith(color: colors.fonts.main),
                     ),
                     Icon(
                       Iconsax.calendar,
@@ -126,11 +126,11 @@ class DatePickScroller extends StatelessWidget {
                 children: [
                   Text(
                     representedDay,
-                    style: open.s14.copyWith(color: colors.fonts.main),
+                    style: roboto.s14.copyWith(color: colors.fonts.main),
                   ),
                   Text(
                     DateTimeHelper.monthToShortString(representedMonth).tr(),
-                    style: open.s14.copyWith(color: colors.fonts.main),
+                    style: roboto.s14.copyWith(color: colors.fonts.main),
                   ),
                 ],
               ),

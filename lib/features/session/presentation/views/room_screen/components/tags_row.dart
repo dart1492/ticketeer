@@ -94,13 +94,13 @@ class TagsRow extends StatelessWidget {
               ),
               Text(
                 "${_basePath}seat_types.normal".tr(),
-                style: open.s14.copyWith(
+                style: roboto.s14.copyWith(
                   color: colors.fonts.main,
                 ),
               ),
               Text(
                 _getSeatPrice(SeatType.normal) ?? "",
-                style: open.s14.copyWith(
+                style: roboto.s14.copyWith(
                   color: colors.fonts.main,
                 ),
               ),
@@ -117,13 +117,13 @@ class TagsRow extends StatelessWidget {
               ),
               Text(
                 "${_basePath}seat_types.better".tr(),
-                style: open.s14.copyWith(
+                style: roboto.s14.copyWith(
                   color: colors.fonts.main,
                 ),
               ),
               Text(
                 _getSeatPrice(SeatType.better) ?? "",
-                style: open.s14.copyWith(
+                style: roboto.s14.copyWith(
                   color: colors.fonts.main,
                 ),
               ),
@@ -140,13 +140,13 @@ class TagsRow extends StatelessWidget {
               ),
               Text(
                 "${_basePath}seat_types.vip".tr(),
-                style: open.s14.copyWith(
+                style: roboto.s14.copyWith(
                   color: colors.fonts.main,
                 ),
               ),
               Text(
                 _getSeatPrice(SeatType.vip) ?? "",
-                style: open.s14.copyWith(
+                style: roboto.s14.copyWith(
                   color: colors.fonts.main,
                 ),
               ),

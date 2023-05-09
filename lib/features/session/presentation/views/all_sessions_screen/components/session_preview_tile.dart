@@ -69,19 +69,19 @@ class SessionPreviewTile extends StatelessWidget {
             children: [
               Text(
                 sessionObj.type,
-                style: open.s24.w700.copyWith(
+                style: roboto.s24.w700.copyWith(
                   color: colors.accents.blue,
                 ),
               ),
               Text(
                 "${_basePath}starting_from".tr(),
-                style: open.s16.copyWith(
+                style: roboto.s16.copyWith(
                   color: colors.fonts.main,
                 ),
               ),
               Text(
                 "${sessionObj.minPrice} \$",
-                style: open.s16.copyWith(
+                style: roboto.s16.copyWith(
                   color: colors.fonts.main,
                 ),
               ),
@@ -96,7 +96,7 @@ class SessionPreviewTile extends StatelessWidget {
                 children: [
                   Text(
                     _parseTime(),
-                    style: open.s18.copyWith(
+                    style: roboto.s18.copyWith(
                       color: colors.fonts.main,
                     ),
                   ),
@@ -104,13 +104,13 @@ class SessionPreviewTile extends StatelessWidget {
               ),
               Text(
                 _room(),
-                style: open.s16.copyWith(
+                style: roboto.s16.copyWith(
                   color: colors.fonts.main,
                 ),
               ),
               Text(
                 _seatsNumber(),
-                style: open.s16.copyWith(
+                style: roboto.s16.copyWith(
                   color: colors.fonts.main,
                 ),
               ),

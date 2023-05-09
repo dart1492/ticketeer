@@ -65,7 +65,7 @@ class PhoneScreen extends StatelessWidget {
                   children: [
                     Text(
                       "${_basePath}description".tr(),
-                      style: open.s16.copyWith(
+                      style: roboto.s16.copyWith(
                         color: colors.fonts.main,
                       ),
                     ),
@@ -90,7 +90,7 @@ class PhoneScreen extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(vertical: 10),
                           child: Text(
                             "${_basePath}auth_button".tr(),
-                            style: open.s24.w700.copyWith(
+                            style: roboto.s24.w700.copyWith(
                               color: colors.fonts.main,
                             ),
                           ),

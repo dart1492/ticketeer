@@ -58,7 +58,7 @@ class OTPScreen extends StatelessWidget {
                 children: [
                   Text(
                     "${_basePath}description".tr(),
-                    style: open.s24.copyWith(
+                    style: roboto.s24.copyWith(
                       color: colors.fonts.main,
                     ),
                   ),

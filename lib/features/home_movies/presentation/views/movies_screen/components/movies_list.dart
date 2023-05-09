@@ -42,7 +42,7 @@ class MoviesList extends StatelessWidget {
                     child: Text(
                       "${_basePath}error_loading".tr(),
                       textAlign: TextAlign.center,
-                      style: open.s18.copyWith(
+                      style: roboto.s18.copyWith(
                         color: colors.accents.red,
                       ),
                     ),
@@ -58,13 +58,17 @@ class MoviesList extends StatelessWidget {
                     child: Text(
                       "${_basePath}try_again".tr(),
                       textAlign: TextAlign.center,
-                      style: open.s16.copyWith(
+                      style: roboto.s16.copyWith(
                         color: colors.fonts.main,
                       ),
                     ),
                   ),
                 ],
-              ),
+              ).animate().fadeIn(
+                    duration: const Duration(
+                      milliseconds: 300,
+                    ),
+                  ),
             );
           }
 
@@ -72,7 +76,7 @@ class MoviesList extends StatelessWidget {
             return Center(
               child: Text(
                 "${_basePath}no_movies".tr(),
-                style: open.s18.copyWith(
+                style: roboto.s18.copyWith(
                   color: colors.fonts.main,
                 ),
               ),

@@ -34,7 +34,7 @@ class YearChooser extends StatelessWidget {
             children: [
               Text(
                 "${basePath}year".tr(),
-                style: open.s18.copyWith(
+                style: roboto.s18.copyWith(
                   color: colors.fonts.main,
                 ),
               ),
@@ -52,7 +52,7 @@ class YearChooser extends StatelessWidget {
               ),
               Text(
                 "${basePath}to".tr(),
-                style: open.s18.copyWith(
+                style: roboto.s18.copyWith(
                   color: colors.fonts.main,
                 ),
               ),

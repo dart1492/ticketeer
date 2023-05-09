@@ -37,7 +37,7 @@ class ThemeChooseColumn extends StatelessWidget {
                 },
                 child: Text(
                   "${_basePath}dark_switch".tr(),
-                  style: open.s14.copyWith(color: colors.fonts.main),
+                  style: roboto.s14.copyWith(color: colors.fonts.main),
                 ),
               )
             else
@@ -49,7 +49,7 @@ class ThemeChooseColumn extends StatelessWidget {
                 },
                 child: Text(
                   "${_basePath}dark_switch".tr(),
-                  style: open.s14.copyWith(color: colors.fonts.main),
+                  style: roboto.s14.copyWith(color: colors.fonts.main),
                 ),
               ),
             const SizedBox(
@@ -61,7 +61,7 @@ class ThemeChooseColumn extends StatelessWidget {
                 width: 110,
                 child: Text(
                   "${_basePath}light_switch".tr(),
-                  style: open.s14.copyWith(color: colors.fonts.main),
+                  style: roboto.s14.copyWith(color: colors.fonts.main),
                 ),
                 onTap: () {
                   context.read<ThemeCubit>().setNewTheme(lightTheme);
@@ -73,7 +73,7 @@ class ThemeChooseColumn extends StatelessWidget {
                 width: 110,
                 child: Text(
                   "${_basePath}light_switch".tr(),
-                  style: open.s14.copyWith(color: colors.fonts.main),
+                  style: roboto.s14.copyWith(color: colors.fonts.main),
                 ),
                 onTap: () {
                   context.read<ThemeCubit>().setNewTheme(lightTheme);

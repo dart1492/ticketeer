@@ -72,7 +72,7 @@ class SessionScreen extends StatelessWidget {
                   ),
                   Text(
                     "components.app_bar.back".tr(),
-                    style: open.s18.copyWith(
+                    style: roboto.s18.copyWith(
                       color: colors.fonts.main,
                     ),
                   ),
@@ -89,7 +89,7 @@ class SessionScreen extends StatelessWidget {
             children: [
               Text(
                 "${_basePath}header".tr(),
-                style: open.s24.copyWith(color: colors.fonts.main),
+                style: roboto.s24.copyWith(color: colors.fonts.main),
               ),
               const SizedBox(
                 height: 10,
@@ -121,7 +121,7 @@ class SessionScreen extends StatelessWidget {
                               child: Text(
                                 "${_basePath}error_loading".tr(),
                                 textAlign: TextAlign.center,
-                                style: open.s18.copyWith(
+                                style: roboto.s18.copyWith(
                                   color: colors.accents.red,
                                 ),
                               ),
@@ -141,7 +141,7 @@ class SessionScreen extends StatelessWidget {
                               child: Text(
                                 "${_basePath}try_again".tr(),
                                 textAlign: TextAlign.center,
-                                style: open.s16.copyWith(
+                                style: roboto.s16.copyWith(
                                   color: colors.fonts.main,
                                 ),
                               ),

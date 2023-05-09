@@ -39,7 +39,7 @@ class ChangeNameButton extends StatelessWidget {
                 },
                 child: Text(
                   "${_basePath}done_change_username".tr(),
-                  style: open.s14.copyWith(
+                  style: roboto.s14.copyWith(
                     color: colors.fonts.main,
                   ),
                 ),
@@ -56,7 +56,7 @@ class ChangeNameButton extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 child: Text(
                   "${_basePath}abort_change_username".tr(),
-                  style: open.s14.copyWith(
+                  style: roboto.s14.copyWith(
                     color: colors.fonts.main,
                   ),
                 ),
@@ -75,7 +75,7 @@ class ChangeNameButton extends StatelessWidget {
             ),
             child: Text(
               "${_basePath}change_username".tr(),
-              style: open.s14.copyWith(
+              style: roboto.s14.copyWith(
                 color: colors.fonts.main,
               ),
             ),

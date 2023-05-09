@@ -130,7 +130,7 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
                       ),
                       Text(
                         "components.app_bar.back".tr(),
-                        style: open.s16.copyWith(
+                        style: roboto.s16.copyWith(
                           color: colors.fonts.main,
                         ),
                       ),
@@ -154,7 +154,7 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
                 ),
                 Text(
                   "${MovieFiltersScreen._basePath}date".tr(),
-                  style: open.s18.copyWith(color: colors.fonts.main),
+                  style: roboto.s18.copyWith(color: colors.fonts.main),
                 ),
                 const SizedBox(
                   height: 10,
@@ -172,7 +172,7 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
                   children: [
                     Text(
                       "${MovieFiltersScreen._basePath}age".tr(),
-                      style: open.s18.copyWith(
+                      style: roboto.s18.copyWith(
                         color: colors.fonts.main,
                       ),
                     ),
@@ -193,7 +193,7 @@ class _MovieFiltersScreenState extends State<MovieFiltersScreen> {
                   children: [
                     Text(
                       "${MovieFiltersScreen._basePath}show_only_saved".tr(),
-                      style: open.s18.copyWith(
+                      style: roboto.s18.copyWith(
                         color: colors.fonts.main,
                       ),
                     ),

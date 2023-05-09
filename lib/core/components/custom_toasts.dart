@@ -16,7 +16,7 @@ void showSuccessToast({
     ),
     align: const Alignment(0, 0.7),
     text: text,
-    textStyle: open.s16.copyWith(
+    textStyle: roboto.s16.copyWith(
       color: colors.accents.green,
     ),
   );
@@ -35,7 +35,7 @@ void showErrorToast({
     ),
     align: const Alignment(0, 0.7),
     text: text,
-    textStyle: open.s16.copyWith(
+    textStyle: roboto.s16.copyWith(
       color: colors.accents.red,
     ),
   );

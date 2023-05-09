@@ -58,7 +58,7 @@ class BookTicketsButton extends StatelessWidget {
                     alignment: Alignment.center,
                     child: Text(
                       "${_totalPrice(state.chosenSeats)} \$",
-                      style: open.s18.copyWith(
+                      style: roboto.s18.copyWith(
                         color: colors.fonts.main,
                       ),
                     ),
@@ -74,7 +74,7 @@ class BookTicketsButton extends StatelessWidget {
                     alignment: Alignment.center,
                     child: Text(
                       "${_basePath}book".tr(),
-                      style: open.s18.copyWith(
+                      style: roboto.s18.copyWith(
                         color: colors.fonts.main,
                       ),
                     ),

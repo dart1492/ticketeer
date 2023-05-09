@@ -44,7 +44,7 @@ class CommentsList extends StatelessWidget {
                     opacity: 0.35,
                     child: Text(
                       "${_basePath}placeholder".tr(),
-                      style: open.s24.copyWith(
+                      style: roboto.s24.copyWith(
                         color: colors.fonts.secondary,
                       ),
                     ),
@@ -96,7 +96,7 @@ class CommentsList extends StatelessWidget {
                 ),
                 Text(
                   "${_basePath}loading".tr(),
-                  style: open.s18.copyWith(
+                  style: roboto.s18.copyWith(
                     color: colors.fonts.main,
                   ),
                 ),

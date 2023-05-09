@@ -54,7 +54,7 @@ class CommentsScreen extends StatelessWidget {
                       children: [
                         Text(
                           "${_basePath}refresh".tr(),
-                          style: open.s16.copyWith(
+                          style: roboto.s16.copyWith(
                             color: colors.fonts.main,
                           ),
                         ),
@@ -98,7 +98,7 @@ class CommentsScreen extends StatelessWidget {
                     ),
                     Text(
                       "components.app_bar.back".tr(),
-                      style: open.s18.copyWith(
+                      style: roboto.s18.copyWith(
                         color: colors.fonts.main,
                       ),
                     ),

@@ -47,7 +47,7 @@ class ValidationErrorBox extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 5),
                     child: Text(
                       errorText,
-                      style: open.s16.copyWith(
+                      style: roboto.s16.copyWith(
                         color: colors.accents.red,
                       ),
                     ),

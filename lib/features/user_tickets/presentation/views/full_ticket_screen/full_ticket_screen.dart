@@ -65,7 +65,7 @@ class FullTicketScreen extends StatelessWidget {
                 ),
                 Text(
                   "components.app_bar.back".tr(),
-                  style: open.s18.copyWith(
+                  style: roboto.s18.copyWith(
                     color: colors.fonts.main,
                   ),
                 ),
@@ -134,7 +134,7 @@ class FullTicketScreen extends StatelessWidget {
                         child: Text(
                           "${_baseUrl}hint".tr(),
                           textAlign: TextAlign.center,
-                          style: open.s16.w700.copyWith(
+                          style: roboto.s16.w700.copyWith(
                             color: colors.fonts.main,
                           ),
                         ),
@@ -162,7 +162,7 @@ class FullTicketScreen extends StatelessWidget {
                               ticketObj.name,
                               softWrap: true,
                               textAlign: TextAlign.center,
-                              style: open.s20.w700.copyWith(
+                              style: roboto.s20.w700.copyWith(
                                 color: colors.fonts.main,
                               ),
                             ),
@@ -174,7 +174,7 @@ class FullTicketScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   _parseDate(),
-                                  style: open.s16.copyWith(
+                                  style: roboto.s16.copyWith(
                                     color: colors.fonts.main,
                                   ),
                                 ),
@@ -191,7 +191,7 @@ class FullTicketScreen extends StatelessWidget {
                                 ),
                                 Text(
                                   _parseTime(),
-                                  style: open.s16.copyWith(
+                                  style: roboto.s16.copyWith(
                                     color: colors.fonts.main,
                                   ),
                                 ),
@@ -205,7 +205,7 @@ class FullTicketScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   _parseSeat(),
-                                  style: open.s16.copyWith(
+                                  style: roboto.s16.copyWith(
                                     color: colors.fonts.main,
                                   ),
                                 ),
@@ -221,7 +221,7 @@ class FullTicketScreen extends StatelessWidget {
                               height: 10,
                             ),
                             BarcodeWidget(
-                              style: open.s10.copyWith(
+                              style: roboto.s10.copyWith(
                                 color: colors.components.blocks.background,
                               ),
                               color: colors.fonts.main,

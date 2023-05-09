@@ -117,13 +117,13 @@ class _CommentWriteState extends State<CommentWrite> {
                                           .read<CommentWriteCubit>()
                                           .updateCommentText(value);
                                     },
-                                    style: open.s14.copyWith(
+                                    style: roboto.s14.copyWith(
                                       color: colors.fonts.main,
                                     ),
                                     maxLines: null,
                                     cursorColor: colors.accents.blue,
                                     decoration: InputDecoration(
-                                      labelStyle: open.s14.copyWith(
+                                      labelStyle: roboto.s14.copyWith(
                                         color: colors.fonts.secondary,
                                       ),
                                       enabledBorder: OutlineInputBorder(

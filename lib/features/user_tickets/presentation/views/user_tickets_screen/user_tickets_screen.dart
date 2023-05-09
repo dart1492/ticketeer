@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:ticketeer/core/components/buttons/custom_highlighted_button.dart';
@@ -56,7 +57,7 @@ class UserTicketsScreen extends StatelessWidget {
                               child: Text(
                                 "${_basePath}placeholder".tr(),
                                 textAlign: TextAlign.center,
-                                style: open.s22.copyWith(
+                                style: roboto.s22.copyWith(
                                   color: colors.fonts.secondary,
                                 ),
                               ),
@@ -79,7 +80,11 @@ class UserTicketsScreen extends StatelessWidget {
                         height: 30,
                       );
                     },
-                  );
+                  ).animate().fadeIn(
+                        duration: const Duration(
+                          milliseconds: 300,
+                        ),
+                      );
                 }
 
                 if (state is ErrorLoadingTicketsState) {
@@ -93,7 +98,7 @@ class UserTicketsScreen extends StatelessWidget {
                           child: Text(
                             "${_basePath}error_loading".tr(),
                             textAlign: TextAlign.center,
-                            style: open.s18.copyWith(
+                            style: roboto.s18.copyWith(
                               color: colors.accents.red,
                             ),
                           ),
@@ -109,13 +114,17 @@ class UserTicketsScreen extends StatelessWidget {
                           child: Text(
                             "${_basePath}try_again".tr(),
                             textAlign: TextAlign.center,
-                            style: open.s16.copyWith(
+                            style: roboto.s16.copyWith(
                               color: colors.fonts.main,
                             ),
                           ),
                         ),
                       ],
-                    ),
+                    ).animate().fadeIn(
+                          duration: const Duration(
+                            milliseconds: 300,
+                          ),
+                        ),
                   );
                 }
 

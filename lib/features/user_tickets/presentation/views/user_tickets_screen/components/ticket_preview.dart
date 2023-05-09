@@ -67,7 +67,7 @@ class TicketPreview extends StatelessWidget {
               children: [
                 Text(
                   ticketObj.name,
-                  style: open.s18.copyWith(
+                  style: roboto.s18.copyWith(
                     color: colors.fonts.main,
                   ),
                 ),
@@ -76,7 +76,7 @@ class TicketPreview extends StatelessWidget {
                   children: [
                     Text(
                       _parseDate(),
-                      style: open.s16.copyWith(
+                      style: roboto.s16.copyWith(
                         color: colors.fonts.main,
                       ),
                     ),
@@ -93,7 +93,7 @@ class TicketPreview extends StatelessWidget {
                     ),
                     Text(
                       _parseTime(),
-                      style: open.s16.copyWith(
+                      style: roboto.s16.copyWith(
                         color: colors.fonts.main,
                       ),
                     ),
@@ -101,7 +101,7 @@ class TicketPreview extends StatelessWidget {
                 ),
                 Text(
                   _parseSeat(),
-                  style: open.s16.copyWith(
+                  style: roboto.s16.copyWith(
                     color: colors.fonts.main,
                   ),
                 ),

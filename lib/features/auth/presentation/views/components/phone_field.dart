@@ -53,7 +53,7 @@ class _PhoneFieldState extends State<PhoneField> {
         useMaterial3: false,
         textTheme: TextTheme(
           // ignore: deprecated_member_use
-          subtitle1: open.s16.copyWith(
+          subtitle1: roboto.s16.copyWith(
             color: colors.fonts.main,
           ),
         ),
@@ -68,7 +68,7 @@ class _PhoneFieldState extends State<PhoneField> {
           searchFieldInputDecoration: InputDecoration(
             labelText: "${widget._basePath}country".tr(),
             floatingLabelBehavior: FloatingLabelBehavior.never,
-            labelStyle: open.s16.copyWith(
+            labelStyle: roboto.s16.copyWith(
               color: colors.fonts.secondary,
             ),
             enabledBorder: UnderlineInputBorder(
@@ -83,10 +83,10 @@ class _PhoneFieldState extends State<PhoneField> {
             ),
           ),
           backgroundColor: colors.backgrounds.secondary,
-          countryNameStyle: open.s16.copyWith(
+          countryNameStyle: roboto.s16.copyWith(
             color: colors.fonts.main,
           ),
-          countryCodeStyle: open.s16.copyWith(
+          countryCodeStyle: roboto.s16.copyWith(
             color: colors.accents.blue,
           ),
           listTileDivider: const SizedBox(
@@ -100,14 +100,14 @@ class _PhoneFieldState extends State<PhoneField> {
           color:
               isFocused ? colors.accents.blue : colors.components.blocks.border,
         ),
-        dropdownTextStyle: open.s16.copyWith(
+        dropdownTextStyle: roboto.s16.copyWith(
           color: isFocused ? colors.fonts.main : colors.fonts.secondary,
         ),
         // dropdownDecoration: BoxDecoration(
         //   color: colors.components.blocks.background,
         // ),
         autovalidateMode: AutovalidateMode.disabled,
-        style: open.s16.copyWith(
+        style: roboto.s16.copyWith(
           color: colors.fonts.main,
         ),
         decoration: InputDecoration(
@@ -128,7 +128,7 @@ class _PhoneFieldState extends State<PhoneField> {
             borderRadius: BorderRadius.circular(5),
           ),
           labelText: "${widget._basePath}phone".tr(),
-          labelStyle: open.s16.copyWith(color: colors.fonts.secondary),
+          labelStyle: roboto.s16.copyWith(color: colors.fonts.secondary),
           floatingLabelBehavior: FloatingLabelBehavior.never,
         ),
         initialCountryCode: 'UA',

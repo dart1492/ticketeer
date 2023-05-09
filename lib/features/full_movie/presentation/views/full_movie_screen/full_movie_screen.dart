@@ -87,7 +87,7 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                     ),
                     Text(
                       "components.app_bar.back".tr(),
-                      style: open.s18.copyWith(
+                      style: roboto.s18.copyWith(
                         color: colors.fonts.main,
                       ),
                     ),
@@ -110,7 +110,7 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                   SizedBox(
                     child: Text(
                       widget.movieObj.name,
-                      style: open.s36.w700.copyWith(
+                      style: roboto.s36.w700.copyWith(
                         color: colors.fonts.main,
                       ),
                     ),
@@ -158,7 +158,7 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                     children: [
                       Text(
                         "${_basePath}rating".tr(),
-                        style: open.s18.copyWith(
+                        style: roboto.s18.copyWith(
                           color: colors.fonts.main,
                         ),
                       ),
@@ -169,7 +169,7 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                         padding: const EdgeInsets.only(top: 1),
                         child: Text(
                           widget.movieObj.rating,
-                          style: open.s18.w700.copyWith(
+                          style: roboto.s18.w700.copyWith(
                             color: colors.fonts.main,
                           ),
                         ),
@@ -193,7 +193,7 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                   Text(
                     widget.movieObj.plotText,
                     textAlign: TextAlign.justify,
-                    style: open.s16.copyWith(
+                    style: roboto.s16.copyWith(
                       color: colors.fonts.secondary,
                     ),
                   ),
@@ -205,7 +205,7 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                     children: [
                       Text(
                         "${_basePath}starring".tr(),
-                        style: open.s18.copyWith(
+                        style: roboto.s18.copyWith(
                           color: colors.fonts.main,
                         ),
                       ),
@@ -217,7 +217,7 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                             _splitSingleStrings(
                               widget.movieObj.starring,
                             )[index],
-                            style: open.s16.copyWith(
+                            style: roboto.s16.copyWith(
                               color: colors.fonts.secondary,
                             ),
                           ),
@@ -228,7 +228,7 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                       ),
                       Text(
                         "${_basePath}director".tr(),
-                        style: open.s18.copyWith(
+                        style: roboto.s18.copyWith(
                           color: colors.fonts.main,
                         ),
                       ),
@@ -237,7 +237,7 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                       ),
                       Text(
                         widget.movieObj.director,
-                        style: open.s16.copyWith(
+                        style: roboto.s16.copyWith(
                           color: colors.fonts.secondary,
                         ),
                       ),
@@ -254,7 +254,7 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                         },
                         child: Text(
                           "${_basePath}view_sessions".tr(),
-                          style: open.s18.copyWith(
+                          style: roboto.s18.copyWith(
                             color: colors.fonts.main,
                           ),
                         ),
@@ -274,7 +274,7 @@ class _FullMovieScreenState extends State<FullMovieScreen> {
                             },
                             child: Text(
                               "${_basePath}read_comments".tr(),
-                              style: open.s18.copyWith(
+                              style: roboto.s18.copyWith(
                                 color: colors.fonts.main,
                               ),
                             ),

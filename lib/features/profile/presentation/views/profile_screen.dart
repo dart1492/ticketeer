@@ -115,13 +115,13 @@ class ProfileScreen extends StatelessWidget {
                                 ),
                                 Text(
                                   "${_basePath}phone_text".tr(),
-                                  style: open.s16.copyWith(
+                                  style: roboto.s16.copyWith(
                                     color: colors.fonts.main,
                                   ),
                                 ),
                                 Text(
                                   state.user.phoneNumber,
-                                  style: open.s18.copyWith(
+                                  style: roboto.s18.copyWith(
                                     color: colors.accents.blue,
                                   ),
                                 ),
@@ -130,7 +130,7 @@ class ProfileScreen extends StatelessWidget {
                                 ),
                                 Text(
                                   "${_basePath}with_us".tr(),
-                                  style: open.s16.copyWith(
+                                  style: roboto.s16.copyWith(
                                     color: colors.fonts.main,
                                   ),
                                 ),
@@ -138,7 +138,7 @@ class ProfileScreen extends StatelessWidget {
                                   _displayDateTimeString(
                                     state.user.createdAt,
                                   ),
-                                  style: open.s18.copyWith(
+                                  style: roboto.s18.copyWith(
                                     color: colors.accents.blue,
                                   ),
                                 ),
@@ -156,7 +156,7 @@ class ProfileScreen extends StatelessWidget {
                                 Text(
                                   "${_basePath}error_loading".tr(),
                                   textAlign: TextAlign.center,
-                                  style: open.s18.copyWith(
+                                  style: roboto.s18.copyWith(
                                     color: colors.accents.red,
                                   ),
                                 ),
@@ -170,7 +170,7 @@ class ProfileScreen extends StatelessWidget {
                                   child: Text(
                                     "${_basePath}try_again".tr(),
                                     textAlign: TextAlign.center,
-                                    style: open.s16.copyWith(
+                                    style: roboto.s16.copyWith(
                                       color: colors.fonts.main,
                                     ),
                                   ),
@@ -192,7 +192,7 @@ class ProfileScreen extends StatelessWidget {
                           children: [
                             Text(
                               "${_basePath}choose_theme".tr(),
-                              style: open.s16.w700.copyWith(
+                              style: roboto.s16.w700.copyWith(
                                 color: colors.fonts.main,
                               ),
                             ),
@@ -212,7 +212,7 @@ class ProfileScreen extends StatelessWidget {
                           children: [
                             Text(
                               "${_basePath}choose_lang".tr(),
-                              style: open.s16.w700
+                              style: roboto.s16.w700
                                   .copyWith(color: colors.fonts.main),
                             ),
                             const SizedBox(

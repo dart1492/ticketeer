@@ -75,14 +75,14 @@ class MoviePreview extends StatelessWidget {
                           padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
                           child: Text(
                             movieObj.name,
-                            style: open.s18.w700.copyWith(
+                            style: roboto.s18.w700.copyWith(
                               color: colors.fonts.main,
                             ),
                           ),
                         ),
                         Text(
                           "$parsedCountry, ${movieObj.year}, ${movieObj.age}+",
-                          style: open.s14.copyWith(
+                          style: roboto.s14.copyWith(
                             color: colors.fonts.secondary,
                           ),
                         ),

@@ -65,7 +65,7 @@ class CustomTextField extends StatelessWidget {
       onTap: onTap,
       onChanged: onChanged,
       cursorColor: colors.accents.blue,
-      style: open.s16.copyWith(color: colors.fonts.main),
+      style: roboto.s16.copyWith(color: colors.fonts.main),
       decoration: InputDecoration(
         counterText: '',
         labelText: labelText,
@@ -76,7 +76,7 @@ class CustomTextField extends StatelessWidget {
               horizontal: 10,
             ),
         floatingLabelBehavior: FloatingLabelBehavior.never,
-        labelStyle: open.s16.copyWith(color: colors.fonts.secondary),
+        labelStyle: roboto.s16.copyWith(color: colors.fonts.secondary),
         fillColor: colors.components.blocks.background,
         filled: true,
         enabledBorder: OutlineInputBorder(

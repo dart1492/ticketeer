@@ -82,7 +82,7 @@ class RoomScreen extends StatelessWidget {
                     ),
                     Text(
                       "components.app_bar.back".tr(),
-                      style: open.s18.copyWith(
+                      style: roboto.s18.copyWith(
                         color: colors.fonts.main,
                       ),
                     ),
@@ -103,7 +103,7 @@ class RoomScreen extends StatelessWidget {
                       children: [
                         Text(
                           movieObj.name,
-                          style: open.s24.copyWith(
+                          style: roboto.s24.copyWith(
                             color: colors.fonts.main,
                           ),
                         ),
@@ -112,7 +112,7 @@ class RoomScreen extends StatelessWidget {
                           children: [
                             Text(
                               state.session.room.name,
-                              style: open.s16.copyWith(
+                              style: roboto.s16.copyWith(
                                 color: colors.fonts.main,
                               ),
                             ),
@@ -129,7 +129,7 @@ class RoomScreen extends StatelessWidget {
                             ),
                             Text(
                               _parseTime(state.session),
-                              style: open.s16.copyWith(
+                              style: roboto.s16.copyWith(
                                 color: colors.fonts.main,
                               ),
                             ),
@@ -188,7 +188,7 @@ class RoomScreen extends StatelessWidget {
                             child: Text(
                               "${_basePath}error_loading".tr(),
                               textAlign: TextAlign.center,
-                              style: open.s18.copyWith(
+                              style: roboto.s18.copyWith(
                                 color: colors.accents.red,
                               ),
                             ),
@@ -208,7 +208,7 @@ class RoomScreen extends StatelessWidget {
                                 child: Text(
                                   "${_basePath}try_again".tr(),
                                   textAlign: TextAlign.center,
-                                  style: open.s16.copyWith(
+                                  style: roboto.s16.copyWith(
                                     color: colors.fonts.main,
                                   ),
                                 ),

@@ -32,16 +32,16 @@ class _OtpFieldState extends State<OtpField> {
         OtpTextField(
           autoFocus: true,
           styles: [
-            open.s16.copyWith(
+            roboto.s16.copyWith(
               color: colors.fonts.main,
             ),
-            open.s16.copyWith(
+            roboto.s16.copyWith(
               color: colors.fonts.main,
             ),
-            open.s16.copyWith(
+            roboto.s16.copyWith(
               color: colors.fonts.main,
             ),
-            open.s16.copyWith(
+            roboto.s16.copyWith(
               color: colors.fonts.main,
             ),
           ],
@@ -67,7 +67,7 @@ class _OtpFieldState extends State<OtpField> {
           width: 120,
           child: Text(
             "${widget._basePath}clear".tr(),
-            style: open.s18.copyWith(
+            style: roboto.s18.copyWith(
               color: colors.fonts.main,
             ),
           ),

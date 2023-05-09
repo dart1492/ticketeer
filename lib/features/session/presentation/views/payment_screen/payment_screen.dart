@@ -82,7 +82,7 @@ class PaymentScreen extends StatelessWidget {
                     ),
                     Text(
                       "components.app_bar.back".tr(),
-                      style: open.s18.copyWith(
+                      style: roboto.s18.copyWith(
                         color: colors.fonts.main,
                       ),
                     ),
@@ -169,7 +169,7 @@ class PaymentScreen extends StatelessWidget {
                               padding: const EdgeInsets.symmetric(vertical: 10),
                               child: Text(
                                 "${_basePath}buy".tr(),
-                                style: open.s24.w700.copyWith(
+                                style: roboto.s24.w700.copyWith(
                                   color: colors.fonts.main,
                                 ),
                               ),

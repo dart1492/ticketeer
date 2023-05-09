@@ -46,7 +46,7 @@ class ActionsRow extends StatelessWidget {
                     ),
                     Text(
                       "${_basePath}filters_button".tr(),
-                      style: open.s18.copyWith(
+                      style: roboto.s18.copyWith(
                         color: colors.fonts.main,
                       ),
                     ),

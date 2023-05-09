@@ -37,7 +37,7 @@ class LanguageChooseColumn extends StatelessWidget {
                 },
                 child: Text(
                   "${_basePath}eng_switch".tr(),
-                  style: open.s14.copyWith(color: colors.fonts.main),
+                  style: roboto.s14.copyWith(color: colors.fonts.main),
                 ),
               )
             else
@@ -50,7 +50,7 @@ class LanguageChooseColumn extends StatelessWidget {
                 },
                 child: Text(
                   "${_basePath}eng_switch".tr(),
-                  style: open.s14.copyWith(color: colors.fonts.main),
+                  style: roboto.s14.copyWith(color: colors.fonts.main),
                 ),
               ),
             const SizedBox(
@@ -66,7 +66,7 @@ class LanguageChooseColumn extends StatelessWidget {
                 },
                 child: Text(
                   "${_basePath}ukr_switch".tr(),
-                  style: open.s14.copyWith(color: colors.fonts.main),
+                  style: roboto.s14.copyWith(color: colors.fonts.main),
                 ),
               )
             else
@@ -79,7 +79,7 @@ class LanguageChooseColumn extends StatelessWidget {
                 },
                 child: Text(
                   "${_basePath}ukr_switch".tr(),
-                  style: open.s14.copyWith(color: colors.fonts.main),
+                  style: roboto.s14.copyWith(color: colors.fonts.main),
                 ),
               )
           ],

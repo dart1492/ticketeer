@@ -50,7 +50,7 @@ class MainBottomBarScreen extends StatelessWidget {
               ),
               title: Text(
                 "${_basePath}home".tr(),
-                style: open.s16,
+                style: roboto.s16,
               ),
             ),
             SalomonBottomBarItem(
@@ -60,7 +60,7 @@ class MainBottomBarScreen extends StatelessWidget {
               ),
               title: Text(
                 "${_basePath}tickets".tr(),
-                style: open.s16,
+                style: roboto.s16,
               ),
             ),
             SalomonBottomBarItem(
@@ -70,7 +70,7 @@ class MainBottomBarScreen extends StatelessWidget {
               ),
               title: Text(
                 "${_basePath}profile".tr(),
-                style: open.s16,
+                style: roboto.s16,
               ),
             ),
           ],

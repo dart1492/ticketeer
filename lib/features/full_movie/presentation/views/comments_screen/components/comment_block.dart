@@ -44,7 +44,7 @@ class CommentBlock extends StatelessWidget {
                 Text(
                   commentObj.content,
                   softWrap: true,
-                  style: open.s16.copyWith(
+                  style: roboto.s16.copyWith(
                     color: colors.fonts.main,
                   ),
                 ),
@@ -67,7 +67,7 @@ class CommentBlock extends StatelessWidget {
                 ),
                 Text(
                   "by: ${commentObj.author}",
-                  style: open.s16.copyWith(
+                  style: roboto.s16.copyWith(
                     color: colors.fonts.main,
                   ),
                 ),

@@ -7,11 +7,11 @@ import 'package:ticketeer/core/constants/string_constants.dart';
 
 /// Global getter used throughout the app to set the style property
 /// in Text widget without using material text styles (like header1 and etc.)
-CustomTextStyle get open => const Open();
+CustomTextStyle get roboto => const Roboto();
 
 /// Custom text style extension specifically for josefin family
-class Open extends CustomTextStyle {
-  const Open()
+class Roboto extends CustomTextStyle {
+  const Roboto()
       : super._(
           fontFamily: openFontName,
           fontSize: 14.0,

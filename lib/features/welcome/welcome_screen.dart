@@ -44,7 +44,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 Text(
                   "TICKETEER",
-                  style: open.s32.w700.copyWith(color: colors.fonts.main),
+                  style: roboto.s32.w700.copyWith(color: colors.fonts.main),
                 ),
                 const MoviesCarousel(),
                 Stack(
@@ -90,7 +90,7 @@ class WelcomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   child: Text(
                     "${_basePath}start".tr(),
-                    style: open.s24.w700.copyWith(
+                    style: roboto.s24.w700.copyWith(
                       color: colors.fonts.main,
                     ),
                   ),

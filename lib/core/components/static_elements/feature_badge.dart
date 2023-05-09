@@ -36,7 +36,7 @@ class FeatureBadge extends StatelessWidget {
           Expanded(
             child: Text(
               text,
-              style: open.s14.copyWith(
+              style: roboto.s14.copyWith(
                 color: colors.fonts.main,
               ),
             ),

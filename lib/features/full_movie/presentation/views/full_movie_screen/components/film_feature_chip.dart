@@ -30,7 +30,7 @@ class MovieFeatureChip extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: open.s14.copyWith(
+        style: roboto.s14.copyWith(
           color: colors.fonts.main,
         ),
       ),
