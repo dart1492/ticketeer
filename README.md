@@ -10,7 +10,7 @@
 
 
 ## General 🐱‍🐉
-Ticketeer is a mobile app, built for [EMPAT](https://empat.tech/) Flutter Fundamentals course. I tried writing it with Clean Architecture and Bloc patterns in mind, experimenting in flexible parts of my application
+Ticketeer is a mobile app, built for [EMPAT](https://empat.tech/) Flutter Fundamentals course. I tried writing it with Clean Architecture and Bloc patterns in mind, experimenting in flexible parts of my application.
 
 
 
@@ -27,8 +27,7 @@ Here you can:
 - And many more...
 
 ## Packages 📦
-
-This app was written with Clean Architecture and best software design patterns in mind. It makes use of classical Flutter packages, like:
+This app makes use of classic Flutter packages:
 - [Bloc](https://pub.dev/packages/flutter_bloc)
 - [Easy localization](https://pub.dev/packages/easy_localization)
 - [Get it](https://pub.dev/packages/get_it)
@@ -38,6 +37,10 @@ I also want to mention some packages that provide specific functionality in spec
 - [Flutter credit card](https://pub.dev/packages/flutter_credit_card). Provides credit card widget that can be tied with different TextField widgets to display credit card info: number, cvv, date, etc.
 - [Barcode widget](https://pub.dev/packages/barcode_widget). Provides functionality to generate different barcode types based on some app data and display this barcode on the screen.
 
+You will be able to see all of them listed in pubspec.yaml file
+
+## Release
+I've decided to add github workflow to build and release apk here, in the [releases](https://github.com/dart1492/ticketeer/releases) section. 
 
 
 ## Showcase 📱
