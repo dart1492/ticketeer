@@ -53,7 +53,7 @@ class GeneralPaymentState {
       isDateValidated: isDateValidated ?? this.isDateValidated,
       isCvvValidated: isCvvValidated ?? this.isCvvValidated,
       isCvvFocused: isCvvFocused ?? this.isCvvFocused,
-      errorText: errorText ?? this.errorText,
+      errorText: errorText,
       isSuccess: isSuccess ?? this.isSuccess,
       isLoading: isLoading ?? this.isLoading,
     );

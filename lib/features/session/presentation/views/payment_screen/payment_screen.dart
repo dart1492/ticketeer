@@ -41,7 +41,20 @@ class PaymentScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => sl<PaymentCubit>(),
       child: BlocListener<PaymentCubit, GeneralPaymentState>(
+        listenWhen: (previous, current) {
+          if (previous.errorText == null && current.errorText != null) {
+            return true;
+          }
+
+          return false;
+        },
         listener: (context, state) {
+          if (state.errorText != null) {
+            showErrorToast(
+              text: "${_basePath}error".tr(),
+              colors: colors,
+            );
+          }
           if (state.isSuccess) {
             showSuccessToast(
               text: "${_basePath}success".tr(),

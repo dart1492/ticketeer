@@ -21,7 +21,8 @@ class AppRouter extends gr.$AppRouter {
                   path: '',
                   maintainState: true,
                 ),
-                AutoRoute(
+                CustomRoute(
+                  transitionsBuilder: TransitionsBuilders.fadeIn,
                   page: gr.MovieFiltersRoute.page,
                 ),
               ],
@@ -34,13 +35,16 @@ class AppRouter extends gr.$AppRouter {
             ),
           ],
         ),
-        AutoRoute(
+        CustomRoute(
+          transitionsBuilder: TransitionsBuilders.fadeIn,
           page: gr.WelcomeRoute.page,
         ),
-        AutoRoute(
+        CustomRoute(
+          transitionsBuilder: TransitionsBuilders.fadeIn,
           page: gr.PhoneRoute.page,
         ),
-        AutoRoute(
+        CustomRoute(
+          transitionsBuilder: TransitionsBuilders.fadeIn,
           page: gr.OTPRoute.page,
         ),
         CustomRoute(

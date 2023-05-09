@@ -49,6 +49,7 @@ class PhoneCubit extends Cubit<PhoneState> {
         (state as AcceptingPhoneState).copyWith(isValidated: false),
       );
     } else {
+      emit(LoadingPhoneState());
       final result = await authRepo.getOTP(number);
       result.fold(
         (l) {

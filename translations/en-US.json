@@ -113,7 +113,8 @@
                 "cvv" : "Invalid cvv"
             },
             "buy" : "Buy",
-            "success" : "Those seats are yours!"
+            "success" : "Those seats are yours!",
+            "error" : "Error during payment!"
         },
         "ticket" : {
             "seat" : "Seat:",

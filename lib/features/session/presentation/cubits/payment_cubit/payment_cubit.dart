@@ -96,6 +96,7 @@ class PaymentCubit extends Cubit<GeneralPaymentState> {
         isNumberValidated: card,
         isCvvValidated: cvv,
         isDateValidated: date,
+        errorText: null,
       ),
     );
   }

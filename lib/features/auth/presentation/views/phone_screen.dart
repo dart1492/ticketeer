@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:ticketeer/core/components/buttons/custom_highlighted_button.dart';
 import 'package:ticketeer/core/components/custom_toasts.dart';
 import 'package:ticketeer/core/components/static_elements/validation_error_box.dart';
@@ -84,8 +85,14 @@ class PhoneScreen extends StatelessWidget {
                     const Expanded(
                       child: SizedBox(),
                     ),
-                    Builder(
-                      builder: (context) {
+                    BlocBuilder<PhoneCubit, PhoneState>(
+                      builder: (context, state) {
+                        if (state is LoadingPhoneState) {
+                          return SpinKitDualRing(
+                            color: colors.accents.blue,
+                          );
+                        }
+
                         return CustomHighlightedButton(
                           padding: const EdgeInsets.symmetric(vertical: 10),
                           child: Text(
