@@ -40,5 +40,5 @@ I also want to mention some packages that provide specific functionality in spec
 
 
 ## Showcase
-<img src=.showcase/showcase.gif height=300, width=150>
+<img src=.showcase/showcase.gif height=350, width=150>
 

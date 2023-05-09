@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:ticketeer/core/constants/image_names.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
 import 'package:ticketeer/features/full_movie/presentation/cubits/comments_cubit/comments_cubit.dart';
@@ -37,7 +38,7 @@ class CommentsList extends StatelessWidget {
                   Opacity(
                     opacity: 0.35,
                     child: Image.asset(
-                      'assets/comments_placeholder.png',
+                      ImageNames.commentsPlaceholder,
                     ),
                   ),
                   Opacity(

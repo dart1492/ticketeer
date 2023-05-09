@@ -121,7 +121,7 @@ class TicketPreview extends StatelessWidget {
                 image: DecorationImage(
                   fit: BoxFit.fill,
                   image: NetworkImage(
-                    ticketObj.smallImageLink,
+                    ticketObj.imageLink,
                   ),
                 ),
               ),

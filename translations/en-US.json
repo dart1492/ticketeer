@@ -19,7 +19,8 @@
         "otp" : {
             "description" : "One-Time-Password",
             "success" : "Success",
-            "clear" : "Clear"
+            "clear" : "Clear",
+            "error" : "Wrong OTP"
         },
         "profile" : {
             "success_change" : "Successfully changed!",
@@ -111,7 +112,8 @@
                 "date" : "Invalid date",
                 "cvv" : "Invalid cvv"
             },
-            "buy" : "Buy"
+            "buy" : "Buy",
+            "success" : "Those seats are yours!"
         },
         "ticket" : {
             "seat" : "Seat:",

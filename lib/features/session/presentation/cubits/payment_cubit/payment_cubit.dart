@@ -74,6 +74,7 @@ class PaymentCubit extends Cubit<GeneralPaymentState> {
         isEmailValidated: isEmailValid,
         isDateValidated: isDateValid,
         isNumberValidated: isNumberValid,
+        errorText: null,
       ),
     );
 
@@ -122,17 +123,24 @@ class PaymentCubit extends Cubit<GeneralPaymentState> {
       expirationDate: state.expirationDate,
     );
     emit(
-      state.copyWith(isLoading: true),
+      state.copyWith(
+        isLoading: true,
+        errorText: null,
+      ),
     );
+
     final result = await repo.buyTickets(seatIds, sessionId, credits);
     result.fold(
       (l) {
         if (l.errorCode == 422 && l.errorData != null) {
           emit(
             state.copyWith(
-              errorText: l.errorData![0].error,
+              isNumberValidated: false,
               isLoading: false,
             ),
+          );
+          emit(
+            state.copyWith(errorText: null),
           );
         } else {
           emit(
@@ -140,6 +148,9 @@ class PaymentCubit extends Cubit<GeneralPaymentState> {
               errorText: l.errorMessage,
               isLoading: false,
             ),
+          );
+          emit(
+            state.copyWith(errorText: null),
           );
         }
       },

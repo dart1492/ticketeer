@@ -1,5 +1,5 @@
 /// Constant for the open font name
-const String openFontName = 'Roboto';
+const String robotoFontName = 'Roboto';
 
 /// Base server url that gets included in every request to the defined server
 const String baseUrl = 'https://fs-mt.qwerty123.tech';

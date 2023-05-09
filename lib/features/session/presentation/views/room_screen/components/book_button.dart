@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketeer/core/styles/app_color_scheme/app_color_scheme.dart';
 import 'package:ticketeer/core/styles/custom_text_style.dart';
@@ -61,7 +62,9 @@ class BookTicketsButton extends StatelessWidget {
                       style: roboto.s18.copyWith(
                         color: colors.fonts.main,
                       ),
-                    ),
+                    ).animate().fadeIn(
+                          duration: const Duration(milliseconds: 300),
+                        ),
                   ),
                 ),
                 Expanded(

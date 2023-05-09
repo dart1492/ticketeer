@@ -61,7 +61,7 @@ class MoviePreview extends StatelessWidget {
                       image: DecorationImage(
                         fit: BoxFit.fill,
                         image: NetworkImage(
-                          movieObj.smallImageLink,
+                          movieObj.imageLink,
                         ),
                       ),
                     ),

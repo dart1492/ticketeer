@@ -37,7 +37,10 @@ class OTPScreen extends StatelessWidget {
       child: BlocListener<OtpCubit, OtpCubitState>(
         listener: (context, state) {
           if (state is ErrorOtpState) {
-            showErrorToast(text: state.errorMessage, colors: colors);
+            showErrorToast(
+              text: "${_basePath}error".tr(),
+              colors: colors,
+            );
           }
 
           if (state is SuccessOtpState) {

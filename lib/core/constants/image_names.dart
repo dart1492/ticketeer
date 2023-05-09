@@ -40,4 +40,6 @@ class ImageNames {
   static const String screenDark = "assets/dark_screen.png";
 
   static const String screenLight = "assets/light_screen.png";
+
+  static const String commentsPlaceholder = "assets/comments_placeholder.png";
 }

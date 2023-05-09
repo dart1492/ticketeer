@@ -9,11 +9,11 @@ import 'package:ticketeer/core/constants/string_constants.dart';
 /// in Text widget without using material text styles (like header1 and etc.)
 CustomTextStyle get roboto => const Roboto();
 
-/// Custom text style extension specifically for josefin family
+/// Custom text style extension specifically for roboto family
 class Roboto extends CustomTextStyle {
   const Roboto()
       : super._(
-          fontFamily: openFontName,
+          fontFamily: robotoFontName,
           fontSize: 14.0,
         );
 }
