@@ -21,6 +21,7 @@ jobs:
     - name: Create a Release in GitHub
       uses: ncipollo/release-action@v1
       with:
+        tag: v1.0.0
         artifacts: "build/app/outputs/flutter-apk/app-release.apk"
         token: ${{ secrets.GH_TOKEN }}
         commit: ${{ github.sha }}
