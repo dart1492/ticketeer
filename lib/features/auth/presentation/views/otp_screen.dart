@@ -44,8 +44,8 @@ class OTPScreen extends StatelessWidget {
           }
 
           if (state is SuccessOtpState) {
-            showSuccessToast(text: "${_basePath}success".tr(), colors: colors);
-            context.router.replace(const MainBottomBarRoute());
+            showSuccessToast(text: "${_basePath}success".tr(), colors: colors,);
+            context.router.replace(const MainBottomBarRoute(),);
           }
         },
         child: Scaffold(
