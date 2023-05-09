@@ -5,8 +5,11 @@
 2.  [Features](#features)
 3.  [Packages](#packages)
 4.  [Screens](#screens)
+5. [Showcase](#showcase)
+
+
 ## General
-Ticketeer is a mobile app, built for [EMPAT](https://empat.tech/) Flutter Fundamentals course. 
+Ticketeer is a mobile app, built for [EMPAT](https://empat.tech/) Flutter Fundamentals course. I tried writing it with Clean Architecture and Bloc patterns in mind, experimenting in flexible parts of my application
 
 
 
@@ -45,8 +48,9 @@ I also want to mention some packages that provide specific functionality in spec
 <img src=.showcase/image_7.jpg height=300, width=150>
 <img src=.showcase/image_8.jpg height=300, width=150>
 <img src=.showcase/image_9.jpg height=300, width=150>
-<img src=.showcase/image_9.jpg height=300, width=150>
 
 
 
+## Showcase
+<img src=.showcase/showcase.gif height=300, width=150>
 
