@@ -6,8 +6,7 @@
 1. [General](#general)
 2. [Features](#features)
 3. [Packages](#packages)
-4. [Screens](#screens)
-5. [Showcase](#showcase)
+4. [Showcase](#showcase)
 
 
 ## General 🐱‍🐉
