@@ -30,8 +30,12 @@ class FullTicketScreen extends StatelessWidget {
   }
 
   String _parseTime() {
+    int hours = ticketObj.date.hour;
+    int minutes = ticketObj.date.minute;
+    String formattedHours = hours < 10 ? "0$hours" : "$hours";
+    String formattedMinutes = minutes < 10 ? "0$minutes" : "$minutes";
     // ignore: lines_longer_than_80_chars
-    return "${ticketObj.date.hour.toString()}:${ticketObj.date.minute.toString()}";
+    return "$formattedHours:$formattedMinutes";
   }
 
   String _parseSeat() {

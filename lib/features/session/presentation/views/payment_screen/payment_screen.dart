@@ -46,6 +46,10 @@ class PaymentScreen extends StatelessWidget {
             return true;
           }
 
+          if (previous.isSuccess == false && current.isSuccess == true) {
+            return true;
+          }
+
           return false;
         },
         listener: (context, state) {

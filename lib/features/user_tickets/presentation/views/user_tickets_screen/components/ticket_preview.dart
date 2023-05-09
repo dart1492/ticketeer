@@ -28,14 +28,26 @@ class TicketPreview extends StatelessWidget {
   }
 
   String _parseTime() {
+    int hours = ticketObj.date.hour;
+    int minutes = ticketObj.date.minute;
+    String formattedHours = hours < 10 ? "0$hours" : "$hours";
+    String formattedMinutes = minutes < 10 ? "0$minutes" : "$minutes";
     // ignore: lines_longer_than_80_chars
-    return "${ticketObj.date.hour.toString()}:${ticketObj.date.minute.toString()}";
+    return "$formattedHours:$formattedMinutes";
   }
 
   String _parseSeat() {
     final String seat = "${_baseUrl}seat".tr();
     final String row = "${_baseUrl}row".tr();
     return "$seat ${ticketObj.seatIndex}, $row ${ticketObj.rowIndex}";
+  }
+
+  String _formatTime(DateTime dateTime) {
+    int hours = dateTime.hour;
+    int minutes = dateTime.minute;
+    String formattedHours = hours < 10 ? "0$hours" : "$hours";
+    String formattedMinutes = minutes < 10 ? "0$minutes" : "$minutes";
+    return "$formattedHours:$formattedMinutes";
   }
 
   @override
