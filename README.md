@@ -2,7 +2,7 @@
 # Ticketeer 🎟
 
 
-## Table of contents
+## Table of contents 📜
 1. [General](#general)
 2.  [Features](#features)
 3.  [Packages](#packages)
@@ -27,7 +27,7 @@ Here you can:
 - ✅ Adapt contents of the app to english or ukrainian language
 - And many more...
 
-## Packages 
+## Packages 📦
 
 This app was written with Clean Architecture and best software design patterns in mind. It makes use of classical Flutter packages, like:
 - [Bloc](https://pub.dev/packages/flutter_bloc)
@@ -41,6 +41,6 @@ I also want to mention some packages that provide specific functionality in spec
 
 
 
-## Showcase
+## Showcase 📱
 <img src=.showcase/showcase.gif height=350, width=150>
 
