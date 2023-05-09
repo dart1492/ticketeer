@@ -2,7 +2,7 @@
 # Ticketeer 🎟
 
 
-## Table of contents 📜
+### Table of contents 📜
 1. [General](#general)
 2.  [Features](#features)
 3.  [Packages](#packages)
