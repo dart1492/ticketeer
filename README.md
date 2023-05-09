@@ -6,7 +6,8 @@
 1. [General](#general)
 2. [Features](#features)
 3. [Packages](#packages)
-4. [Showcase](#showcase)
+4. [Release](#release)
+5. [Showcase](#showcase)
 
 
 ## General 🐱‍🐉
@@ -39,7 +40,7 @@ I also want to mention some packages that provide specific functionality in spec
 
 You will be able to see all of them listed in pubspec.yaml file
 
-## Release
+## Release 🎁  
 I've decided to add github workflow to build and release apk here, in the [releases](https://github.com/dart1492/ticketeer/releases) section. 
 
 
