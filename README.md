@@ -37,18 +37,6 @@ I also want to mention some packages that provide specific functionality in spec
 - [Flutter credit card](https://pub.dev/packages/flutter_credit_card). Provides credit card widget that can be tied with different TextField widgets to display credit card info: number, cvv, date, etc.
 - [Barcode widget](https://pub.dev/packages/barcode_widget). Provides functionality to generate different barcode types based on some app data and display this barcode on the screen.
 
-## Screens
-<img src=.showcase/image_10.jpg height=300, width=150>
-<img src=.showcase/image_1.jpg height=300, width=150>
-<img src=.showcase/image_2.jpg height=300, width=150>
-<img src=.showcase/image_3.jpg height=300, width=150>
-<img src=.showcase/image_4.jpg height=300, width=150>
-<img src=.showcase/image_5.jpg height=300, width=150>
-<img src=.showcase/image_6.jpg height=300, width=150>
-<img src=.showcase/image_7.jpg height=300, width=150>
-<img src=.showcase/image_8.jpg height=300, width=150>
-<img src=.showcase/image_9.jpg height=300, width=150>
-
 
 
 ## Showcase
