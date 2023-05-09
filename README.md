@@ -1,4 +1,6 @@
 
+#Ticketeer 🎟
+
 
 ## Table of contents
 1. [General](#general)
@@ -8,12 +10,12 @@
 5. [Showcase](#showcase)
 
 
-## General
+## General 🐱‍🐉
 Ticketeer is a mobile app, built for [EMPAT](https://empat.tech/) Flutter Fundamentals course. I tried writing it with Clean Architecture and Bloc patterns in mind, experimenting in flexible parts of my application
 
 
 
-## Features
+## Features 👀
 Here you can:
 - ✅ View latest releases and timeless classic
 - ✅ Get detailed information about each and every movie: watch trailers, look at the cast and more...
@@ -25,7 +27,7 @@ Here you can:
 - ✅ Adapt contents of the app to english or ukrainian language
 - And many more...
 
-## Packages
+## Packages 
 
 This app was written with Clean Architecture and best software design patterns in mind. It makes use of classical Flutter packages, like:
 - [Bloc](https://pub.dev/packages/flutter_bloc)
