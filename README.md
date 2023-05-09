@@ -15,15 +15,15 @@ Ticketeer is a mobile app, built for [EMPAT](https://empat.tech/) Flutter Fundam
 
 ## Features
 Here you can:
-- View latest releases and timeless classic
-- Get detailed information about each and every movie: watch trailers, look at the cast and more...
-- Share your thoughts with community of movie-lovers just like yourself
-- Save your favorite movies to find them later
-- Purchase tickets for our cosmically - named, intriguing sessions...
-- Use generated bar-code to enter the theater and enjoy the movie
-- Experience dark and light theme for your own taste
-- Adapt contents of the app to english or ukrainian language
-- And many more...
+✅ View latest releases and timeless classic
+✅ Get detailed information about each and every movie: watch trailers, look at the cast and more...
+✅ Share your thoughts with community of movie-lovers just like yourself
+✅ Save your favorite movies to find them later
+✅ Purchase tickets for our cosmically - named, intriguing sessions...
+✅ Use generated bar-code to enter the theater and enjoy the movie
+✅ Experience dark and light theme for your own taste
+✅ Adapt contents of the app to english or ukrainian language
+✅ And many more...
 
 ## Packages
 
