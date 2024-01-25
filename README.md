@@ -1,4 +1,7 @@
-
+```
+📕 Archived 📕
+This repo is archived - Im not working on it right now 
+```
 # Ticketeer 🎟
 
 
